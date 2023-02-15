@@ -1,0 +1,814 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ATLANTISModelStoreContainer" CdmEntityContainer="ATLANTISEntities">
+    <EntitySetMapping Name="AgenteAduanal">
+      <EntityTypeMapping TypeName="ATLANTISModel.AgenteAduanal">
+        <MappingFragment StoreEntitySet="AgenteAduanal">
+          <ScalarProperty Name="IdAgenteAduanal" ColumnName="IdAgenteAduanal" />
+          <ScalarProperty Name="RifAgenteAduanal" ColumnName="RifAgenteAduanal" />
+          <ScalarProperty Name="NombreAgenteAduanal" ColumnName="NombreAgenteAduanal" />
+          <ScalarProperty Name="DireccionAgenteAduanal" ColumnName="DireccionAgenteAduanal" />
+          <ScalarProperty Name="TelefonoAgenteAdualnal" ColumnName="TelefonoAgenteAdualnal" />
+          <ScalarProperty Name="EmailAgenteAduanal" ColumnName="EmailAgenteAduanal" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BLEmbarque">
+      <EntityTypeMapping TypeName="ATLANTISModel.BLEmbarque">
+        <MappingFragment StoreEntitySet="BLEmbarque">
+          <ScalarProperty Name="IdBLEmbarque" ColumnName="IdBLEmbarque" />
+          <ScalarProperty Name="NroBLEmbarque" ColumnName="NroBLEmbarque" />
+          <ScalarProperty Name="ItinerarioBLEmbarque" ColumnName="ItinerarioBLEmbarque" />
+          <ScalarProperty Name="DiasLibresBLEmbarque" ColumnName="DiasLibresBLEmbarque" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Buque">
+      <EntityTypeMapping TypeName="ATLANTISModel.Buque">
+        <MappingFragment StoreEntitySet="Buque">
+          <ScalarProperty Name="IdBuque" ColumnName="IdBuque" />
+          <ScalarProperty Name="CodigoBuque" ColumnName="CodigoBuque" />
+          <ScalarProperty Name="NombreBuque" ColumnName="NombreBuque" />
+          <ScalarProperty Name="SiglasBuque" ColumnName="SiglasBuque" />
+          <ScalarProperty Name="CallSignBuque" ColumnName="CallSignBuque" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cliente">
+      <EntityTypeMapping TypeName="ATLANTISModel.Cliente">
+        <MappingFragment StoreEntitySet="Cliente">
+          <ScalarProperty Name="IdCliente" ColumnName="IdCliente" />
+          <ScalarProperty Name="RifCliente" ColumnName="RifCliente" />
+          <ScalarProperty Name="NombreCliente" ColumnName="NombreCliente" />
+          <ScalarProperty Name="DireccionCliente" ColumnName="DireccionCliente" />
+          <ScalarProperty Name="TelefonoCliente" ColumnName="TelefonoCliente" />
+          <ScalarProperty Name="EmailCliente" ColumnName="EmailCliente" />
+          <ScalarProperty Name="LineaCliente" ColumnName="LineaCliente" />
+          <ScalarProperty Name="EspecialCliente" ColumnName="EspecialCliente" />
+          <ScalarProperty Name="CodigoPostalCliente" ColumnName="CodigoPostalCliente" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ClienteTarifaSer">
+      <EntityTypeMapping TypeName="ATLANTISModel.ClienteTarifaSer">
+        <MappingFragment StoreEntitySet="ClienteTarifaSer">
+          <ScalarProperty Name="IdTarifaSerCliente" ColumnName="IdTarifaSerCliente" />
+          <ScalarProperty Name="IdCliente" ColumnName="IdCliente" />
+          <ScalarProperty Name="IdServicio" ColumnName="IdServicio" />
+          <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+          <ScalarProperty Name="IdLinea" ColumnName="IdLinea" />
+          <ScalarProperty Name="TipoServicio" ColumnName="TipoServicio" />
+          <ScalarProperty Name="ValorTarifaSerCliente" ColumnName="ValorTarifaSerCliente" />
+          <ScalarProperty Name="NuevaTarifaCliente" ColumnName="NuevaTarifaCliente" />
+          <ScalarProperty Name="FechaDesdeTarifaCliente" ColumnName="FechaDesdeTarifaCliente" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Componente">
+      <EntityTypeMapping TypeName="ATLANTISModel.Componente">
+        <MappingFragment StoreEntitySet="Componente">
+          <ScalarProperty Name="IdComponente" ColumnName="IdComponente" />
+          <ScalarProperty Name="DescripcionComponente" ColumnName="DescripcionComponente" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Condicion">
+      <EntityTypeMapping TypeName="ATLANTISModel.Condicion">
+        <MappingFragment StoreEntitySet="Condicion">
+          <ScalarProperty Name="IdCondicion" ColumnName="IdCondicion" />
+          <ScalarProperty Name="CodigoCondicion" ColumnName="CodigoCondicion" />
+          <ScalarProperty Name="DescripcionCondicion" ColumnName="DescripcionCondicion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ConductorUndTrans">
+      <EntityTypeMapping TypeName="ATLANTISModel.ConductorUndTrans">
+        <MappingFragment StoreEntitySet="ConductorUndTrans">
+          <ScalarProperty Name="IdConductor" ColumnName="IdConductor" />
+          <ScalarProperty Name="CedulaConductor" ColumnName="CedulaConductor" />
+          <ScalarProperty Name="NombreConductor" ColumnName="NombreConductor" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Contenedor">
+      <EntityTypeMapping TypeName="ATLANTISModel.Contenedor">
+        <MappingFragment StoreEntitySet="Contenedor">
+          <ScalarProperty Name="IdContenedor" ColumnName="IdContenedor" />
+          <ScalarProperty Name="SiglasContenedor" ColumnName="SiglasContenedor" />
+          <ScalarProperty Name="TipoContenedor" ColumnName="TipoContenedor" />
+          <ScalarProperty Name="TamañoContenedor" ColumnName="TamañoContenedor" />
+          <ScalarProperty Name="CondicionContenedor" ColumnName="CondicionContenedor" />
+          <ScalarProperty Name="LineaContenedor" ColumnName="LineaContenedor" />
+          <ScalarProperty Name="PuertosCriticosContenedor" ColumnName="PuertosCriticosContenedor" />
+          <ScalarProperty Name="SiglasUniversalesContenedor" ColumnName="SiglasUniversalesContenedor" />
+          <ScalarProperty Name="EstatusContenedor" ColumnName="EstatusContenedor" />
+          <ScalarProperty Name="EventoContenedor" ColumnName="EventoContenedor" />
+          <ScalarProperty Name="CodigoContenedor" ColumnName="CodigoContenedor" />
+          <ScalarProperty Name="ReservadoContenedor" ColumnName="ReservadoContenedor" />
+          <ScalarProperty Name="UbicacionContenedor" ColumnName="UbicacionContenedor" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ContenedorEIR">
+      <EntityTypeMapping TypeName="ATLANTISModel.ContenedorEIR">
+        <MappingFragment StoreEntitySet="ContenedorEIR">
+          <ScalarProperty Name="IdContenedorEIR" ColumnName="IdContenedorEIR" />
+          <ScalarProperty Name="IdContenedor" ColumnName="IdContenedor" />
+          <ScalarProperty Name="NroEIR" ColumnName="NroEIR" />
+          <ScalarProperty Name="FechaEIR" ColumnName="FechaEIR" />
+          <ScalarProperty Name="TipoEIR" ColumnName="TipoEIR" />
+          <ScalarProperty Name="NroExpEIR" ColumnName="NroExpEIR" />
+          <ScalarProperty Name="NroEIRFullI" ColumnName="NroEIRFullI" />
+          <ScalarProperty Name="FechaEIRFullI" ColumnName="FechaEIRFullI" />
+          <ScalarProperty Name="CondicionEIR" ColumnName="CondicionEIR" />
+          <ScalarProperty Name="UbicacionEIR" ColumnName="UbicacionEIR" />
+          <ScalarProperty Name="AgenteAduanalEIR" ColumnName="AgenteAduanalEIR" />
+          <ScalarProperty Name="UnidadTransporteEIR" ColumnName="UnidadTransporteEIR" />
+          <ScalarProperty Name="ConductorUnidadEIR" ColumnName="ConductorUnidadEIR" />
+          <ScalarProperty Name="ObservacionesEIR" ColumnName="ObservacionesEIR" />
+          <ScalarProperty Name="RazonAnulacionEIR" ColumnName="RazonAnulacionEIR" />
+          <ScalarProperty Name="UsuarioEIR" ColumnName="UsuarioEIR" />
+          <ScalarProperty Name="AnuladaEIR" ColumnName="AnuladaEIR" />
+          <ScalarProperty Name="EventoEIR" ColumnName="EventoEIR" />
+          <ScalarProperty Name="EstatusEIR" ColumnName="EstatusEIR" />
+          <ScalarProperty Name="ProcesadoediEIR" ColumnName="ProcesadoediEIR" />
+          <ScalarProperty Name="ReingresoEIR" ColumnName="ReingresoEIR" />
+          <ScalarProperty Name="ImpresaEIR" ColumnName="ImpresaEIR" />
+          <ScalarProperty Name="ProcedenciaEIR" ColumnName="ProcedenciaEIR" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ContenedorMovimiento">
+      <EntityTypeMapping TypeName="ATLANTISModel.ContenedorMovimiento">
+        <MappingFragment StoreEntitySet="ContenedorMovimiento">
+          <ScalarProperty Name="IdContenedorMov" ColumnName="IdContenedorMov" />
+          <ScalarProperty Name="IdContenedor" ColumnName="IdContenedor" />
+          <ScalarProperty Name="ItinerarioContenedorMov" ColumnName="ItinerarioContenedorMov" />
+          <ScalarProperty Name="FechaContenedorMov" ColumnName="FechaContenedorMov" />
+          <ScalarProperty Name="EventoContenedorMov" ColumnName="EventoContenedorMov" />
+          <ScalarProperty Name="EstatusContenedorMov" ColumnName="EstatusContenedorMov" />
+          <ScalarProperty Name="NroExpContenedorMov" ColumnName="NroExpContenedorMov" />
+          <ScalarProperty Name="UbicacionContenedorMov" ColumnName="UbicacionContenedorMov" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Daño">
+      <EntityTypeMapping TypeName="ATLANTISModel.Daño">
+        <MappingFragment StoreEntitySet="Daño">
+          <ScalarProperty Name="IdDaño" ColumnName="IdDaño" />
+          <ScalarProperty Name="CodigoDaño" ColumnName="CodigoDaño" />
+          <ScalarProperty Name="DescripcionDaño" ColumnName="DescripcionDaño" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Demora">
+      <EntityTypeMapping TypeName="ATLANTISModel.Demora">
+        <MappingFragment StoreEntitySet="Demora">
+          <ScalarProperty Name="IdDemora" ColumnName="IdDemora" />
+          <ScalarProperty Name="FechaDemora" ColumnName="FechaDemora" />
+          <ScalarProperty Name="ClienteDemora" ColumnName="ClienteDemora" />
+          <ScalarProperty Name="ClienteTercero" ColumnName="ClienteTercero" />
+          <ScalarProperty Name="TasaCambioDemora" ColumnName="TasaCambioDemora" />
+          <ScalarProperty Name="BLDemora" ColumnName="BLDemora" />
+          <ScalarProperty Name="SubtotalDemoraUSD" ColumnName="SubtotalDemoraUSD" />
+          <ScalarProperty Name="SubTotalDemoraBS" ColumnName="SubTotalDemoraBS" />
+          <ScalarProperty Name="IVADemoraUSD" ColumnName="IVADemoraUSD" />
+          <ScalarProperty Name="IVADemoraBS" ColumnName="IVADemoraBS" />
+          <ScalarProperty Name="TotalDemoraUSD" ColumnName="TotalDemoraUSD" />
+          <ScalarProperty Name="TotalDemoraBS" ColumnName="TotalDemoraBS" />
+          <ScalarProperty Name="ObservacionesDemora" ColumnName="ObservacionesDemora" />
+          <ScalarProperty Name="UsuarioDemora" ColumnName="UsuarioDemora" />
+          <ScalarProperty Name="TipoDemora" ColumnName="TipoDemora" />
+          <ScalarProperty Name="EstatusDemora" ColumnName="EstatusDemora" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DemoraContenedor">
+      <EntityTypeMapping TypeName="ATLANTISModel.DemoraContenedor">
+        <MappingFragment StoreEntitySet="DemoraContenedor">
+          <ScalarProperty Name="IdDemoraContenedor" ColumnName="IdDemoraContenedor" />
+          <ScalarProperty Name="IdDemora" ColumnName="IdDemora" />
+          <ScalarProperty Name="IdContenedor" ColumnName="IdContenedor" />
+          <ScalarProperty Name="CantidadDemoraContenedor" ColumnName="CantidadDemoraContenedor" />
+          <ScalarProperty Name="PrecioDemoraContenedorUSD" ColumnName="PrecioDemoraContenedorUSD" />
+          <ScalarProperty Name="TotalDemoraContenedorUSD" ColumnName="TotalDemoraContenedorUSD" />
+          <ScalarProperty Name="PrecioDemoraContenedorBS" ColumnName="PrecioDemoraContenedorBS" />
+          <ScalarProperty Name="TotalDemoraContenedorBS" ColumnName="TotalDemoraContenedorBS" />
+          <ScalarProperty Name="FacturadoDemoraContenedor" ColumnName="FacturadoDemoraContenedor" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DemoraTarifa">
+      <EntityTypeMapping TypeName="ATLANTISModel.DemoraTarifa">
+        <MappingFragment StoreEntitySet="DemoraTarifa">
+          <ScalarProperty Name="IdDemoraTarifa" ColumnName="IdDemoraTarifa" />
+          <ScalarProperty Name="DesdeDemoraTarifa" ColumnName="DesdeDemoraTarifa" />
+          <ScalarProperty Name="HastaDemoraTarifa" ColumnName="HastaDemoraTarifa" />
+          <ScalarProperty Name="ValorDemoraTarifa" ColumnName="ValorDemoraTarifa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Departamento">
+      <EntityTypeMapping TypeName="ATLANTISModel.Departamento">
+        <MappingFragment StoreEntitySet="Departamento">
+          <ScalarProperty Name="IdDepartamento" ColumnName="IdDepartamento" />
+          <ScalarProperty Name="DescripcionDepartamento" ColumnName="DescripcionDepartamento" />
+          <ScalarProperty Name="IdSupervisorDepartamento" ColumnName="IdSupervisorDepartamento" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Empresa">
+      <EntityTypeMapping TypeName="ATLANTISModel.Empresa">
+        <MappingFragment StoreEntitySet="Empresa">
+          <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+          <ScalarProperty Name="RifEmpresa" ColumnName="RifEmpresa" />
+          <ScalarProperty Name="NombreEmpresa" ColumnName="NombreEmpresa" />
+          <ScalarProperty Name="DireccionEmpresa" ColumnName="DireccionEmpresa" />
+          <ScalarProperty Name="TelefonoEmpresa" ColumnName="TelefonoEmpresa" />
+          <ScalarProperty Name="LogoEmpresa" ColumnName="LogoEmpresa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EmpresaCuentaBancaria">
+      <EntityTypeMapping TypeName="ATLANTISModel.EmpresaCuentaBancaria">
+        <MappingFragment StoreEntitySet="EmpresaCuentaBancaria">
+          <ScalarProperty Name="IdCuentaBancaria" ColumnName="IdCuentaBancaria" />
+          <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+          <ScalarProperty Name="NroCuentaBancaria" ColumnName="NroCuentaBancaria" />
+          <ScalarProperty Name="NombreBancoCuentaBancaria" ColumnName="NombreBancoCuentaBancaria" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EmpresaServicio">
+      <EntityTypeMapping TypeName="ATLANTISModel.EmpresaServicio">
+        <MappingFragment StoreEntitySet="EmpresaServicio">
+          <ScalarProperty Name="IdEmpresaServicio" ColumnName="IdEmpresaServicio" />
+          <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+          <ScalarProperty Name="IdServicio" ColumnName="IdServicio" />
+          <ScalarProperty Name="CostoEmpresaServicio" ColumnName="CostoEmpresaServicio" />
+          <ScalarProperty Name="ExentoIVAEmpresaServicio" ColumnName="ExentoIVAEmpresaServicio" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EmpresaTransporte">
+      <EntityTypeMapping TypeName="ATLANTISModel.EmpresaTransporte">
+        <MappingFragment StoreEntitySet="EmpresaTransporte">
+          <ScalarProperty Name="IdEmpresaTrans" ColumnName="IdEmpresaTrans" />
+          <ScalarProperty Name="RifEmpresaTrans" ColumnName="RifEmpresaTrans" />
+          <ScalarProperty Name="NombreEmpresaTrans" ColumnName="NombreEmpresaTrans" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EstatusContenedor">
+      <EntityTypeMapping TypeName="ATLANTISModel.EstatusContenedor">
+        <MappingFragment StoreEntitySet="EstatusContenedor">
+          <ScalarProperty Name="IdEstatusContenedor" ColumnName="IdEstatusContenedor" />
+          <ScalarProperty Name="DescripcionEstatusContenedor" ColumnName="DescripcionEstatusContenedor" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Evento">
+      <EntityTypeMapping TypeName="ATLANTISModel.Evento">
+        <MappingFragment StoreEntitySet="Evento">
+          <ScalarProperty Name="IdEvento" ColumnName="IdEvento" />
+          <ScalarProperty Name="DescripcionEvento" ColumnName="DescripcionEvento" />
+          <ScalarProperty Name="GeneraEIREvento" ColumnName="GeneraEIREvento" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Factura">
+      <EntityTypeMapping TypeName="ATLANTISModel.Factura">
+        <MappingFragment StoreEntitySet="Factura">
+          <ScalarProperty Name="IdFactura" ColumnName="IdFactura" />
+          <ScalarProperty Name="NroFactura" ColumnName="NroFactura" />
+          <ScalarProperty Name="NroControlFactura" ColumnName="NroControlFactura" />
+          <ScalarProperty Name="FechaFactura" ColumnName="FechaFactura" />
+          <ScalarProperty Name="ClienteFactura" ColumnName="ClienteFactura" />
+          <ScalarProperty Name="EmpresaFactura" ColumnName="EmpresaFactura" />
+          <ScalarProperty Name="TasaCambioFactura" ColumnName="TasaCambioFactura" />
+          <ScalarProperty Name="SubtotalFacturaBS" ColumnName="SubtotalFacturaBS" />
+          <ScalarProperty Name="IvaFacturaBS" ColumnName="IvaFacturaBS" />
+          <ScalarProperty Name="TotalFacturaBS" ColumnName="TotalFacturaBS" />
+          <ScalarProperty Name="SubTotalFacturaUSD" ColumnName="SubTotalFacturaUSD" />
+          <ScalarProperty Name="IvaFacturaUSD" ColumnName="IvaFacturaUSD" />
+          <ScalarProperty Name="TotalFacturaUSD" ColumnName="TotalFacturaUSD" />
+          <ScalarProperty Name="ObservacionFactura" ColumnName="ObservacionFactura" />
+          <ScalarProperty Name="UsuarioFactura" ColumnName="UsuarioFactura" />
+          <ScalarProperty Name="AnuladaFactura" ColumnName="AnuladaFactura" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FacturaServicio">
+      <EntityTypeMapping TypeName="ATLANTISModel.FacturaServicio">
+        <MappingFragment StoreEntitySet="FacturaServicio">
+          <ScalarProperty Name="IdFacturaServicio" ColumnName="IdFacturaServicio" />
+          <ScalarProperty Name="IdFactura" ColumnName="IdFactura" />
+          <ScalarProperty Name="IdServicio" ColumnName="IdServicio" />
+          <ScalarProperty Name="CantidadFacServicio" ColumnName="CantidadFacServicio" />
+          <ScalarProperty Name="PrecioFacServicioUSD" ColumnName="PrecioFacServicioUSD" />
+          <ScalarProperty Name="PrecioFacServicioBS" ColumnName="PrecioFacServicioBS" />
+          <ScalarProperty Name="TotalFacServicioUSD" ColumnName="TotalFacServicioUSD" />
+          <ScalarProperty Name="TotalFacServicioBS" ColumnName="TotalFacServicioBS" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GrupoOpcion">
+      <EntityTypeMapping TypeName="ATLANTISModel.GrupoOpcion">
+        <MappingFragment StoreEntitySet="GrupoOpcion">
+          <ScalarProperty Name="IdGrupoOpc" ColumnName="IdGrupoOpc" />
+          <ScalarProperty Name="DescripcionGrupoOpc" ColumnName="DescripcionGrupoOpc" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Itinerario">
+      <EntityTypeMapping TypeName="ATLANTISModel.Itinerario">
+        <MappingFragment StoreEntitySet="Itinerario">
+          <ScalarProperty Name="IdItinerario" ColumnName="IdItinerario" />
+          <ScalarProperty Name="IdBuqueItinerario" ColumnName="IdBuqueItinerario" />
+          <ScalarProperty Name="IdLineaItinerario" ColumnName="IdLineaItinerario" />
+          <ScalarProperty Name="FechaHoraLlegadaItinerario" ColumnName="FechaHoraLlegadaItinerario" />
+          <ScalarProperty Name="FechaHoraSalidaItinerario" ColumnName="FechaHoraSalidaItinerario" />
+          <ScalarProperty Name="NroViajeLlegadaItinerario" ColumnName="NroViajeLlegadaItinerario" />
+          <ScalarProperty Name="NroViajeSalidaItinerario" ColumnName="NroViajeSalidaItinerario" />
+          <ScalarProperty Name="NroSiduneaItinerario" ColumnName="NroSiduneaItinerario" />
+          <ScalarProperty Name="NroExpediente" ColumnName="NroExpediente" />
+          <ScalarProperty Name="UsuarioItinerario" ColumnName="UsuarioItinerario" />
+          <ScalarProperty Name="GeneradoEDIItinerario" ColumnName="GeneradoEDIItinerario" />
+          <ScalarProperty Name="GeneradoEDIEmbarqueF" ColumnName="GeneradoEDIEmbarqueF" />
+          <ScalarProperty Name="GeneradoEDIEmbarqueV" ColumnName="GeneradoEDIEmbarqueV" />
+          <ScalarProperty Name="PuertoEscalaItinerario" ColumnName="PuertoEscalaItinerario" />
+          <ScalarProperty Name="FechaEstimadaLlegadaItinerario" ColumnName="FechaEstimadaLlegadaItinerario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ItinerarioContenedor">
+      <EntityTypeMapping TypeName="ATLANTISModel.ItinerarioContenedor">
+        <MappingFragment StoreEntitySet="ItinerarioContenedor">
+          <ScalarProperty Name="IdItinerarioContenedor" ColumnName="IdItinerarioContenedor" />
+          <ScalarProperty Name="IdItinerario" ColumnName="IdItinerario" />
+          <ScalarProperty Name="IdContenedor" ColumnName="IdContenedor" />
+          <ScalarProperty Name="BLContenedor" ColumnName="BLContenedor" />
+          <ScalarProperty Name="EmbarcadorContenedor" ColumnName="EmbarcadorContenedor" />
+          <ScalarProperty Name="ConsignatarioContenedor" ColumnName="ConsignatarioContenedor" />
+          <ScalarProperty Name="OrigenContenedor" ColumnName="OrigenContenedor" />
+          <ScalarProperty Name="PolContenedor" ColumnName="PolContenedor" />
+          <ScalarProperty Name="PodContenedor" ColumnName="PodContenedor" />
+          <ScalarProperty Name="PrecintoContenedor" ColumnName="PrecintoContenedor" />
+          <ScalarProperty Name="MercanciaContenedor" ColumnName="MercanciaContenedor" />
+          <ScalarProperty Name="EmpaqueContenedor" ColumnName="EmpaqueContenedor" />
+          <ScalarProperty Name="CantidadContenedor" ColumnName="CantidadContenedor" />
+          <ScalarProperty Name="EstatusContenedor" ColumnName="EstatusContenedor" />
+          <ScalarProperty Name="CondicionVentaContenedor" ColumnName="CondicionVentaContenedor" />
+          <ScalarProperty Name="PesoBrutoContenedor" ColumnName="PesoBrutoContenedor" />
+          <ScalarProperty Name="PesoNetoContenedor" ColumnName="PesoNetoContenedor" />
+          <ScalarProperty Name="M3Contenedor" ColumnName="M3Contenedor" />
+          <ScalarProperty Name="TMinimoContenedor" ColumnName="TMinimoContenedor" />
+          <ScalarProperty Name="TMaximoContenedor" ColumnName="TMaximoContenedor" />
+          <ScalarProperty Name="HazContenedor" ColumnName="HazContenedor" />
+          <ScalarProperty Name="ImoContenedor" ColumnName="ImoContenedor" />
+          <ScalarProperty Name="UnContenedor" ColumnName="UnContenedor" />
+          <ScalarProperty Name="UsoSiduneaContenedor" ColumnName="UsoSiduneaContenedor" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ItinerarioEmbContenedor">
+      <EntityTypeMapping TypeName="ATLANTISModel.ItinerarioEmbContenedor">
+        <MappingFragment StoreEntitySet="ItinerarioEmbContenedor">
+          <ScalarProperty Name="IdEmbContenedor" ColumnName="IdEmbContenedor" />
+          <ScalarProperty Name="ItinerarioEmbarque" ColumnName="ItinerarioEmbarque" />
+          <ScalarProperty Name="IdContenedor" ColumnName="IdContenedor" />
+          <ScalarProperty Name="BahiaEmbContenedor" ColumnName="BahiaEmbContenedor" />
+          <ScalarProperty Name="SlotEmbContenedor" ColumnName="SlotEmbContenedor" />
+          <ScalarProperty Name="Precinto1EmbContenedor" ColumnName="Precinto1EmbContenedor" />
+          <ScalarProperty Name="Precinto2EmbContenedor" ColumnName="Precinto2EmbContenedor" />
+          <ScalarProperty Name="PesoEmbContenedor" ColumnName="PesoEmbContenedor" />
+          <ScalarProperty Name="VerificaEmbContenedor" ColumnName="VerificaEmbContenedor" />
+          <ScalarProperty Name="ProcesadoEmbContenedor" ColumnName="ProcesadoEmbContenedor" />
+          <ScalarProperty Name="Descripcion1EmbContenedor" ColumnName="Descripcion1EmbContenedor" />
+          <ScalarProperty Name="Descripcion2EmbContenedor" ColumnName="Descripcion2EmbContenedor" />
+          <ScalarProperty Name="Descripcion3EmbContenedor" ColumnName="Descripcion3EmbContenedor" />
+          <ScalarProperty Name="Descripcion4EmbContenedor" ColumnName="Descripcion4EmbContenedor" />
+          <ScalarProperty Name="TemperaturaEmbContenedor" ColumnName="TemperaturaEmbContenedor" />
+          <ScalarProperty Name="RngTempEmbContenedor" ColumnName="RngTempEmbContenedor" />
+          <ScalarProperty Name="MatPeligrosoEmbContenedor" ColumnName="MatPeligrosoEmbContenedor" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ItinerarioUbicacion">
+      <EntityTypeMapping TypeName="ATLANTISModel.ItinerarioUbicacion">
+        <MappingFragment StoreEntitySet="ItinerarioUbicacion">
+          <ScalarProperty Name="IdItinearioUbicacion" ColumnName="IdItinearioUbicacion" />
+          <ScalarProperty Name="IdItinerario" ColumnName="IdItinerario" />
+          <ScalarProperty Name="IdUbicacion" ColumnName="IdUbicacion" />
+          <ScalarProperty Name="NroExpediente" ColumnName="NroExpediente" />
+          <ScalarProperty Name="CantidadContenedoresItinearioUbicacion" ColumnName="CantidadContenedoresItinearioUbicacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Lado">
+      <EntityTypeMapping TypeName="ATLANTISModel.Lado">
+        <MappingFragment StoreEntitySet="Lado">
+          <ScalarProperty Name="IdLado" ColumnName="IdLado" />
+          <ScalarProperty Name="DescripcionLado" ColumnName="DescripcionLado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LineaBuque">
+      <EntityTypeMapping TypeName="ATLANTISModel.LineaBuque">
+        <MappingFragment StoreEntitySet="LineaBuque">
+          <ScalarProperty Name="IdLineaBuque" ColumnName="IdLineaBuque" />
+          <ScalarProperty Name="IdLineaMaritima" ColumnName="IdLineaMaritima" />
+          <ScalarProperty Name="IdBuque" ColumnName="IdBuque" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LineaMaritima">
+      <EntityTypeMapping TypeName="ATLANTISModel.LineaMaritima">
+        <MappingFragment StoreEntitySet="LineaMaritima">
+          <ScalarProperty Name="IdLineaMaritima" ColumnName="IdLineaMaritima" />
+          <ScalarProperty Name="NombreLineaMaritima" ColumnName="NombreLineaMaritima" />
+          <ScalarProperty Name="LogoLineaMaritima" ColumnName="LogoLineaMaritima" />
+          <ScalarProperty Name="CodigoLinea" ColumnName="CodigoLinea" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LineaPool">
+      <EntityTypeMapping TypeName="ATLANTISModel.LineaPool">
+        <MappingFragment StoreEntitySet="LineaPool">
+          <ScalarProperty Name="IdLineaPool" ColumnName="IdLineaPool" />
+          <ScalarProperty Name="IdLineaPrincipalPool" ColumnName="IdLineaPrincipalPool" />
+          <ScalarProperty Name="IdLineaSecundariaPool" ColumnName="IdLineaSecundariaPool" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MetodoReparacion">
+      <EntityTypeMapping TypeName="ATLANTISModel.MetodoReparacion">
+        <MappingFragment StoreEntitySet="MetodoReparacion">
+          <ScalarProperty Name="IdMetodoRep" ColumnName="IdMetodoRep" />
+          <ScalarProperty Name="DescripcionMetodoRep" ColumnName="DescripcionMetodoRep" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Modulo">
+      <EntityTypeMapping TypeName="ATLANTISModel.Modulo">
+        <MappingFragment StoreEntitySet="Modulo">
+          <ScalarProperty Name="IdModulo" ColumnName="IdModulo" />
+          <ScalarProperty Name="NombreModulo" ColumnName="NombreModulo" />
+          <ScalarProperty Name="DescripcionModulo" ColumnName="DescripcionModulo" />
+          <ScalarProperty Name="IconoModulo" ColumnName="IconoModulo" />
+          <ScalarProperty Name="UrlModulo" ColumnName="UrlModulo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Oficina">
+      <EntityTypeMapping TypeName="ATLANTISModel.Oficina">
+        <MappingFragment StoreEntitySet="Oficina">
+          <ScalarProperty Name="IdOficina" ColumnName="IdOficina" />
+          <ScalarProperty Name="UbicacionOficina" ColumnName="UbicacionOficina" />
+          <ScalarProperty Name="CodigoPtoOficina" ColumnName="CodigoPtoOficina" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Opcion">
+      <EntityTypeMapping TypeName="ATLANTISModel.Opcion">
+        <MappingFragment StoreEntitySet="Opcion">
+          <ScalarProperty Name="IdOpcion" ColumnName="IdOpcion" />
+          <ScalarProperty Name="DescripcionOpcion" ColumnName="DescripcionOpcion" />
+          <ScalarProperty Name="IconoOpcion" ColumnName="IconoOpcion" />
+          <ScalarProperty Name="UrlOpcion" ColumnName="UrlOpcion" />
+          <ScalarProperty Name="ModuloOpcion" ColumnName="ModuloOpcion" />
+          <ScalarProperty Name="GrupoOpcion" ColumnName="GrupoOpcion" />
+          <ScalarProperty Name="DocPendientesOpcion" ColumnName="DocPendientesOpcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OpcionMensajeUsuario">
+      <EntityTypeMapping TypeName="ATLANTISModel.OpcionMensajeUsuario">
+        <MappingFragment StoreEntitySet="OpcionMensajeUsuario">
+          <ScalarProperty Name="IdMensajeUsuario" ColumnName="IdMensajeUsuario" />
+          <ScalarProperty Name="IdOpcion" ColumnName="IdOpcion" />
+          <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+          <ScalarProperty Name="DescripcionMensajeUsuario" ColumnName="DescripcionMensajeUsuario" />
+          <ScalarProperty Name="TipoMensajeUsuario" ColumnName="TipoMensajeUsuario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OrdenReparacion">
+      <EntityTypeMapping TypeName="ATLANTISModel.OrdenReparacion">
+        <MappingFragment StoreEntitySet="OrdenReparacion">
+          <ScalarProperty Name="IdOrdenRep" ColumnName="IdOrdenRep" />
+          <ScalarProperty Name="FechaOrdenRep" ColumnName="FechaOrdenRep" />
+          <ScalarProperty Name="IdContenedorEIR" ColumnName="IdContenedorEIR" />
+          <ScalarProperty Name="FechaIngTallerOrdenRep" ColumnName="FechaIngTallerOrdenRep" />
+          <ScalarProperty Name="FechaInicioOrdenRep" ColumnName="FechaInicioOrdenRep" />
+          <ScalarProperty Name="FechaFinalOrdenRep" ColumnName="FechaFinalOrdenRep" />
+          <ScalarProperty Name="ObservacionOrdenRep" ColumnName="ObservacionOrdenRep" />
+          <ScalarProperty Name="TerminadaOrdRep" ColumnName="TerminadaOrdRep" />
+          <ScalarProperty Name="AnuladaOrdRep" ColumnName="AnuladaOrdRep" />
+          <ScalarProperty Name="FechaFinalDefOrdRep" ColumnName="FechaFinalDefOrdRep" />
+          <ScalarProperty Name="DañoenPatioOrdRep" ColumnName="DañoenPatioOrdRep" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OrdenRepComponente">
+      <EntityTypeMapping TypeName="ATLANTISModel.OrdenRepComponente">
+        <MappingFragment StoreEntitySet="OrdenRepComponente">
+          <ScalarProperty Name="IdOrdenComponente" ColumnName="IdOrdenComponente" />
+          <ScalarProperty Name="IdOrdenRep" ColumnName="IdOrdenRep" />
+          <ScalarProperty Name="IdComponente" ColumnName="IdComponente" />
+          <ScalarProperty Name="IdLadoOrdComponente" ColumnName="IdLadoOrdComponente" />
+          <ScalarProperty Name="PosicionOrdComponente" ColumnName="PosicionOrdComponente" />
+          <ScalarProperty Name="DimensionNroPiezaOrdComp" ColumnName="DimensionNroPiezaOrdComp" />
+          <ScalarProperty Name="MetodoRepOrdComp" ColumnName="MetodoRepOrdComp" />
+          <ScalarProperty Name="IdDañoOrdComp" ColumnName="IdDañoOrdComp" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Preliquidacion">
+      <EntityTypeMapping TypeName="ATLANTISModel.Preliquidacion">
+        <MappingFragment StoreEntitySet="Preliquidacion">
+          <ScalarProperty Name="IdPreliquidacion" ColumnName="IdPreliquidacion" />
+          <ScalarProperty Name="NroPreliquidacion" ColumnName="NroPreliquidacion" />
+          <ScalarProperty Name="FechaPreliquidacion" ColumnName="FechaPreliquidacion" />
+          <ScalarProperty Name="ClientePreliquidacion" ColumnName="ClientePreliquidacion" />
+          <ScalarProperty Name="EmpresaPreliquidacion" ColumnName="EmpresaPreliquidacion" />
+          <ScalarProperty Name="BLPreliquidacion" ColumnName="BLPreliquidacion" />
+          <ScalarProperty Name="TasaCambioBLPreliquidacion" ColumnName="TasaCambioBLPreliquidacion" />
+          <ScalarProperty Name="SubTotalPreliquidacionBS" ColumnName="SubTotalPreliquidacionBS" />
+          <ScalarProperty Name="SubTotalPreliquidacionUSD" ColumnName="SubTotalPreliquidacionUSD" />
+          <ScalarProperty Name="MontoIvaPreliquidacionBS" ColumnName="MontoIvaPreliquidacionBS" />
+          <ScalarProperty Name="MontoIvaPreliquidacionUDS" ColumnName="MontoIvaPreliquidacionUDS" />
+          <ScalarProperty Name="TotalPreliquidacionBS" ColumnName="TotalPreliquidacionBS" />
+          <ScalarProperty Name="TotalPreliquidacionUSD" ColumnName="TotalPreliquidacionUSD" />
+          <ScalarProperty Name="ObservacionPreliquidacion" ColumnName="ObservacionPreliquidacion" />
+          <ScalarProperty Name="UsuarioPreliquidacion" ColumnName="UsuarioPreliquidacion" />
+          <ScalarProperty Name="EstatusPreliquidacion" ColumnName="EstatusPreliquidacion" />
+          <ScalarProperty Name="TipoPreliquidacion" ColumnName="TipoPreliquidacion" />
+          <ScalarProperty Name="ReservaPreliquidacion" ColumnName="ReservaPreliquidacion" />
+          <ScalarProperty Name="AgenteAduanalPreliquidacion" ColumnName="AgenteAduanalPreliquidacion" />
+          <ScalarProperty Name="BuquePreliquidacion" ColumnName="BuquePreliquidacion" />
+          <ScalarProperty Name="FechaViajePreliquidacion" ColumnName="FechaViajePreliquidacion" />
+          <ScalarProperty Name="NroViajePreliquidacion" ColumnName="NroViajePreliquidacion" />
+          <ScalarProperty Name="CorrelativoPreliquidacion" ColumnName="CorrelativoPreliquidacion" />
+          <ScalarProperty Name="NroSolvenciaPreliquidacion" ColumnName="NroSolvenciaPreliquidacion" />
+          <ScalarProperty Name="FechaHastaSolvenciaPreliquidacion" ColumnName="FechaHastaSolvenciaPreliquidacion" />
+          <ScalarProperty Name="SolventePreliquidacion" ColumnName="SolventePreliquidacion" />
+          <ScalarProperty Name="NroFacturaPreliquidacion" ColumnName="NroFacturaPreliquidacion" />
+          <ScalarProperty Name="FechaFacturaPreliquidacion" ColumnName="FechaFacturaPreliquidacion" />
+          <ScalarProperty Name="ValorTasaPreliquidacion" ColumnName="ValorTasaPreliquidacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PreliquidacionContenedor">
+      <EntityTypeMapping TypeName="ATLANTISModel.PreliquidacionContenedor">
+        <MappingFragment StoreEntitySet="PreliquidacionContenedor">
+          <ScalarProperty Name="IdPreliqContenedor" ColumnName="IdPreliqContenedor" />
+          <ScalarProperty Name="IdPreliquidacion" ColumnName="IdPreliquidacion" />
+          <ScalarProperty Name="IdContenedor" ColumnName="IdContenedor" />
+          <ScalarProperty Name="Preliquidado" ColumnName="Preliquidado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PreliquidacionEstatus">
+      <EntityTypeMapping TypeName="ATLANTISModel.PreliquidacionEstatus">
+        <MappingFragment StoreEntitySet="PreliquidacionEstatus">
+          <ScalarProperty Name="IdPrelEstatus" ColumnName="IdPrelEstatus" />
+          <ScalarProperty Name="DescripcionPrelEstatus" ColumnName="DescripcionPrelEstatus" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PreliquidacionServicio">
+      <EntityTypeMapping TypeName="ATLANTISModel.PreliquidacionServicio">
+        <MappingFragment StoreEntitySet="PreliquidacionServicio">
+          <ScalarProperty Name="IdPreliquidacionServicio" ColumnName="IdPreliquidacionServicio" />
+          <ScalarProperty Name="IdPreliquidacion" ColumnName="IdPreliquidacion" />
+          <ScalarProperty Name="IdServicio" ColumnName="IdServicio" />
+          <ScalarProperty Name="CantidadPrelServicio" ColumnName="CantidadPrelServicio" />
+          <ScalarProperty Name="PrecioPrelServicioBS" ColumnName="PrecioPrelServicioBS" />
+          <ScalarProperty Name="PrecioPreslServicioUSD" ColumnName="PrecioPreslServicioUSD" />
+          <ScalarProperty Name="TotalPrelServicioBS" ColumnName="TotalPrelServicioBS" />
+          <ScalarProperty Name="TotalPrelServicioUSD" ColumnName="TotalPrelServicioUSD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Procedencia">
+      <EntityTypeMapping TypeName="ATLANTISModel.Procedencia">
+        <MappingFragment StoreEntitySet="Procedencia">
+          <ScalarProperty Name="IdProcedencia" ColumnName="IdProcedencia" />
+          <ScalarProperty Name="DescripcionProcedencia" ColumnName="DescripcionProcedencia" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Puerto">
+      <EntityTypeMapping TypeName="ATLANTISModel.Puerto">
+        <MappingFragment StoreEntitySet="Puerto">
+          <ScalarProperty Name="IdPuerto" ColumnName="IdPuerto" />
+          <ScalarProperty Name="CodigoPuerto" ColumnName="CodigoPuerto" />
+          <ScalarProperty Name="NombrePuerto" ColumnName="NombrePuerto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Reserva">
+      <EntityTypeMapping TypeName="ATLANTISModel.Reserva">
+        <MappingFragment StoreEntitySet="Reserva">
+          <ScalarProperty Name="IdReserva" ColumnName="IdReserva" />
+          <ScalarProperty Name="ItinerarioReserva" ColumnName="ItinerarioReserva" />
+          <ScalarProperty Name="ClienteReserva" ColumnName="ClienteReserva" />
+          <ScalarProperty Name="FechaReserva" ColumnName="FechaReserva" />
+          <ScalarProperty Name="UsuarioReserva" ColumnName="UsuarioReserva" />
+          <ScalarProperty Name="NroReserva" ColumnName="NroReserva" />
+          <ScalarProperty Name="PuertoDescargaReserva" ColumnName="PuertoDescargaReserva" />
+          <ScalarProperty Name="ObservacionesReserva" ColumnName="ObservacionesReserva" />
+          <ScalarProperty Name="GeneradoEIRReserva" ColumnName="GeneradoEIRReserva" />
+          <ScalarProperty Name="PuertoEntregaReserva" ColumnName="PuertoEntregaReserva" />
+          <ScalarProperty Name="DiasLibresReserva" ColumnName="DiasLibresReserva" />
+          <ScalarProperty Name="CantidadEquiposReserva" ColumnName="CantidadEquiposReserva" />
+          <ScalarProperty Name="SecundariaReserva" ColumnName="SecundariaReserva" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ReservaContenedor">
+      <EntityTypeMapping TypeName="ATLANTISModel.ReservaContenedor">
+        <MappingFragment StoreEntitySet="ReservaContenedor">
+          <ScalarProperty Name="IdReservaContenedor" ColumnName="IdReservaContenedor" />
+          <ScalarProperty Name="IdReserva" ColumnName="IdReserva" />
+          <ScalarProperty Name="IdContenedor" ColumnName="IdContenedor" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Rol">
+      <EntityTypeMapping TypeName="ATLANTISModel.Rol">
+        <MappingFragment StoreEntitySet="Rol">
+          <ScalarProperty Name="IdRol" ColumnName="IdRol" />
+          <ScalarProperty Name="DescripcionRol" ColumnName="DescripcionRol" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Servicio">
+      <EntityTypeMapping TypeName="ATLANTISModel.Servicio">
+        <MappingFragment StoreEntitySet="Servicio">
+          <ScalarProperty Name="IdServicio" ColumnName="IdServicio" />
+          <ScalarProperty Name="CodigoServicio" ColumnName="CodigoServicio" />
+          <ScalarProperty Name="DescripcionServicio" ColumnName="DescripcionServicio" />
+          <ScalarProperty Name="ControlServicio" ColumnName="ControlServicio" />
+          <ScalarProperty Name="SeleccionRapidaImpServicio" ColumnName="SeleccionRapidaImpServicio" />
+          <ScalarProperty Name="SeleccionRapidaExpServicio" ColumnName="SeleccionRapidaExpServicio" />
+          <ScalarProperty Name="SeleccionRapidaOpeServicio" ColumnName="SeleccionRapidaOpeServicio" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ServicioTarifa">
+      <EntityTypeMapping TypeName="ATLANTISModel.ServicioTarifa">
+        <MappingFragment StoreEntitySet="ServicioTarifa">
+          <ScalarProperty Name="IdServicioTarifa" ColumnName="IdServicioTarifa" />
+          <ScalarProperty Name="IdServicio" ColumnName="IdServicio" />
+          <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+          <ScalarProperty Name="IdLinea" ColumnName="IdLinea" />
+          <ScalarProperty Name="TipoServicio" ColumnName="TipoServicio" />
+          <ScalarProperty Name="ValorTarifa" ColumnName="ValorTarifa" />
+          <ScalarProperty Name="NuevaTarifa" ColumnName="NuevaTarifa" />
+          <ScalarProperty Name="FechaDesdeTarifa" ColumnName="FechaDesdeTarifa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TasaCambio">
+      <EntityTypeMapping TypeName="ATLANTISModel.TasaCambio">
+        <MappingFragment StoreEntitySet="TasaCambio">
+          <ScalarProperty Name="IdTasaCambio" ColumnName="IdTasaCambio" />
+          <ScalarProperty Name="NombreTasaCambio" ColumnName="NombreTasaCambio" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TasaCambioMov">
+      <EntityTypeMapping TypeName="ATLANTISModel.TasaCambioMov">
+        <MappingFragment StoreEntitySet="TasaCambioMov">
+          <ScalarProperty Name="IdTasaCambioMov" ColumnName="IdTasaCambioMov" />
+          <ScalarProperty Name="IdTasaCambio" ColumnName="IdTasaCambio" />
+          <ScalarProperty Name="FechaTasaCambioMov" ColumnName="FechaTasaCambioMov" />
+          <ScalarProperty Name="ValorTasaCambioMov" ColumnName="ValorTasaCambioMov" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TipoContenedor">
+      <EntityTypeMapping TypeName="ATLANTISModel.TipoContenedor">
+        <MappingFragment StoreEntitySet="TipoContenedor">
+          <ScalarProperty Name="IdTipoContenedor" ColumnName="IdTipoContenedor" />
+          <ScalarProperty Name="DescripcionTipoContenedor" ColumnName="DescripcionTipoContenedor" />
+          <ScalarProperty Name="AbreviaturaTipoContenedor" ColumnName="AbreviaturaTipoContenedor" />
+          <ScalarProperty Name="ConversionTipoContenedor" ColumnName="ConversionTipoContenedor" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TipoEIR">
+      <EntityTypeMapping TypeName="ATLANTISModel.TipoEIR">
+        <MappingFragment StoreEntitySet="TipoEIR">
+          <ScalarProperty Name="IdTipoEIR" ColumnName="IdTipoEIR" />
+          <ScalarProperty Name="DescripcionTipoEIR" ColumnName="DescripcionTipoEIR" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TipoISOContenedor">
+      <EntityTypeMapping TypeName="ATLANTISModel.TipoISOContenedor">
+        <MappingFragment StoreEntitySet="TipoISOContenedor">
+          <ScalarProperty Name="IdTipoISOContenedor" ColumnName="IdTipoISOContenedor" />
+          <ScalarProperty Name="CodigoISOContenedor" ColumnName="CodigoISOContenedor" />
+          <ScalarProperty Name="DescripcionISOContenedor" ColumnName="DescripcionISOContenedor" />
+          <ScalarProperty Name="TamanoISOContenedor" ColumnName="TamanoISOContenedor" />
+          <ScalarProperty Name="AbreviaturaISOContenedor" ColumnName="AbreviaturaISOContenedor" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TipoMensajeUsuario">
+      <EntityTypeMapping TypeName="ATLANTISModel.TipoMensajeUsuario">
+        <MappingFragment StoreEntitySet="TipoMensajeUsuario">
+          <ScalarProperty Name="IdTipoMensaje" ColumnName="IdTipoMensaje" />
+          <ScalarProperty Name="DescripcionTipoMensaje" ColumnName="DescripcionTipoMensaje" />
+          <ScalarProperty Name="IconoTipoMensaje" ColumnName="IconoTipoMensaje" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TipoPreliquidacion">
+      <EntityTypeMapping TypeName="ATLANTISModel.TipoPreliquidacion">
+        <MappingFragment StoreEntitySet="TipoPreliquidacion">
+          <ScalarProperty Name="IdTipoPre" ColumnName="IdTipoPre" />
+          <ScalarProperty Name="DescripcionTipoPre" ColumnName="DescripcionTipoPre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TipoTamaño">
+      <EntityTypeMapping TypeName="ATLANTISModel.TipoTamaño">
+        <MappingFragment StoreEntitySet="TipoTamaño">
+          <ScalarProperty Name="IdTipoTamaño" ColumnName="IdTipoTamaño" />
+          <ScalarProperty Name="TipoContenedor" ColumnName="TipoContenedor" />
+          <ScalarProperty Name="TamañoTipoContenedor" ColumnName="TamañoTipoContenedor" />
+          <ScalarProperty Name="AltoPieTipoTamaño" ColumnName="AltoPieTipoTamaño" />
+          <ScalarProperty Name="AltoPulgadaTipoTamaño" ColumnName="AltoPulgadaTipoTamaño" />
+          <ScalarProperty Name="PesoTipoTamaño" ColumnName="PesoTipoTamaño" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Ubicacion">
+      <EntityTypeMapping TypeName="ATLANTISModel.Ubicacion">
+        <MappingFragment StoreEntitySet="Ubicacion">
+          <ScalarProperty Name="IdUbicacion" ColumnName="IdUbicacion" />
+          <ScalarProperty Name="DescripcionUbicacion" ColumnName="DescripcionUbicacion" />
+          <ScalarProperty Name="ZonaUbicacion" ColumnName="ZonaUbicacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UnidadTransporte">
+      <EntityTypeMapping TypeName="ATLANTISModel.UnidadTransporte">
+        <MappingFragment StoreEntitySet="UnidadTransporte">
+          <ScalarProperty Name="IdUnidadTransporte" ColumnName="IdUnidadTransporte" />
+          <ScalarProperty Name="DescripcionUnidadTransporte" ColumnName="DescripcionUnidadTransporte" />
+          <ScalarProperty Name="PlacaUnidadTransporte" ColumnName="PlacaUnidadTransporte" />
+          <ScalarProperty Name="EmpresaUnidadTransporte" ColumnName="EmpresaUnidadTransporte" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Usuario">
+      <EntityTypeMapping TypeName="ATLANTISModel.Usuario">
+        <MappingFragment StoreEntitySet="Usuario">
+          <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+          <ScalarProperty Name="NombreUsuario" ColumnName="NombreUsuario" />
+          <ScalarProperty Name="DepartamentoUsuario" ColumnName="DepartamentoUsuario" />
+          <ScalarProperty Name="LoginUsuario" ColumnName="LoginUsuario" />
+          <ScalarProperty Name="PasswordUsuario" ColumnName="PasswordUsuario" />
+          <ScalarProperty Name="FotoUsuario" ColumnName="FotoUsuario" />
+          <ScalarProperty Name="CambioClaveUsuario" ColumnName="CambioClaveUsuario" />
+          <ScalarProperty Name="OficinaUsuario" ColumnName="OficinaUsuario" />
+          <ScalarProperty Name="FechaCambioPassword" ColumnName="FechaCambioPassword" />
+          <ScalarProperty Name="InactivoUsuario" ColumnName="InactivoUsuario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UsuarioModulo">
+      <EntityTypeMapping TypeName="ATLANTISModel.UsuarioModulo">
+        <MappingFragment StoreEntitySet="UsuarioModulo">
+          <ScalarProperty Name="IdUsuarioModulo" ColumnName="IdUsuarioModulo" />
+          <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+          <ScalarProperty Name="IdModulo" ColumnName="IdModulo" />
+          <ScalarProperty Name="IdRolUsuarioModulo" ColumnName="IdRolUsuarioModulo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UsuarioOpcion">
+      <EntityTypeMapping TypeName="ATLANTISModel.UsuarioOpcion">
+        <MappingFragment StoreEntitySet="UsuarioOpcion">
+          <ScalarProperty Name="IdUsuarioOpcion" ColumnName="IdUsuarioOpcion" />
+          <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+          <ScalarProperty Name="IdOpcion" ColumnName="IdOpcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OrdenRepImagen">
+      <EntityTypeMapping TypeName="ATLANTISModel.OrdenRepImagen">
+        <MappingFragment StoreEntitySet="OrdenRepImagen">
+          <ScalarProperty Name="IdOrdenRepImagenes" ColumnName="IdOrdenRepImagenes" />
+          <ScalarProperty Name="IdOrdenRep" ColumnName="IdOrdenRep" />
+          <ScalarProperty Name="PathImagenOrdenRep" ColumnName="PathImagenOrdenRep" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,2165 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ATLANTISModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="AgenteAduanal">
+    <Key>
+      <PropertyRef Name="IdAgenteAduanal" />
+    </Key>
+    <Property Name="IdAgenteAduanal" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RifAgenteAduanal" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="NombreAgenteAduanal" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="DireccionAgenteAduanal" Type="varchar" MaxLength="150" />
+    <Property Name="TelefonoAgenteAdualnal" Type="varchar" MaxLength="50" />
+    <Property Name="EmailAgenteAduanal" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="BLEmbarque">
+    <Key>
+      <PropertyRef Name="IdBLEmbarque" />
+    </Key>
+    <Property Name="IdBLEmbarque" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NroBLEmbarque" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ItinerarioBLEmbarque" Type="int" Nullable="false" />
+    <Property Name="DiasLibresBLEmbarque" Type="int" />
+  </EntityType>
+  <EntityType Name="Buque">
+    <Key>
+      <PropertyRef Name="IdBuque" />
+    </Key>
+    <Property Name="IdBuque" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CodigoBuque" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="NombreBuque" Type="varchar" MaxLength="150" />
+    <Property Name="SiglasBuque" Type="varchar" MaxLength="50" />
+    <Property Name="CallSignBuque" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Cliente">
+    <Key>
+      <PropertyRef Name="IdCliente" />
+    </Key>
+    <Property Name="IdCliente" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RifCliente" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="NombreCliente" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="DireccionCliente" Type="varchar" MaxLength="250" />
+    <Property Name="TelefonoCliente" Type="varchar" MaxLength="50" />
+    <Property Name="EmailCliente" Type="varchar" MaxLength="50" />
+    <Property Name="LineaCliente" Type="bit" />
+    <Property Name="EspecialCliente" Type="bit" />
+    <Property Name="CodigoPostalCliente" Type="varchar" MaxLength="5" />
+  </EntityType>
+  <EntityType Name="ClienteTarifaSer">
+    <Key>
+      <PropertyRef Name="IdTarifaSerCliente" />
+    </Key>
+    <Property Name="IdTarifaSerCliente" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdCliente" Type="int" Nullable="false" />
+    <Property Name="IdServicio" Type="int" Nullable="false" />
+    <Property Name="IdEmpresa" Type="int" Nullable="false" />
+    <Property Name="IdLinea" Type="int" Nullable="false" />
+    <Property Name="TipoServicio" Type="int" Nullable="false" />
+    <Property Name="ValorTarifaSerCliente" Type="float" Nullable="false" />
+    <Property Name="NuevaTarifaCliente" Type="float" />
+    <Property Name="FechaDesdeTarifaCliente" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Componente">
+    <Key>
+      <PropertyRef Name="IdComponente" />
+    </Key>
+    <Property Name="IdComponente" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DescripcionComponente" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Condicion">
+    <Key>
+      <PropertyRef Name="IdCondicion" />
+    </Key>
+    <Property Name="IdCondicion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CodigoCondicion" Type="varchar" MaxLength="3" Nullable="false" />
+    <Property Name="DescripcionCondicion" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ConductorUndTrans">
+    <Key>
+      <PropertyRef Name="IdConductor" />
+    </Key>
+    <Property Name="IdConductor" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CedulaConductor" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="NombreConductor" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Contenedor">
+    <Key>
+      <PropertyRef Name="IdContenedor" />
+    </Key>
+    <Property Name="IdContenedor" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SiglasContenedor" Type="varchar" MaxLength="12" Nullable="false" />
+    <Property Name="TipoContenedor" Type="int" Nullable="false" />
+    <Property Name="TamañoContenedor" Type="smallint" Nullable="false" />
+    <Property Name="CondicionContenedor" Type="int" />
+    <Property Name="LineaContenedor" Type="int" />
+    <Property Name="PuertosCriticosContenedor" Type="bit" Nullable="false" />
+    <Property Name="SiglasUniversalesContenedor" Type="bit" Nullable="false" />
+    <Property Name="EstatusContenedor" Type="int" />
+    <Property Name="EventoContenedor" Type="int" />
+    <Property Name="CodigoContenedor" Type="varchar" MaxLength="5" />
+    <Property Name="ReservadoContenedor" Type="bit" />
+    <Property Name="UbicacionContenedor" Type="int" />
+  </EntityType>
+  <EntityType Name="ContenedorEIR">
+    <Key>
+      <PropertyRef Name="IdContenedorEIR" />
+    </Key>
+    <Property Name="IdContenedorEIR" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdContenedor" Type="int" />
+    <Property Name="NroEIR" Type="int" />
+    <Property Name="FechaEIR" Type="datetime" />
+    <Property Name="TipoEIR" Type="int" Nullable="false" />
+    <Property Name="NroExpEIR" Type="int" Nullable="false" />
+    <Property Name="NroEIRFullI" Type="int" />
+    <Property Name="FechaEIRFullI" Type="datetime" />
+    <Property Name="CondicionEIR" Type="int" />
+    <Property Name="UbicacionEIR" Type="int" />
+    <Property Name="AgenteAduanalEIR" Type="int" />
+    <Property Name="UnidadTransporteEIR" Type="int" />
+    <Property Name="ConductorUnidadEIR" Type="int" />
+    <Property Name="ObservacionesEIR" Type="varchar" MaxLength="500" />
+    <Property Name="RazonAnulacionEIR" Type="varchar" MaxLength="150" />
+    <Property Name="UsuarioEIR" Type="int" Nullable="false" />
+    <Property Name="AnuladaEIR" Type="bit" />
+    <Property Name="EventoEIR" Type="int" />
+    <Property Name="EstatusEIR" Type="int" />
+    <Property Name="ProcesadoediEIR" Type="bit" />
+    <Property Name="ReingresoEIR" Type="bit" />
+    <Property Name="ImpresaEIR" Type="bit" />
+    <Property Name="ProcedenciaEIR" Type="int" />
+  </EntityType>
+  <EntityType Name="ContenedorMovimiento">
+    <Key>
+      <PropertyRef Name="IdContenedorMov" />
+    </Key>
+    <Property Name="IdContenedorMov" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdContenedor" Type="int" Nullable="false" />
+    <Property Name="ItinerarioContenedorMov" Type="int" Nullable="false" />
+    <Property Name="FechaContenedorMov" Type="datetime" Nullable="false" />
+    <Property Name="EventoContenedorMov" Type="int" Nullable="false" />
+    <Property Name="EstatusContenedorMov" Type="int" />
+    <Property Name="NroExpContenedorMov" Type="int" />
+    <Property Name="UbicacionContenedorMov" Type="int" />
+  </EntityType>
+  <EntityType Name="Daño">
+    <Key>
+      <PropertyRef Name="IdDaño" />
+    </Key>
+    <Property Name="IdDaño" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CodigoDaño" Type="varchar" MaxLength="2" Nullable="false" />
+    <Property Name="DescripcionDaño" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Demora">
+    <Key>
+      <PropertyRef Name="IdDemora" />
+    </Key>
+    <Property Name="IdDemora" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FechaDemora" Type="datetime" Nullable="false" />
+    <Property Name="ClienteDemora" Type="int" Nullable="false" />
+    <Property Name="ClienteTercero" Type="int" Nullable="false" />
+    <Property Name="TasaCambioDemora" Type="int" Nullable="false" />
+    <Property Name="BLDemora" Type="int" Nullable="false" />
+    <Property Name="SubtotalDemoraUSD" Type="float" />
+    <Property Name="SubTotalDemoraBS" Type="float" />
+    <Property Name="IVADemoraUSD" Type="float" />
+    <Property Name="IVADemoraBS" Type="float" />
+    <Property Name="TotalDemoraUSD" Type="float" />
+    <Property Name="TotalDemoraBS" Type="float" />
+    <Property Name="ObservacionesDemora" Type="varchar" MaxLength="150" />
+    <Property Name="UsuarioDemora" Type="int" Nullable="false" />
+    <Property Name="TipoDemora" Type="int" Nullable="false" />
+    <Property Name="EstatusDemora" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DemoraContenedor">
+    <Key>
+      <PropertyRef Name="IdDemoraContenedor" />
+    </Key>
+    <Property Name="IdDemoraContenedor" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdDemora" Type="int" Nullable="false" />
+    <Property Name="IdContenedor" Type="int" Nullable="false" />
+    <Property Name="CantidadDemoraContenedor" Type="int" Nullable="false" />
+    <Property Name="PrecioDemoraContenedorUSD" Type="float" Nullable="false" />
+    <Property Name="TotalDemoraContenedorUSD" Type="float" Nullable="false" />
+    <Property Name="PrecioDemoraContenedorBS" Type="float" Nullable="false" />
+    <Property Name="TotalDemoraContenedorBS" Type="float" Nullable="false" />
+    <Property Name="FacturadoDemoraContenedor" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DemoraTarifa">
+    <Key>
+      <PropertyRef Name="IdDemoraTarifa" />
+    </Key>
+    <Property Name="IdDemoraTarifa" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DesdeDemoraTarifa" Type="smallint" Nullable="false" />
+    <Property Name="HastaDemoraTarifa" Type="smallint" Nullable="false" />
+    <Property Name="ValorDemoraTarifa" Type="float" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Departamento">
+    <Key>
+      <PropertyRef Name="IdDepartamento" />
+    </Key>
+    <Property Name="IdDepartamento" Type="int" Nullable="false" />
+    <Property Name="DescripcionDepartamento" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="IdSupervisorDepartamento" Type="int" />
+  </EntityType>
+  <EntityType Name="Empresa">
+    <Key>
+      <PropertyRef Name="IdEmpresa" />
+    </Key>
+    <Property Name="IdEmpresa" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RifEmpresa" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="NombreEmpresa" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="DireccionEmpresa" Type="varchar" MaxLength="500" Nullable="false" />
+    <Property Name="TelefonoEmpresa" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="LogoEmpresa" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="EmpresaCuentaBancaria">
+    <Key>
+      <PropertyRef Name="IdCuentaBancaria" />
+    </Key>
+    <Property Name="IdCuentaBancaria" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdEmpresa" Type="int" Nullable="false" />
+    <Property Name="NroCuentaBancaria" Type="varchar" MaxLength="25" Nullable="false" />
+    <Property Name="NombreBancoCuentaBancaria" Type="varchar" MaxLength="150" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EmpresaServicio">
+    <Key>
+      <PropertyRef Name="IdEmpresaServicio" />
+    </Key>
+    <Property Name="IdEmpresaServicio" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdEmpresa" Type="int" Nullable="false" />
+    <Property Name="IdServicio" Type="int" Nullable="false" />
+    <Property Name="CostoEmpresaServicio" Type="float" Nullable="false" />
+    <Property Name="ExentoIVAEmpresaServicio" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EmpresaTransporte">
+    <Key>
+      <PropertyRef Name="IdEmpresaTrans" />
+    </Key>
+    <Property Name="IdEmpresaTrans" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RifEmpresaTrans" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="NombreEmpresaTrans" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EstatusContenedor">
+    <Key>
+      <PropertyRef Name="IdEstatusContenedor" />
+    </Key>
+    <Property Name="IdEstatusContenedor" Type="int" Nullable="false" />
+    <Property Name="DescripcionEstatusContenedor" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Evento">
+    <Key>
+      <PropertyRef Name="IdEvento" />
+    </Key>
+    <Property Name="IdEvento" Type="int" Nullable="false" />
+    <Property Name="DescripcionEvento" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="GeneraEIREvento" Type="bit" />
+  </EntityType>
+  <EntityType Name="Factura">
+    <Key>
+      <PropertyRef Name="IdFactura" />
+    </Key>
+    <Property Name="IdFactura" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NroFactura" Type="int" Nullable="false" />
+    <Property Name="NroControlFactura" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="FechaFactura" Type="datetime" Nullable="false" />
+    <Property Name="ClienteFactura" Type="int" Nullable="false" />
+    <Property Name="EmpresaFactura" Type="int" Nullable="false" />
+    <Property Name="TasaCambioFactura" Type="int" Nullable="false" />
+    <Property Name="SubtotalFacturaBS" Type="float" Nullable="false" />
+    <Property Name="IvaFacturaBS" Type="float" Nullable="false" />
+    <Property Name="TotalFacturaBS" Type="float" Nullable="false" />
+    <Property Name="SubTotalFacturaUSD" Type="float" Nullable="false" />
+    <Property Name="IvaFacturaUSD" Type="float" Nullable="false" />
+    <Property Name="TotalFacturaUSD" Type="float" Nullable="false" />
+    <Property Name="ObservacionFactura" Type="varchar" MaxLength="250" />
+    <Property Name="UsuarioFactura" Type="int" Nullable="false" />
+    <Property Name="AnuladaFactura" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FacturaServicio">
+    <Key>
+      <PropertyRef Name="IdFacturaServicio" />
+    </Key>
+    <Property Name="IdFacturaServicio" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdFactura" Type="int" Nullable="false" />
+    <Property Name="IdServicio" Type="int" Nullable="false" />
+    <Property Name="CantidadFacServicio" Type="int" Nullable="false" />
+    <Property Name="PrecioFacServicioUSD" Type="float" Nullable="false" />
+    <Property Name="PrecioFacServicioBS" Type="float" Nullable="false" />
+    <Property Name="TotalFacServicioUSD" Type="float" Nullable="false" />
+    <Property Name="TotalFacServicioBS" Type="float" Nullable="false" />
+  </EntityType>
+  <EntityType Name="GrupoOpcion">
+    <Key>
+      <PropertyRef Name="IdGrupoOpc" />
+    </Key>
+    <Property Name="IdGrupoOpc" Type="int" Nullable="false" />
+    <Property Name="DescripcionGrupoOpc" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Itinerario">
+    <Key>
+      <PropertyRef Name="IdItinerario" />
+    </Key>
+    <Property Name="IdItinerario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdBuqueItinerario" Type="int" />
+    <Property Name="IdLineaItinerario" Type="int" />
+    <Property Name="FechaHoraLlegadaItinerario" Type="datetime" Nullable="false" />
+    <Property Name="FechaHoraSalidaItinerario" Type="datetime" Nullable="false" />
+    <Property Name="NroViajeLlegadaItinerario" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="NroViajeSalidaItinerario" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="NroSiduneaItinerario" Type="varchar" MaxLength="30" />
+    <Property Name="NroExpediente" Type="int" Nullable="false" />
+    <Property Name="UsuarioItinerario" Type="int" />
+    <Property Name="GeneradoEDIItinerario" Type="bit" />
+    <Property Name="GeneradoEDIEmbarqueF" Type="bit" />
+    <Property Name="GeneradoEDIEmbarqueV" Type="bit" />
+    <Property Name="PuertoEscalaItinerario" Type="int" />
+    <Property Name="FechaEstimadaLlegadaItinerario" Type="datetime" />
+  </EntityType>
+  <EntityType Name="ItinerarioContenedor">
+    <Key>
+      <PropertyRef Name="IdItinerarioContenedor" />
+    </Key>
+    <Property Name="IdItinerarioContenedor" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdItinerario" Type="int" Nullable="false" />
+    <Property Name="IdContenedor" Type="int" Nullable="false" />
+    <Property Name="BLContenedor" Type="varchar" MaxLength="20" />
+    <Property Name="EmbarcadorContenedor" Type="varchar" MaxLength="150" />
+    <Property Name="ConsignatarioContenedor" Type="varchar" MaxLength="150" />
+    <Property Name="OrigenContenedor" Type="varchar" MaxLength="150" />
+    <Property Name="PolContenedor" Type="varchar" MaxLength="150" />
+    <Property Name="PodContenedor" Type="varchar" MaxLength="50" />
+    <Property Name="PrecintoContenedor" Type="varchar" MaxLength="50" />
+    <Property Name="MercanciaContenedor" Type="varchar" MaxLength="500" />
+    <Property Name="EmpaqueContenedor" Type="varchar" MaxLength="150" />
+    <Property Name="CantidadContenedor" Type="float" />
+    <Property Name="EstatusContenedor" Type="int" />
+    <Property Name="CondicionVentaContenedor" Type="varchar" MaxLength="50" />
+    <Property Name="PesoBrutoContenedor" Type="float" />
+    <Property Name="PesoNetoContenedor" Type="float" />
+    <Property Name="M3Contenedor" Type="float" />
+    <Property Name="TMinimoContenedor" Type="float" />
+    <Property Name="TMaximoContenedor" Type="float" />
+    <Property Name="HazContenedor" Type="varchar" MaxLength="10" />
+    <Property Name="ImoContenedor" Type="varchar" MaxLength="20" />
+    <Property Name="UnContenedor" Type="varchar" MaxLength="20" />
+    <Property Name="UsoSiduneaContenedor" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="ItinerarioEmbContenedor">
+    <Key>
+      <PropertyRef Name="IdEmbContenedor" />
+    </Key>
+    <Property Name="IdEmbContenedor" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ItinerarioEmbarque" Type="int" Nullable="false" />
+    <Property Name="IdContenedor" Type="int" Nullable="false" />
+    <Property Name="BahiaEmbContenedor" Type="varchar" MaxLength="15" />
+    <Property Name="SlotEmbContenedor" Type="varchar" MaxLength="15" />
+    <Property Name="Precinto1EmbContenedor" Type="varchar" MaxLength="15" />
+    <Property Name="Precinto2EmbContenedor" Type="varchar" MaxLength="15" />
+    <Property Name="PesoEmbContenedor" Type="float" />
+    <Property Name="VerificaEmbContenedor" Type="bit" />
+    <Property Name="ProcesadoEmbContenedor" Type="bit" />
+    <Property Name="Descripcion1EmbContenedor" Type="varchar" MaxLength="500" />
+    <Property Name="Descripcion2EmbContenedor" Type="varchar" MaxLength="500" />
+    <Property Name="Descripcion3EmbContenedor" Type="varchar" MaxLength="500" />
+    <Property Name="Descripcion4EmbContenedor" Type="varchar" MaxLength="500" />
+    <Property Name="TemperaturaEmbContenedor" Type="varchar" MaxLength="250" />
+    <Property Name="RngTempEmbContenedor" Type="varchar" MaxLength="250" />
+    <Property Name="MatPeligrosoEmbContenedor" Type="varchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="ItinerarioUbicacion">
+    <Key>
+      <PropertyRef Name="IdItinearioUbicacion" />
+    </Key>
+    <Property Name="IdItinearioUbicacion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdItinerario" Type="int" Nullable="false" />
+    <Property Name="IdUbicacion" Type="int" Nullable="false" />
+    <Property Name="NroExpediente" Type="int" />
+    <Property Name="CantidadContenedoresItinearioUbicacion" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Lado">
+    <Key>
+      <PropertyRef Name="IdLado" />
+    </Key>
+    <Property Name="IdLado" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DescripcionLado" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="LineaBuque">
+    <Key>
+      <PropertyRef Name="IdLineaBuque" />
+    </Key>
+    <Property Name="IdLineaBuque" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdLineaMaritima" Type="int" Nullable="false" />
+    <Property Name="IdBuque" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="LineaMaritima">
+    <Key>
+      <PropertyRef Name="IdLineaMaritima" />
+    </Key>
+    <Property Name="IdLineaMaritima" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NombreLineaMaritima" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="LogoLineaMaritima" Type="varchar" MaxLength="50" />
+    <Property Name="CodigoLinea" Type="varchar" MaxLength="5" />
+  </EntityType>
+  <EntityType Name="LineaPool">
+    <Key>
+      <PropertyRef Name="IdLineaPool" />
+    </Key>
+    <Property Name="IdLineaPool" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdLineaPrincipalPool" Type="int" Nullable="false" />
+    <Property Name="IdLineaSecundariaPool" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MetodoReparacion">
+    <Key>
+      <PropertyRef Name="IdMetodoRep" />
+    </Key>
+    <Property Name="IdMetodoRep" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DescripcionMetodoRep" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Modulo">
+    <Key>
+      <PropertyRef Name="IdModulo" />
+    </Key>
+    <Property Name="IdModulo" Type="int" Nullable="false" />
+    <Property Name="NombreModulo" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="DescripcionModulo" Type="varchar" MaxLength="500" />
+    <Property Name="IconoModulo" Type="varchar" MaxLength="150" />
+    <Property Name="UrlModulo" Type="varchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="Oficina">
+    <Key>
+      <PropertyRef Name="IdOficina" />
+    </Key>
+    <Property Name="IdOficina" Type="int" Nullable="false" />
+    <Property Name="UbicacionOficina" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="CodigoPtoOficina" Type="varchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="Opcion">
+    <Key>
+      <PropertyRef Name="IdOpcion" />
+    </Key>
+    <Property Name="IdOpcion" Type="int" Nullable="false" />
+    <Property Name="DescripcionOpcion" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="IconoOpcion" Type="varchar" MaxLength="50" />
+    <Property Name="UrlOpcion" Type="varchar" MaxLength="150" />
+    <Property Name="ModuloOpcion" Type="int" Nullable="false" />
+    <Property Name="GrupoOpcion" Type="int" />
+    <Property Name="DocPendientesOpcion" Type="smallint" />
+  </EntityType>
+  <EntityType Name="OpcionMensajeUsuario">
+    <Key>
+      <PropertyRef Name="IdMensajeUsuario" />
+    </Key>
+    <Property Name="IdMensajeUsuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdOpcion" Type="int" Nullable="false" />
+    <Property Name="IdUsuario" Type="int" Nullable="false" />
+    <Property Name="DescripcionMensajeUsuario" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="TipoMensajeUsuario" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="OrdenReparacion">
+    <Key>
+      <PropertyRef Name="IdOrdenRep" />
+    </Key>
+    <Property Name="IdOrdenRep" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FechaOrdenRep" Type="datetime" Nullable="false" />
+    <Property Name="IdContenedorEIR" Type="int" Nullable="false" />
+    <Property Name="FechaIngTallerOrdenRep" Type="datetime" />
+    <Property Name="FechaInicioOrdenRep" Type="datetime" />
+    <Property Name="FechaFinalOrdenRep" Type="datetime" />
+    <Property Name="ObservacionOrdenRep" Type="varchar" MaxLength="500" />
+    <Property Name="TerminadaOrdRep" Type="bit" />
+    <Property Name="AnuladaOrdRep" Type="bit" />
+    <Property Name="FechaFinalDefOrdRep" Type="datetime" />
+    <Property Name="DañoenPatioOrdRep" Type="bit" />
+  </EntityType>
+  <EntityType Name="OrdenRepComponente">
+    <Key>
+      <PropertyRef Name="IdOrdenComponente" />
+    </Key>
+    <Property Name="IdOrdenComponente" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdOrdenRep" Type="int" Nullable="false" />
+    <Property Name="IdComponente" Type="int" Nullable="false" />
+    <Property Name="IdLadoOrdComponente" Type="int" Nullable="false" />
+    <Property Name="PosicionOrdComponente" Type="smallint" />
+    <Property Name="DimensionNroPiezaOrdComp" Type="varchar" MaxLength="25" />
+    <Property Name="MetodoRepOrdComp" Type="int" Nullable="false" />
+    <Property Name="IdDañoOrdComp" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'ATLANTIS.dbo.OrdenRepImagen' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="OrdenRepImagen">
+    <Key>
+      <PropertyRef Name="IdOrdenRepImagenes" />
+      <PropertyRef Name="IdOrdenRep" />
+    </Key>
+    <Property Name="IdOrdenRepImagenes" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdOrdenRep" Type="int" Nullable="false" />
+    <Property Name="PathImagenOrdenRep" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Preliquidacion">
+    <Key>
+      <PropertyRef Name="IdPreliquidacion" />
+    </Key>
+    <Property Name="IdPreliquidacion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NroPreliquidacion" Type="int" Nullable="false" />
+    <Property Name="FechaPreliquidacion" Type="datetime" Nullable="false" />
+    <Property Name="ClientePreliquidacion" Type="int" Nullable="false" />
+    <Property Name="EmpresaPreliquidacion" Type="int" Nullable="false" />
+    <Property Name="BLPreliquidacion" Type="int" />
+    <Property Name="TasaCambioBLPreliquidacion" Type="int" />
+    <Property Name="SubTotalPreliquidacionBS" Type="float" />
+    <Property Name="SubTotalPreliquidacionUSD" Type="float" />
+    <Property Name="MontoIvaPreliquidacionBS" Type="float" />
+    <Property Name="MontoIvaPreliquidacionUDS" Type="float" />
+    <Property Name="TotalPreliquidacionBS" Type="float" />
+    <Property Name="TotalPreliquidacionUSD" Type="float" />
+    <Property Name="ObservacionPreliquidacion" Type="varchar" MaxLength="250" />
+    <Property Name="UsuarioPreliquidacion" Type="int" />
+    <Property Name="EstatusPreliquidacion" Type="int" />
+    <Property Name="TipoPreliquidacion" Type="int" />
+    <Property Name="ReservaPreliquidacion" Type="int" />
+    <Property Name="AgenteAduanalPreliquidacion" Type="int" />
+    <Property Name="BuquePreliquidacion" Type="varchar" MaxLength="50" />
+    <Property Name="FechaViajePreliquidacion" Type="datetime" />
+    <Property Name="NroViajePreliquidacion" Type="varchar" MaxLength="50" />
+    <Property Name="CorrelativoPreliquidacion" Type="int" />
+    <Property Name="NroSolvenciaPreliquidacion" Type="varchar" MaxLength="50" />
+    <Property Name="FechaHastaSolvenciaPreliquidacion" Type="datetime" />
+    <Property Name="SolventePreliquidacion" Type="bit" />
+    <Property Name="NroFacturaPreliquidacion" Type="varchar" MaxLength="50" />
+    <Property Name="FechaFacturaPreliquidacion" Type="datetime" />
+    <Property Name="ValorTasaPreliquidacion" Type="float" />
+  </EntityType>
+  <EntityType Name="PreliquidacionContenedor">
+    <Key>
+      <PropertyRef Name="IdPreliqContenedor" />
+    </Key>
+    <Property Name="IdPreliqContenedor" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdPreliquidacion" Type="int" Nullable="false" />
+    <Property Name="IdContenedor" Type="int" Nullable="false" />
+    <Property Name="Preliquidado" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PreliquidacionEstatus">
+    <Key>
+      <PropertyRef Name="IdPrelEstatus" />
+    </Key>
+    <Property Name="IdPrelEstatus" Type="int" Nullable="false" />
+    <Property Name="DescripcionPrelEstatus" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PreliquidacionServicio">
+    <Key>
+      <PropertyRef Name="IdPreliquidacionServicio" />
+    </Key>
+    <Property Name="IdPreliquidacionServicio" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdPreliquidacion" Type="int" Nullable="false" />
+    <Property Name="IdServicio" Type="int" Nullable="false" />
+    <Property Name="CantidadPrelServicio" Type="float" Nullable="false" />
+    <Property Name="PrecioPrelServicioBS" Type="float" Nullable="false" />
+    <Property Name="PrecioPreslServicioUSD" Type="float" Nullable="false" />
+    <Property Name="TotalPrelServicioBS" Type="float" Nullable="false" />
+    <Property Name="TotalPrelServicioUSD" Type="float" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Procedencia">
+    <Key>
+      <PropertyRef Name="IdProcedencia" />
+    </Key>
+    <Property Name="IdProcedencia" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DescripcionProcedencia" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Puerto">
+    <Key>
+      <PropertyRef Name="IdPuerto" />
+    </Key>
+    <Property Name="IdPuerto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CodigoPuerto" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="NombrePuerto" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Reserva">
+    <Key>
+      <PropertyRef Name="IdReserva" />
+    </Key>
+    <Property Name="IdReserva" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ItinerarioReserva" Type="int" Nullable="false" />
+    <Property Name="ClienteReserva" Type="int" Nullable="false" />
+    <Property Name="FechaReserva" Type="datetime" />
+    <Property Name="UsuarioReserva" Type="int" Nullable="false" />
+    <Property Name="NroReserva" Type="varchar" MaxLength="20" />
+    <Property Name="PuertoDescargaReserva" Type="int" Nullable="false" />
+    <Property Name="ObservacionesReserva" Type="varchar" MaxLength="50" />
+    <Property Name="GeneradoEIRReserva" Type="bit" />
+    <Property Name="PuertoEntregaReserva" Type="int" />
+    <Property Name="DiasLibresReserva" Type="smallint" />
+    <Property Name="CantidadEquiposReserva" Type="smallint" />
+    <Property Name="SecundariaReserva" Type="bit" />
+  </EntityType>
+  <EntityType Name="ReservaContenedor">
+    <Key>
+      <PropertyRef Name="IdReservaContenedor" />
+    </Key>
+    <Property Name="IdReservaContenedor" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdReserva" Type="int" Nullable="false" />
+    <Property Name="IdContenedor" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Rol">
+    <Key>
+      <PropertyRef Name="IdRol" />
+    </Key>
+    <Property Name="IdRol" Type="int" Nullable="false" />
+    <Property Name="DescripcionRol" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Servicio">
+    <Key>
+      <PropertyRef Name="IdServicio" />
+    </Key>
+    <Property Name="IdServicio" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CodigoServicio" Type="varchar" MaxLength="15" />
+    <Property Name="DescripcionServicio" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="ControlServicio" Type="bit" />
+    <Property Name="SeleccionRapidaImpServicio" Type="bit" />
+    <Property Name="SeleccionRapidaExpServicio" Type="bit" />
+    <Property Name="SeleccionRapidaOpeServicio" Type="bit" />
+  </EntityType>
+  <EntityType Name="ServicioTarifa">
+    <Key>
+      <PropertyRef Name="IdServicioTarifa" />
+    </Key>
+    <Property Name="IdServicioTarifa" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdServicio" Type="int" Nullable="false" />
+    <Property Name="IdEmpresa" Type="int" Nullable="false" />
+    <Property Name="IdLinea" Type="int" Nullable="false" />
+    <Property Name="TipoServicio" Type="int" Nullable="false" />
+    <Property Name="ValorTarifa" Type="float" Nullable="false" />
+    <Property Name="NuevaTarifa" Type="float" />
+    <Property Name="FechaDesdeTarifa" Type="datetime" />
+  </EntityType>
+  <EntityType Name="TasaCambio">
+    <Key>
+      <PropertyRef Name="IdTasaCambio" />
+    </Key>
+    <Property Name="IdTasaCambio" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NombreTasaCambio" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TasaCambioMov">
+    <Key>
+      <PropertyRef Name="IdTasaCambioMov" />
+    </Key>
+    <Property Name="IdTasaCambioMov" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdTasaCambio" Type="int" Nullable="false" />
+    <Property Name="FechaTasaCambioMov" Type="datetime" Nullable="false" />
+    <Property Name="ValorTasaCambioMov" Type="float" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TipoContenedor">
+    <Key>
+      <PropertyRef Name="IdTipoContenedor" />
+    </Key>
+    <Property Name="IdTipoContenedor" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DescripcionTipoContenedor" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="AbreviaturaTipoContenedor" Type="varchar" MaxLength="3" Nullable="false" />
+    <Property Name="ConversionTipoContenedor" Type="varchar" MaxLength="3" />
+  </EntityType>
+  <EntityType Name="TipoEIR">
+    <Key>
+      <PropertyRef Name="IdTipoEIR" />
+    </Key>
+    <Property Name="IdTipoEIR" Type="int" Nullable="false" />
+    <Property Name="DescripcionTipoEIR" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TipoISOContenedor">
+    <Key>
+      <PropertyRef Name="IdTipoISOContenedor" />
+    </Key>
+    <Property Name="IdTipoISOContenedor" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CodigoISOContenedor" Type="varchar" MaxLength="4" Nullable="false" />
+    <Property Name="DescripcionISOContenedor" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="TamanoISOContenedor" Type="varchar" MaxLength="2" Nullable="false" />
+    <Property Name="AbreviaturaISOContenedor" Type="varchar" MaxLength="2" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TipoMensajeUsuario">
+    <Key>
+      <PropertyRef Name="IdTipoMensaje" />
+    </Key>
+    <Property Name="IdTipoMensaje" Type="int" Nullable="false" />
+    <Property Name="DescripcionTipoMensaje" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="IconoTipoMensaje" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TipoPreliquidacion">
+    <Key>
+      <PropertyRef Name="IdTipoPre" />
+    </Key>
+    <Property Name="IdTipoPre" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DescripcionTipoPre" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TipoTamaño">
+    <Key>
+      <PropertyRef Name="IdTipoTamaño" />
+    </Key>
+    <Property Name="IdTipoTamaño" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TipoContenedor" Type="int" Nullable="false" />
+    <Property Name="TamañoTipoContenedor" Type="smallint" Nullable="false" />
+    <Property Name="AltoPieTipoTamaño" Type="smallint" />
+    <Property Name="AltoPulgadaTipoTamaño" Type="smallint" />
+    <Property Name="PesoTipoTamaño" Type="float" />
+  </EntityType>
+  <EntityType Name="Ubicacion">
+    <Key>
+      <PropertyRef Name="IdUbicacion" />
+    </Key>
+    <Property Name="IdUbicacion" Type="int" Nullable="false" />
+    <Property Name="DescripcionUbicacion" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ZonaUbicacion" Type="varchar" MaxLength="5" />
+  </EntityType>
+  <EntityType Name="UnidadTransporte">
+    <Key>
+      <PropertyRef Name="IdUnidadTransporte" />
+    </Key>
+    <Property Name="IdUnidadTransporte" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DescripcionUnidadTransporte" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="PlacaUnidadTransporte" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="EmpresaUnidadTransporte" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Usuario">
+    <Key>
+      <PropertyRef Name="IdUsuario" />
+    </Key>
+    <Property Name="IdUsuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NombreUsuario" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="DepartamentoUsuario" Type="int" />
+    <Property Name="LoginUsuario" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="PasswordUsuario" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="FotoUsuario" Type="varchar" MaxLength="50" />
+    <Property Name="CambioClaveUsuario" Type="bit" />
+    <Property Name="OficinaUsuario" Type="int" />
+    <Property Name="FechaCambioPassword" Type="datetime" />
+    <Property Name="InactivoUsuario" Type="bit" />
+  </EntityType>
+  <EntityType Name="UsuarioModulo">
+    <Key>
+      <PropertyRef Name="IdUsuarioModulo" />
+    </Key>
+    <Property Name="IdUsuarioModulo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdUsuario" Type="int" Nullable="false" />
+    <Property Name="IdModulo" Type="int" Nullable="false" />
+    <Property Name="IdRolUsuarioModulo" Type="int" />
+  </EntityType>
+  <EntityType Name="UsuarioOpcion">
+    <Key>
+      <PropertyRef Name="IdUsuarioOpcion" />
+    </Key>
+    <Property Name="IdUsuarioOpcion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdUsuario" Type="int" Nullable="false" />
+    <Property Name="IdOpcion" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_BLEmbarque_Itinerario">
+    <End Role="Itinerario" Type="Self.Itinerario" Multiplicity="1" />
+    <End Role="BLEmbarque" Type="Self.BLEmbarque" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Itinerario">
+        <PropertyRef Name="IdItinerario" />
+      </Principal>
+      <Dependent Role="BLEmbarque">
+        <PropertyRef Name="ItinerarioBLEmbarque" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Contenedor_Condicion">
+    <End Role="Condicion" Type="Self.Condicion" Multiplicity="0..1" />
+    <End Role="Contenedor" Type="Self.Contenedor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Condicion">
+        <PropertyRef Name="IdCondicion" />
+      </Principal>
+      <Dependent Role="Contenedor">
+        <PropertyRef Name="CondicionContenedor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Contenedor_EstatusContenedor">
+    <End Role="EstatusContenedor" Type="Self.EstatusContenedor" Multiplicity="0..1" />
+    <End Role="Contenedor" Type="Self.Contenedor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EstatusContenedor">
+        <PropertyRef Name="IdEstatusContenedor" />
+      </Principal>
+      <Dependent Role="Contenedor">
+        <PropertyRef Name="EstatusContenedor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Contenedor_Evento">
+    <End Role="Evento" Type="Self.Evento" Multiplicity="0..1" />
+    <End Role="Contenedor" Type="Self.Contenedor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Evento">
+        <PropertyRef Name="IdEvento" />
+      </Principal>
+      <Dependent Role="Contenedor">
+        <PropertyRef Name="EventoContenedor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Contenedor_LineaMaritima">
+    <End Role="LineaMaritima" Type="Self.LineaMaritima" Multiplicity="0..1" />
+    <End Role="Contenedor" Type="Self.Contenedor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LineaMaritima">
+        <PropertyRef Name="IdLineaMaritima" />
+      </Principal>
+      <Dependent Role="Contenedor">
+        <PropertyRef Name="LineaContenedor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Contenedor_TipoContenedor">
+    <End Role="TipoContenedor" Type="Self.TipoContenedor" Multiplicity="1" />
+    <End Role="Contenedor" Type="Self.Contenedor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoContenedor">
+        <PropertyRef Name="IdTipoContenedor" />
+      </Principal>
+      <Dependent Role="Contenedor">
+        <PropertyRef Name="TipoContenedor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Contenedor_Ubicacion">
+    <End Role="Ubicacion" Type="Self.Ubicacion" Multiplicity="0..1" />
+    <End Role="Contenedor" Type="Self.Contenedor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ubicacion">
+        <PropertyRef Name="IdUbicacion" />
+      </Principal>
+      <Dependent Role="Contenedor">
+        <PropertyRef Name="UbicacionContenedor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ContenedorEIR_Evento">
+    <End Role="Evento" Type="Self.Evento" Multiplicity="0..1" />
+    <End Role="ContenedorEIR" Type="Self.ContenedorEIR" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Evento">
+        <PropertyRef Name="IdEvento" />
+      </Principal>
+      <Dependent Role="ContenedorEIR">
+        <PropertyRef Name="EventoEIR" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ContenedorEIR_TipoEIR">
+    <End Role="TipoEIR" Type="Self.TipoEIR" Multiplicity="1" />
+    <End Role="ContenedorEIR" Type="Self.ContenedorEIR" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoEIR">
+        <PropertyRef Name="IdTipoEIR" />
+      </Principal>
+      <Dependent Role="ContenedorEIR">
+        <PropertyRef Name="TipoEIR" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ContenedorEIREntrada_AgenteAduanal">
+    <End Role="AgenteAduanal" Type="Self.AgenteAduanal" Multiplicity="0..1" />
+    <End Role="ContenedorEIR" Type="Self.ContenedorEIR" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AgenteAduanal">
+        <PropertyRef Name="IdAgenteAduanal" />
+      </Principal>
+      <Dependent Role="ContenedorEIR">
+        <PropertyRef Name="AgenteAduanalEIR" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ContenedorEIREntrada_Condicion">
+    <End Role="Condicion" Type="Self.Condicion" Multiplicity="0..1" />
+    <End Role="ContenedorEIR" Type="Self.ContenedorEIR" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Condicion">
+        <PropertyRef Name="IdCondicion" />
+      </Principal>
+      <Dependent Role="ContenedorEIR">
+        <PropertyRef Name="CondicionEIR" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ContenedorEIREntrada_ConductorUndTrans">
+    <End Role="ConductorUndTrans" Type="Self.ConductorUndTrans" Multiplicity="0..1" />
+    <End Role="ContenedorEIR" Type="Self.ContenedorEIR" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ConductorUndTrans">
+        <PropertyRef Name="IdConductor" />
+      </Principal>
+      <Dependent Role="ContenedorEIR">
+        <PropertyRef Name="ConductorUnidadEIR" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ContenedorEIREntrada_Contenedor">
+    <End Role="Contenedor" Type="Self.Contenedor" Multiplicity="0..1" />
+    <End Role="ContenedorEIR" Type="Self.ContenedorEIR" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Contenedor">
+        <PropertyRef Name="IdContenedor" />
+      </Principal>
+      <Dependent Role="ContenedorEIR">
+        <PropertyRef Name="IdContenedor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ContenedorEIREntrada_Ubicacion">
+    <End Role="Ubicacion" Type="Self.Ubicacion" Multiplicity="0..1" />
+    <End Role="ContenedorEIR" Type="Self.ContenedorEIR" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ubicacion">
+        <PropertyRef Name="IdUbicacion" />
+      </Principal>
+      <Dependent Role="ContenedorEIR">
+        <PropertyRef Name="UbicacionEIR" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ContenedorEIREntrada_UnidadTransporte">
+    <End Role="UnidadTransporte" Type="Self.UnidadTransporte" Multiplicity="0..1" />
+    <End Role="ContenedorEIR" Type="Self.ContenedorEIR" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UnidadTransporte">
+        <PropertyRef Name="IdUnidadTransporte" />
+      </Principal>
+      <Dependent Role="ContenedorEIR">
+        <PropertyRef Name="UnidadTransporteEIR" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ContenedorMovimiento_Contenedor">
+    <End Role="Contenedor" Type="Self.Contenedor" Multiplicity="1" />
+    <End Role="ContenedorMovimiento" Type="Self.ContenedorMovimiento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Contenedor">
+        <PropertyRef Name="IdContenedor" />
+      </Principal>
+      <Dependent Role="ContenedorMovimiento">
+        <PropertyRef Name="IdContenedor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ContenedorMovimiento_EstatusContenedor">
+    <End Role="EstatusContenedor" Type="Self.EstatusContenedor" Multiplicity="0..1" />
+    <End Role="ContenedorMovimiento" Type="Self.ContenedorMovimiento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EstatusContenedor">
+        <PropertyRef Name="IdEstatusContenedor" />
+      </Principal>
+      <Dependent Role="ContenedorMovimiento">
+        <PropertyRef Name="EstatusContenedorMov" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ContenedorMovimiento_Evento">
+    <End Role="Evento" Type="Self.Evento" Multiplicity="1" />
+    <End Role="ContenedorMovimiento" Type="Self.ContenedorMovimiento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Evento">
+        <PropertyRef Name="IdEvento" />
+      </Principal>
+      <Dependent Role="ContenedorMovimiento">
+        <PropertyRef Name="EventoContenedorMov" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ContenedorMovimiento_Itinerario">
+    <End Role="Itinerario" Type="Self.Itinerario" Multiplicity="1" />
+    <End Role="ContenedorMovimiento" Type="Self.ContenedorMovimiento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Itinerario">
+        <PropertyRef Name="IdItinerario" />
+      </Principal>
+      <Dependent Role="ContenedorMovimiento">
+        <PropertyRef Name="ItinerarioContenedorMov" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Demora_BLEmbarque">
+    <End Role="BLEmbarque" Type="Self.BLEmbarque" Multiplicity="1" />
+    <End Role="Demora" Type="Self.Demora" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BLEmbarque">
+        <PropertyRef Name="IdBLEmbarque" />
+      </Principal>
+      <Dependent Role="Demora">
+        <PropertyRef Name="BLDemora" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Demora_Cliente">
+    <End Role="Cliente" Type="Self.Cliente" Multiplicity="1" />
+    <End Role="Demora" Type="Self.Demora" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cliente">
+        <PropertyRef Name="IdCliente" />
+      </Principal>
+      <Dependent Role="Demora">
+        <PropertyRef Name="ClienteDemora" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Demora_Cliente1">
+    <End Role="Cliente" Type="Self.Cliente" Multiplicity="1" />
+    <End Role="Demora" Type="Self.Demora" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cliente">
+        <PropertyRef Name="IdCliente" />
+      </Principal>
+      <Dependent Role="Demora">
+        <PropertyRef Name="ClienteDemora" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Demora_TasaCambio">
+    <End Role="TasaCambio" Type="Self.TasaCambio" Multiplicity="1" />
+    <End Role="Demora" Type="Self.Demora" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TasaCambio">
+        <PropertyRef Name="IdTasaCambio" />
+      </Principal>
+      <Dependent Role="Demora">
+        <PropertyRef Name="TasaCambioDemora" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DemoraContenedor_Contenedor">
+    <End Role="Contenedor" Type="Self.Contenedor" Multiplicity="1" />
+    <End Role="DemoraContenedor" Type="Self.DemoraContenedor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Contenedor">
+        <PropertyRef Name="IdContenedor" />
+      </Principal>
+      <Dependent Role="DemoraContenedor">
+        <PropertyRef Name="IdContenedor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DemoraContenedor_Demora">
+    <End Role="Demora" Type="Self.Demora" Multiplicity="1" />
+    <End Role="DemoraContenedor" Type="Self.DemoraContenedor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Demora">
+        <PropertyRef Name="IdDemora" />
+      </Principal>
+      <Dependent Role="DemoraContenedor">
+        <PropertyRef Name="IdDemora" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EmbarqueContenedor_Contenedor">
+    <End Role="Contenedor" Type="Self.Contenedor" Multiplicity="1" />
+    <End Role="ItinerarioEmbContenedor" Type="Self.ItinerarioEmbContenedor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Contenedor">
+        <PropertyRef Name="IdContenedor" />
+      </Principal>
+      <Dependent Role="ItinerarioEmbContenedor">
+        <PropertyRef Name="IdContenedor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EmpresaCuentaBancaria_Empresa">
+    <End Role="Empresa" Type="Self.Empresa" Multiplicity="1" />
+    <End Role="EmpresaCuentaBancaria" Type="Self.EmpresaCuentaBancaria" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Empresa">
+        <PropertyRef Name="IdEmpresa" />
+      </Principal>
+      <Dependent Role="EmpresaCuentaBancaria">
+        <PropertyRef Name="IdEmpresa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EmpresaServicio_Empresa">
+    <End Role="Empresa" Type="Self.Empresa" Multiplicity="1" />
+    <End Role="EmpresaServicio" Type="Self.EmpresaServicio" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Empresa">
+        <PropertyRef Name="IdEmpresa" />
+      </Principal>
+      <Dependent Role="EmpresaServicio">
+        <PropertyRef Name="IdEmpresa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EmpresaServicio_Servicio">
+    <End Role="Servicio" Type="Self.Servicio" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="EmpresaServicio" Type="Self.EmpresaServicio" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Servicio">
+        <PropertyRef Name="IdServicio" />
+      </Principal>
+      <Dependent Role="EmpresaServicio">
+        <PropertyRef Name="IdServicio" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Factura_Cliente">
+    <End Role="Cliente" Type="Self.Cliente" Multiplicity="1" />
+    <End Role="Factura" Type="Self.Factura" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cliente">
+        <PropertyRef Name="IdCliente" />
+      </Principal>
+      <Dependent Role="Factura">
+        <PropertyRef Name="ClienteFactura" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Factura_Empresa">
+    <End Role="Empresa" Type="Self.Empresa" Multiplicity="1" />
+    <End Role="Factura" Type="Self.Factura" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Empresa">
+        <PropertyRef Name="IdEmpresa" />
+      </Principal>
+      <Dependent Role="Factura">
+        <PropertyRef Name="EmpresaFactura" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Factura_TasaCambio">
+    <End Role="TasaCambio" Type="Self.TasaCambio" Multiplicity="1" />
+    <End Role="Factura" Type="Self.Factura" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TasaCambio">
+        <PropertyRef Name="IdTasaCambio" />
+      </Principal>
+      <Dependent Role="Factura">
+        <PropertyRef Name="TasaCambioFactura" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FacturaServicio_Factura">
+    <End Role="Factura" Type="Self.Factura" Multiplicity="1" />
+    <End Role="FacturaServicio" Type="Self.FacturaServicio" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Factura">
+        <PropertyRef Name="IdFactura" />
+      </Principal>
+      <Dependent Role="FacturaServicio">
+        <PropertyRef Name="IdFactura" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Itinerario_Buque">
+    <End Role="Buque" Type="Self.Buque" Multiplicity="0..1" />
+    <End Role="Itinerario" Type="Self.Itinerario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Buque">
+        <PropertyRef Name="IdBuque" />
+      </Principal>
+      <Dependent Role="Itinerario">
+        <PropertyRef Name="IdBuqueItinerario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Itinerario_LineaMaritima">
+    <End Role="LineaMaritima" Type="Self.LineaMaritima" Multiplicity="0..1" />
+    <End Role="Itinerario" Type="Self.Itinerario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LineaMaritima">
+        <PropertyRef Name="IdLineaMaritima" />
+      </Principal>
+      <Dependent Role="Itinerario">
+        <PropertyRef Name="IdLineaItinerario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Itinerario_Usuario">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+    <End Role="Itinerario" Type="Self.Itinerario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="IdUsuario" />
+      </Principal>
+      <Dependent Role="Itinerario">
+        <PropertyRef Name="UsuarioItinerario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ItinerarioContenedor_Contenedor">
+    <End Role="Contenedor" Type="Self.Contenedor" Multiplicity="1" />
+    <End Role="ItinerarioContenedor" Type="Self.ItinerarioContenedor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Contenedor">
+        <PropertyRef Name="IdContenedor" />
+      </Principal>
+      <Dependent Role="ItinerarioContenedor">
+        <PropertyRef Name="IdContenedor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ItinerarioContenedor_Itinerario">
+    <End Role="Itinerario" Type="Self.Itinerario" Multiplicity="1" />
+    <End Role="ItinerarioContenedor" Type="Self.ItinerarioContenedor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Itinerario">
+        <PropertyRef Name="IdItinerario" />
+      </Principal>
+      <Dependent Role="ItinerarioContenedor">
+        <PropertyRef Name="IdItinerario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ItinerarioEmbContenedor_Itinerario">
+    <End Role="Itinerario" Type="Self.Itinerario" Multiplicity="1" />
+    <End Role="ItinerarioEmbContenedor" Type="Self.ItinerarioEmbContenedor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Itinerario">
+        <PropertyRef Name="IdItinerario" />
+      </Principal>
+      <Dependent Role="ItinerarioEmbContenedor">
+        <PropertyRef Name="ItinerarioEmbarque" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ItinerarioUbicacion_Itinerario">
+    <End Role="Itinerario" Type="Self.Itinerario" Multiplicity="1" />
+    <End Role="ItinerarioUbicacion" Type="Self.ItinerarioUbicacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Itinerario">
+        <PropertyRef Name="IdItinerario" />
+      </Principal>
+      <Dependent Role="ItinerarioUbicacion">
+        <PropertyRef Name="IdItinerario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ItinerarioUbicacion_Ubicacion">
+    <End Role="Ubicacion" Type="Self.Ubicacion" Multiplicity="1" />
+    <End Role="ItinerarioUbicacion" Type="Self.ItinerarioUbicacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ubicacion">
+        <PropertyRef Name="IdUbicacion" />
+      </Principal>
+      <Dependent Role="ItinerarioUbicacion">
+        <PropertyRef Name="IdUbicacion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LineaBuque_Buque">
+    <End Role="Buque" Type="Self.Buque" Multiplicity="1" />
+    <End Role="LineaBuque" Type="Self.LineaBuque" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Buque">
+        <PropertyRef Name="IdBuque" />
+      </Principal>
+      <Dependent Role="LineaBuque">
+        <PropertyRef Name="IdBuque" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LineaBuque_LineaMaritima">
+    <End Role="LineaMaritima" Type="Self.LineaMaritima" Multiplicity="1" />
+    <End Role="LineaBuque" Type="Self.LineaBuque" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LineaMaritima">
+        <PropertyRef Name="IdLineaMaritima" />
+      </Principal>
+      <Dependent Role="LineaBuque">
+        <PropertyRef Name="IdLineaMaritima" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Opcion_GrupoOpcion">
+    <End Role="GrupoOpcion" Type="Self.GrupoOpcion" Multiplicity="0..1" />
+    <End Role="Opcion" Type="Self.Opcion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GrupoOpcion">
+        <PropertyRef Name="IdGrupoOpc" />
+      </Principal>
+      <Dependent Role="Opcion">
+        <PropertyRef Name="GrupoOpcion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Opcion_Modulo">
+    <End Role="Modulo" Type="Self.Modulo" Multiplicity="1" />
+    <End Role="Opcion" Type="Self.Opcion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Modulo">
+        <PropertyRef Name="IdModulo" />
+      </Principal>
+      <Dependent Role="Opcion">
+        <PropertyRef Name="ModuloOpcion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OpcionMensajeUsuario_Opcion">
+    <End Role="Opcion" Type="Self.Opcion" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="OpcionMensajeUsuario" Type="Self.OpcionMensajeUsuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Opcion">
+        <PropertyRef Name="IdOpcion" />
+      </Principal>
+      <Dependent Role="OpcionMensajeUsuario">
+        <PropertyRef Name="IdOpcion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OpcionMensajeUsuario_TipoMensajeUsuario">
+    <End Role="TipoMensajeUsuario" Type="Self.TipoMensajeUsuario" Multiplicity="1" />
+    <End Role="OpcionMensajeUsuario" Type="Self.OpcionMensajeUsuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoMensajeUsuario">
+        <PropertyRef Name="IdTipoMensaje" />
+      </Principal>
+      <Dependent Role="OpcionMensajeUsuario">
+        <PropertyRef Name="TipoMensajeUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OpcionMensajeUsuario_Usuario">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="OpcionMensajeUsuario" Type="Self.OpcionMensajeUsuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="IdUsuario" />
+      </Principal>
+      <Dependent Role="OpcionMensajeUsuario">
+        <PropertyRef Name="IdUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OrdenReparacion_ContenedorEIR">
+    <End Role="ContenedorEIR" Type="Self.ContenedorEIR" Multiplicity="1" />
+    <End Role="OrdenReparacion" Type="Self.OrdenReparacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ContenedorEIR">
+        <PropertyRef Name="IdContenedorEIR" />
+      </Principal>
+      <Dependent Role="OrdenReparacion">
+        <PropertyRef Name="IdContenedorEIR" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OrdenRepComponente_Componente">
+    <End Role="Componente" Type="Self.Componente" Multiplicity="1" />
+    <End Role="OrdenRepComponente" Type="Self.OrdenRepComponente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Componente">
+        <PropertyRef Name="IdComponente" />
+      </Principal>
+      <Dependent Role="OrdenRepComponente">
+        <PropertyRef Name="IdComponente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OrdenRepComponente_Daño">
+    <End Role="Daño" Type="Self.Daño" Multiplicity="1" />
+    <End Role="OrdenRepComponente" Type="Self.OrdenRepComponente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Daño">
+        <PropertyRef Name="IdDaño" />
+      </Principal>
+      <Dependent Role="OrdenRepComponente">
+        <PropertyRef Name="IdDañoOrdComp" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OrdenRepComponente_Lado">
+    <End Role="Lado" Type="Self.Lado" Multiplicity="1" />
+    <End Role="OrdenRepComponente" Type="Self.OrdenRepComponente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Lado">
+        <PropertyRef Name="IdLado" />
+      </Principal>
+      <Dependent Role="OrdenRepComponente">
+        <PropertyRef Name="IdLadoOrdComponente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OrdenRepComponente_MetodoReparacion">
+    <End Role="MetodoReparacion" Type="Self.MetodoReparacion" Multiplicity="1" />
+    <End Role="OrdenRepComponente" Type="Self.OrdenRepComponente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MetodoReparacion">
+        <PropertyRef Name="IdMetodoRep" />
+      </Principal>
+      <Dependent Role="OrdenRepComponente">
+        <PropertyRef Name="MetodoRepOrdComp" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OrdenRepComponente_OrdenReparacion">
+    <End Role="OrdenReparacion" Type="Self.OrdenReparacion" Multiplicity="1" />
+    <End Role="OrdenRepComponente" Type="Self.OrdenRepComponente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OrdenReparacion">
+        <PropertyRef Name="IdOrdenRep" />
+      </Principal>
+      <Dependent Role="OrdenRepComponente">
+        <PropertyRef Name="IdOrdenRep" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Preliquidacion_BLEmbarque">
+    <End Role="BLEmbarque" Type="Self.BLEmbarque" Multiplicity="0..1" />
+    <End Role="Preliquidacion" Type="Self.Preliquidacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BLEmbarque">
+        <PropertyRef Name="IdBLEmbarque" />
+      </Principal>
+      <Dependent Role="Preliquidacion">
+        <PropertyRef Name="BLPreliquidacion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Preliquidacion_Cliente">
+    <End Role="Cliente" Type="Self.Cliente" Multiplicity="1" />
+    <End Role="Preliquidacion" Type="Self.Preliquidacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cliente">
+        <PropertyRef Name="IdCliente" />
+      </Principal>
+      <Dependent Role="Preliquidacion">
+        <PropertyRef Name="ClientePreliquidacion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Preliquidacion_Empresa">
+    <End Role="Empresa" Type="Self.Empresa" Multiplicity="1" />
+    <End Role="Preliquidacion" Type="Self.Preliquidacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Empresa">
+        <PropertyRef Name="IdEmpresa" />
+      </Principal>
+      <Dependent Role="Preliquidacion">
+        <PropertyRef Name="EmpresaPreliquidacion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Preliquidacion_PreliquidacionEstatus">
+    <End Role="PreliquidacionEstatus" Type="Self.PreliquidacionEstatus" Multiplicity="0..1" />
+    <End Role="Preliquidacion" Type="Self.Preliquidacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PreliquidacionEstatus">
+        <PropertyRef Name="IdPrelEstatus" />
+      </Principal>
+      <Dependent Role="Preliquidacion">
+        <PropertyRef Name="EstatusPreliquidacion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Preliquidacion_TasaCambio">
+    <End Role="TasaCambio" Type="Self.TasaCambio" Multiplicity="0..1" />
+    <End Role="Preliquidacion" Type="Self.Preliquidacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TasaCambio">
+        <PropertyRef Name="IdTasaCambio" />
+      </Principal>
+      <Dependent Role="Preliquidacion">
+        <PropertyRef Name="TasaCambioBLPreliquidacion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Preliquidacion_TipoPreliquidacion">
+    <End Role="TipoPreliquidacion" Type="Self.TipoPreliquidacion" Multiplicity="0..1" />
+    <End Role="Preliquidacion" Type="Self.Preliquidacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoPreliquidacion">
+        <PropertyRef Name="IdTipoPre" />
+      </Principal>
+      <Dependent Role="Preliquidacion">
+        <PropertyRef Name="TipoPreliquidacion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PreliquidacionContenedor_Preliquidacion">
+    <End Role="Preliquidacion" Type="Self.Preliquidacion" Multiplicity="1" />
+    <End Role="PreliquidacionContenedor" Type="Self.PreliquidacionContenedor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Preliquidacion">
+        <PropertyRef Name="IdPreliquidacion" />
+      </Principal>
+      <Dependent Role="PreliquidacionContenedor">
+        <PropertyRef Name="IdPreliquidacion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PresupuestoServicio_Presupuesto">
+    <End Role="Preliquidacion" Type="Self.Preliquidacion" Multiplicity="1" />
+    <End Role="PreliquidacionServicio" Type="Self.PreliquidacionServicio" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Preliquidacion">
+        <PropertyRef Name="IdPreliquidacion" />
+      </Principal>
+      <Dependent Role="PreliquidacionServicio">
+        <PropertyRef Name="IdPreliquidacion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PresupuestoServicio_Servicio">
+    <End Role="Servicio" Type="Self.Servicio" Multiplicity="1" />
+    <End Role="PreliquidacionServicio" Type="Self.PreliquidacionServicio" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Servicio">
+        <PropertyRef Name="IdServicio" />
+      </Principal>
+      <Dependent Role="PreliquidacionServicio">
+        <PropertyRef Name="IdServicio" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Reserva_Cliente">
+    <End Role="Cliente" Type="Self.Cliente" Multiplicity="1" />
+    <End Role="Reserva" Type="Self.Reserva" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cliente">
+        <PropertyRef Name="IdCliente" />
+      </Principal>
+      <Dependent Role="Reserva">
+        <PropertyRef Name="ClienteReserva" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Reserva_Itinerario">
+    <End Role="Itinerario" Type="Self.Itinerario" Multiplicity="1" />
+    <End Role="Reserva" Type="Self.Reserva" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Itinerario">
+        <PropertyRef Name="IdItinerario" />
+      </Principal>
+      <Dependent Role="Reserva">
+        <PropertyRef Name="ItinerarioReserva" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Reserva_Puerto">
+    <End Role="Puerto" Type="Self.Puerto" Multiplicity="1" />
+    <End Role="Reserva" Type="Self.Reserva" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Puerto">
+        <PropertyRef Name="IdPuerto" />
+      </Principal>
+      <Dependent Role="Reserva">
+        <PropertyRef Name="PuertoDescargaReserva" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Reserva_Usuario">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+    <End Role="Reserva" Type="Self.Reserva" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="IdUsuario" />
+      </Principal>
+      <Dependent Role="Reserva">
+        <PropertyRef Name="UsuarioReserva" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ReservaContenedor_Contenedor">
+    <End Role="Contenedor" Type="Self.Contenedor" Multiplicity="1" />
+    <End Role="ReservaContenedor" Type="Self.ReservaContenedor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Contenedor">
+        <PropertyRef Name="IdContenedor" />
+      </Principal>
+      <Dependent Role="ReservaContenedor">
+        <PropertyRef Name="IdContenedor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ReservaContenedor_Reserva">
+    <End Role="Reserva" Type="Self.Reserva" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ReservaContenedor" Type="Self.ReservaContenedor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Reserva">
+        <PropertyRef Name="IdReserva" />
+      </Principal>
+      <Dependent Role="ReservaContenedor">
+        <PropertyRef Name="IdReserva" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ServicioTarifa_Empresa">
+    <End Role="Empresa" Type="Self.Empresa" Multiplicity="1" />
+    <End Role="ServicioTarifa" Type="Self.ServicioTarifa" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Empresa">
+        <PropertyRef Name="IdEmpresa" />
+      </Principal>
+      <Dependent Role="ServicioTarifa">
+        <PropertyRef Name="IdEmpresa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ServicioTarifa_LineaMaritima">
+    <End Role="LineaMaritima" Type="Self.LineaMaritima" Multiplicity="1" />
+    <End Role="ServicioTarifa" Type="Self.ServicioTarifa" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LineaMaritima">
+        <PropertyRef Name="IdLineaMaritima" />
+      </Principal>
+      <Dependent Role="ServicioTarifa">
+        <PropertyRef Name="IdLinea" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ServicioTarifa_Servicio">
+    <End Role="Servicio" Type="Self.Servicio" Multiplicity="1" />
+    <End Role="ServicioTarifa" Type="Self.ServicioTarifa" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Servicio">
+        <PropertyRef Name="IdServicio" />
+      </Principal>
+      <Dependent Role="ServicioTarifa">
+        <PropertyRef Name="IdServicio" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ServicioTarifa_TipoPreliquidacion">
+    <End Role="TipoPreliquidacion" Type="Self.TipoPreliquidacion" Multiplicity="1" />
+    <End Role="ServicioTarifa" Type="Self.ServicioTarifa" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoPreliquidacion">
+        <PropertyRef Name="IdTipoPre" />
+      </Principal>
+      <Dependent Role="ServicioTarifa">
+        <PropertyRef Name="TipoServicio" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TasaCambioMov_TasaCambio">
+    <End Role="TasaCambio" Type="Self.TasaCambio" Multiplicity="1" />
+    <End Role="TasaCambioMov" Type="Self.TasaCambioMov" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TasaCambio">
+        <PropertyRef Name="IdTasaCambio" />
+      </Principal>
+      <Dependent Role="TasaCambioMov">
+        <PropertyRef Name="IdTasaCambio" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TipoTamaño_TipoContenedor">
+    <End Role="TipoContenedor" Type="Self.TipoContenedor" Multiplicity="1" />
+    <End Role="TipoTamaño" Type="Self.TipoTamaño" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoContenedor">
+        <PropertyRef Name="IdTipoContenedor" />
+      </Principal>
+      <Dependent Role="TipoTamaño">
+        <PropertyRef Name="TipoContenedor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UnidadTransporte_EmpresaTransporte">
+    <End Role="EmpresaTransporte" Type="Self.EmpresaTransporte" Multiplicity="1" />
+    <End Role="UnidadTransporte" Type="Self.UnidadTransporte" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EmpresaTransporte">
+        <PropertyRef Name="IdEmpresaTrans" />
+      </Principal>
+      <Dependent Role="UnidadTransporte">
+        <PropertyRef Name="EmpresaUnidadTransporte" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Usuario_Departamento">
+    <End Role="Departamento" Type="Self.Departamento" Multiplicity="0..1" />
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Departamento">
+        <PropertyRef Name="IdDepartamento" />
+      </Principal>
+      <Dependent Role="Usuario">
+        <PropertyRef Name="DepartamentoUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Usuario_Oficina">
+    <End Role="Oficina" Type="Self.Oficina" Multiplicity="0..1" />
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Oficina">
+        <PropertyRef Name="IdOficina" />
+      </Principal>
+      <Dependent Role="Usuario">
+        <PropertyRef Name="OficinaUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UsuarioModulo_Modulo">
+    <End Role="Modulo" Type="Self.Modulo" Multiplicity="1" />
+    <End Role="UsuarioModulo" Type="Self.UsuarioModulo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Modulo">
+        <PropertyRef Name="IdModulo" />
+      </Principal>
+      <Dependent Role="UsuarioModulo">
+        <PropertyRef Name="IdModulo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UsuarioModulo_Rol">
+    <End Role="Rol" Type="Self.Rol" Multiplicity="0..1" />
+    <End Role="UsuarioModulo" Type="Self.UsuarioModulo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Rol">
+        <PropertyRef Name="IdRol" />
+      </Principal>
+      <Dependent Role="UsuarioModulo">
+        <PropertyRef Name="IdRolUsuarioModulo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UsuarioModulo_Usuario">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="UsuarioModulo" Type="Self.UsuarioModulo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="IdUsuario" />
+      </Principal>
+      <Dependent Role="UsuarioModulo">
+        <PropertyRef Name="IdUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UsuarioOpcion_Opcion">
+    <End Role="Opcion" Type="Self.Opcion" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="UsuarioOpcion" Type="Self.UsuarioOpcion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Opcion">
+        <PropertyRef Name="IdOpcion" />
+      </Principal>
+      <Dependent Role="UsuarioOpcion">
+        <PropertyRef Name="IdOpcion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UsuarioOpcion_Usuario">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="UsuarioOpcion" Type="Self.UsuarioOpcion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="IdUsuario" />
+      </Principal>
+      <Dependent Role="UsuarioOpcion">
+        <PropertyRef Name="IdUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ATLANTISModelStoreContainer">
+    <EntitySet Name="AgenteAduanal" EntityType="Self.AgenteAduanal" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BLEmbarque" EntityType="Self.BLEmbarque" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Buque" EntityType="Self.Buque" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Cliente" EntityType="Self.Cliente" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ClienteTarifaSer" EntityType="Self.ClienteTarifaSer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Componente" EntityType="Self.Componente" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Condicion" EntityType="Self.Condicion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ConductorUndTrans" EntityType="Self.ConductorUndTrans" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Contenedor" EntityType="Self.Contenedor" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ContenedorEIR" EntityType="Self.ContenedorEIR" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ContenedorMovimiento" EntityType="Self.ContenedorMovimiento" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Daño" EntityType="Self.Daño" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Demora" EntityType="Self.Demora" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DemoraContenedor" EntityType="Self.DemoraContenedor" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DemoraTarifa" EntityType="Self.DemoraTarifa" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Departamento" EntityType="Self.Departamento" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Empresa" EntityType="Self.Empresa" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EmpresaCuentaBancaria" EntityType="Self.EmpresaCuentaBancaria" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EmpresaServicio" EntityType="Self.EmpresaServicio" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EmpresaTransporte" EntityType="Self.EmpresaTransporte" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EstatusContenedor" EntityType="Self.EstatusContenedor" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Evento" EntityType="Self.Evento" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Factura" EntityType="Self.Factura" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FacturaServicio" EntityType="Self.FacturaServicio" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GrupoOpcion" EntityType="Self.GrupoOpcion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Itinerario" EntityType="Self.Itinerario" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ItinerarioContenedor" EntityType="Self.ItinerarioContenedor" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ItinerarioEmbContenedor" EntityType="Self.ItinerarioEmbContenedor" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ItinerarioUbicacion" EntityType="Self.ItinerarioUbicacion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Lado" EntityType="Self.Lado" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LineaBuque" EntityType="Self.LineaBuque" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LineaMaritima" EntityType="Self.LineaMaritima" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LineaPool" EntityType="Self.LineaPool" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MetodoReparacion" EntityType="Self.MetodoReparacion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Modulo" EntityType="Self.Modulo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Oficina" EntityType="Self.Oficina" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Opcion" EntityType="Self.Opcion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OpcionMensajeUsuario" EntityType="Self.OpcionMensajeUsuario" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OrdenReparacion" EntityType="Self.OrdenReparacion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OrdenRepComponente" EntityType="Self.OrdenRepComponente" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Preliquidacion" EntityType="Self.Preliquidacion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PreliquidacionContenedor" EntityType="Self.PreliquidacionContenedor" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PreliquidacionEstatus" EntityType="Self.PreliquidacionEstatus" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PreliquidacionServicio" EntityType="Self.PreliquidacionServicio" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Procedencia" EntityType="Self.Procedencia" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Puerto" EntityType="Self.Puerto" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Reserva" EntityType="Self.Reserva" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ReservaContenedor" EntityType="Self.ReservaContenedor" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Rol" EntityType="Self.Rol" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Servicio" EntityType="Self.Servicio" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ServicioTarifa" EntityType="Self.ServicioTarifa" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TasaCambio" EntityType="Self.TasaCambio" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TasaCambioMov" EntityType="Self.TasaCambioMov" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TipoContenedor" EntityType="Self.TipoContenedor" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TipoEIR" EntityType="Self.TipoEIR" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TipoISOContenedor" EntityType="Self.TipoISOContenedor" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TipoMensajeUsuario" EntityType="Self.TipoMensajeUsuario" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TipoPreliquidacion" EntityType="Self.TipoPreliquidacion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TipoTamaño" EntityType="Self.TipoTamaño" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Ubicacion" EntityType="Self.Ubicacion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UnidadTransporte" EntityType="Self.UnidadTransporte" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UsuarioModulo" EntityType="Self.UsuarioModulo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UsuarioOpcion" EntityType="Self.UsuarioOpcion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OrdenRepImagen" EntityType="Self.OrdenRepImagen" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [OrdenRepImagen].[IdOrdenRepImagenes] AS [IdOrdenRepImagenes], 
+    [OrdenRepImagen].[IdOrdenRep] AS [IdOrdenRep], 
+    [OrdenRepImagen].[PathImagenOrdenRep] AS [PathImagenOrdenRep]
+    FROM [dbo].[OrdenRepImagen] AS [OrdenRepImagen]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_BLEmbarque_Itinerario" Association="Self.FK_BLEmbarque_Itinerario">
+      <End Role="Itinerario" EntitySet="Itinerario" />
+      <End Role="BLEmbarque" EntitySet="BLEmbarque" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Contenedor_Condicion" Association="Self.FK_Contenedor_Condicion">
+      <End Role="Condicion" EntitySet="Condicion" />
+      <End Role="Contenedor" EntitySet="Contenedor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Contenedor_EstatusContenedor" Association="Self.FK_Contenedor_EstatusContenedor">
+      <End Role="EstatusContenedor" EntitySet="EstatusContenedor" />
+      <End Role="Contenedor" EntitySet="Contenedor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Contenedor_Evento" Association="Self.FK_Contenedor_Evento">
+      <End Role="Evento" EntitySet="Evento" />
+      <End Role="Contenedor" EntitySet="Contenedor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Contenedor_LineaMaritima" Association="Self.FK_Contenedor_LineaMaritima">
+      <End Role="LineaMaritima" EntitySet="LineaMaritima" />
+      <End Role="Contenedor" EntitySet="Contenedor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Contenedor_TipoContenedor" Association="Self.FK_Contenedor_TipoContenedor">
+      <End Role="TipoContenedor" EntitySet="TipoContenedor" />
+      <End Role="Contenedor" EntitySet="Contenedor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Contenedor_Ubicacion" Association="Self.FK_Contenedor_Ubicacion">
+      <End Role="Ubicacion" EntitySet="Ubicacion" />
+      <End Role="Contenedor" EntitySet="Contenedor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ContenedorEIR_Evento" Association="Self.FK_ContenedorEIR_Evento">
+      <End Role="Evento" EntitySet="Evento" />
+      <End Role="ContenedorEIR" EntitySet="ContenedorEIR" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ContenedorEIR_TipoEIR" Association="Self.FK_ContenedorEIR_TipoEIR">
+      <End Role="TipoEIR" EntitySet="TipoEIR" />
+      <End Role="ContenedorEIR" EntitySet="ContenedorEIR" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ContenedorEIREntrada_AgenteAduanal" Association="Self.FK_ContenedorEIREntrada_AgenteAduanal">
+      <End Role="AgenteAduanal" EntitySet="AgenteAduanal" />
+      <End Role="ContenedorEIR" EntitySet="ContenedorEIR" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ContenedorEIREntrada_Condicion" Association="Self.FK_ContenedorEIREntrada_Condicion">
+      <End Role="Condicion" EntitySet="Condicion" />
+      <End Role="ContenedorEIR" EntitySet="ContenedorEIR" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ContenedorEIREntrada_ConductorUndTrans" Association="Self.FK_ContenedorEIREntrada_ConductorUndTrans">
+      <End Role="ConductorUndTrans" EntitySet="ConductorUndTrans" />
+      <End Role="ContenedorEIR" EntitySet="ContenedorEIR" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ContenedorEIREntrada_Contenedor" Association="Self.FK_ContenedorEIREntrada_Contenedor">
+      <End Role="Contenedor" EntitySet="Contenedor" />
+      <End Role="ContenedorEIR" EntitySet="ContenedorEIR" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ContenedorEIREntrada_Ubicacion" Association="Self.FK_ContenedorEIREntrada_Ubicacion">
+      <End Role="Ubicacion" EntitySet="Ubicacion" />
+      <End Role="ContenedorEIR" EntitySet="ContenedorEIR" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ContenedorEIREntrada_UnidadTransporte" Association="Self.FK_ContenedorEIREntrada_UnidadTransporte">
+      <End Role="UnidadTransporte" EntitySet="UnidadTransporte" />
+      <End Role="ContenedorEIR" EntitySet="ContenedorEIR" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ContenedorMovimiento_Contenedor" Association="Self.FK_ContenedorMovimiento_Contenedor">
+      <End Role="Contenedor" EntitySet="Contenedor" />
+      <End Role="ContenedorMovimiento" EntitySet="ContenedorMovimiento" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ContenedorMovimiento_EstatusContenedor" Association="Self.FK_ContenedorMovimiento_EstatusContenedor">
+      <End Role="EstatusContenedor" EntitySet="EstatusContenedor" />
+      <End Role="ContenedorMovimiento" EntitySet="ContenedorMovimiento" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ContenedorMovimiento_Evento" Association="Self.FK_ContenedorMovimiento_Evento">
+      <End Role="Evento" EntitySet="Evento" />
+      <End Role="ContenedorMovimiento" EntitySet="ContenedorMovimiento" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ContenedorMovimiento_Itinerario" Association="Self.FK_ContenedorMovimiento_Itinerario">
+      <End Role="Itinerario" EntitySet="Itinerario" />
+      <End Role="ContenedorMovimiento" EntitySet="ContenedorMovimiento" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Demora_BLEmbarque" Association="Self.FK_Demora_BLEmbarque">
+      <End Role="BLEmbarque" EntitySet="BLEmbarque" />
+      <End Role="Demora" EntitySet="Demora" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Demora_Cliente" Association="Self.FK_Demora_Cliente">
+      <End Role="Cliente" EntitySet="Cliente" />
+      <End Role="Demora" EntitySet="Demora" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Demora_Cliente1" Association="Self.FK_Demora_Cliente1">
+      <End Role="Cliente" EntitySet="Cliente" />
+      <End Role="Demora" EntitySet="Demora" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Demora_TasaCambio" Association="Self.FK_Demora_TasaCambio">
+      <End Role="TasaCambio" EntitySet="TasaCambio" />
+      <End Role="Demora" EntitySet="Demora" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DemoraContenedor_Contenedor" Association="Self.FK_DemoraContenedor_Contenedor">
+      <End Role="Contenedor" EntitySet="Contenedor" />
+      <End Role="DemoraContenedor" EntitySet="DemoraContenedor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DemoraContenedor_Demora" Association="Self.FK_DemoraContenedor_Demora">
+      <End Role="Demora" EntitySet="Demora" />
+      <End Role="DemoraContenedor" EntitySet="DemoraContenedor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EmbarqueContenedor_Contenedor" Association="Self.FK_EmbarqueContenedor_Contenedor">
+      <End Role="Contenedor" EntitySet="Contenedor" />
+      <End Role="ItinerarioEmbContenedor" EntitySet="ItinerarioEmbContenedor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EmpresaCuentaBancaria_Empresa" Association="Self.FK_EmpresaCuentaBancaria_Empresa">
+      <End Role="Empresa" EntitySet="Empresa" />
+      <End Role="EmpresaCuentaBancaria" EntitySet="EmpresaCuentaBancaria" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EmpresaServicio_Empresa" Association="Self.FK_EmpresaServicio_Empresa">
+      <End Role="Empresa" EntitySet="Empresa" />
+      <End Role="EmpresaServicio" EntitySet="EmpresaServicio" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EmpresaServicio_Servicio" Association="Self.FK_EmpresaServicio_Servicio">
+      <End Role="Servicio" EntitySet="Servicio" />
+      <End Role="EmpresaServicio" EntitySet="EmpresaServicio" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Factura_Cliente" Association="Self.FK_Factura_Cliente">
+      <End Role="Cliente" EntitySet="Cliente" />
+      <End Role="Factura" EntitySet="Factura" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Factura_Empresa" Association="Self.FK_Factura_Empresa">
+      <End Role="Empresa" EntitySet="Empresa" />
+      <End Role="Factura" EntitySet="Factura" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Factura_TasaCambio" Association="Self.FK_Factura_TasaCambio">
+      <End Role="TasaCambio" EntitySet="TasaCambio" />
+      <End Role="Factura" EntitySet="Factura" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FacturaServicio_Factura" Association="Self.FK_FacturaServicio_Factura">
+      <End Role="Factura" EntitySet="Factura" />
+      <End Role="FacturaServicio" EntitySet="FacturaServicio" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Itinerario_Buque" Association="Self.FK_Itinerario_Buque">
+      <End Role="Buque" EntitySet="Buque" />
+      <End Role="Itinerario" EntitySet="Itinerario" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Itinerario_LineaMaritima" Association="Self.FK_Itinerario_LineaMaritima">
+      <End Role="LineaMaritima" EntitySet="LineaMaritima" />
+      <End Role="Itinerario" EntitySet="Itinerario" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Itinerario_Usuario" Association="Self.FK_Itinerario_Usuario">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="Itinerario" EntitySet="Itinerario" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ItinerarioContenedor_Contenedor" Association="Self.FK_ItinerarioContenedor_Contenedor">
+      <End Role="Contenedor" EntitySet="Contenedor" />
+      <End Role="ItinerarioContenedor" EntitySet="ItinerarioContenedor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ItinerarioContenedor_Itinerario" Association="Self.FK_ItinerarioContenedor_Itinerario">
+      <End Role="Itinerario" EntitySet="Itinerario" />
+      <End Role="ItinerarioContenedor" EntitySet="ItinerarioContenedor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ItinerarioEmbContenedor_Itinerario" Association="Self.FK_ItinerarioEmbContenedor_Itinerario">
+      <End Role="Itinerario" EntitySet="Itinerario" />
+      <End Role="ItinerarioEmbContenedor" EntitySet="ItinerarioEmbContenedor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ItinerarioUbicacion_Itinerario" Association="Self.FK_ItinerarioUbicacion_Itinerario">
+      <End Role="Itinerario" EntitySet="Itinerario" />
+      <End Role="ItinerarioUbicacion" EntitySet="ItinerarioUbicacion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ItinerarioUbicacion_Ubicacion" Association="Self.FK_ItinerarioUbicacion_Ubicacion">
+      <End Role="Ubicacion" EntitySet="Ubicacion" />
+      <End Role="ItinerarioUbicacion" EntitySet="ItinerarioUbicacion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LineaBuque_Buque" Association="Self.FK_LineaBuque_Buque">
+      <End Role="Buque" EntitySet="Buque" />
+      <End Role="LineaBuque" EntitySet="LineaBuque" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LineaBuque_LineaMaritima" Association="Self.FK_LineaBuque_LineaMaritima">
+      <End Role="LineaMaritima" EntitySet="LineaMaritima" />
+      <End Role="LineaBuque" EntitySet="LineaBuque" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Opcion_GrupoOpcion" Association="Self.FK_Opcion_GrupoOpcion">
+      <End Role="GrupoOpcion" EntitySet="GrupoOpcion" />
+      <End Role="Opcion" EntitySet="Opcion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Opcion_Modulo" Association="Self.FK_Opcion_Modulo">
+      <End Role="Modulo" EntitySet="Modulo" />
+      <End Role="Opcion" EntitySet="Opcion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OpcionMensajeUsuario_Opcion" Association="Self.FK_OpcionMensajeUsuario_Opcion">
+      <End Role="Opcion" EntitySet="Opcion" />
+      <End Role="OpcionMensajeUsuario" EntitySet="OpcionMensajeUsuario" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OpcionMensajeUsuario_TipoMensajeUsuario" Association="Self.FK_OpcionMensajeUsuario_TipoMensajeUsuario">
+      <End Role="TipoMensajeUsuario" EntitySet="TipoMensajeUsuario" />
+      <End Role="OpcionMensajeUsuario" EntitySet="OpcionMensajeUsuario" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OpcionMensajeUsuario_Usuario" Association="Self.FK_OpcionMensajeUsuario_Usuario">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="OpcionMensajeUsuario" EntitySet="OpcionMensajeUsuario" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrdenReparacion_ContenedorEIR" Association="Self.FK_OrdenReparacion_ContenedorEIR">
+      <End Role="ContenedorEIR" EntitySet="ContenedorEIR" />
+      <End Role="OrdenReparacion" EntitySet="OrdenReparacion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrdenRepComponente_Componente" Association="Self.FK_OrdenRepComponente_Componente">
+      <End Role="Componente" EntitySet="Componente" />
+      <End Role="OrdenRepComponente" EntitySet="OrdenRepComponente" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrdenRepComponente_Daño" Association="Self.FK_OrdenRepComponente_Daño">
+      <End Role="Daño" EntitySet="Daño" />
+      <End Role="OrdenRepComponente" EntitySet="OrdenRepComponente" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrdenRepComponente_Lado" Association="Self.FK_OrdenRepComponente_Lado">
+      <End Role="Lado" EntitySet="Lado" />
+      <End Role="OrdenRepComponente" EntitySet="OrdenRepComponente" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrdenRepComponente_MetodoReparacion" Association="Self.FK_OrdenRepComponente_MetodoReparacion">
+      <End Role="MetodoReparacion" EntitySet="MetodoReparacion" />
+      <End Role="OrdenRepComponente" EntitySet="OrdenRepComponente" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrdenRepComponente_OrdenReparacion" Association="Self.FK_OrdenRepComponente_OrdenReparacion">
+      <End Role="OrdenReparacion" EntitySet="OrdenReparacion" />
+      <End Role="OrdenRepComponente" EntitySet="OrdenRepComponente" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Preliquidacion_BLEmbarque" Association="Self.FK_Preliquidacion_BLEmbarque">
+      <End Role="BLEmbarque" EntitySet="BLEmbarque" />
+      <End Role="Preliquidacion" EntitySet="Preliquidacion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Preliquidacion_Cliente" Association="Self.FK_Preliquidacion_Cliente">
+      <End Role="Cliente" EntitySet="Cliente" />
+      <End Role="Preliquidacion" EntitySet="Preliquidacion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Preliquidacion_Empresa" Association="Self.FK_Preliquidacion_Empresa">
+      <End Role="Empresa" EntitySet="Empresa" />
+      <End Role="Preliquidacion" EntitySet="Preliquidacion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Preliquidacion_PreliquidacionEstatus" Association="Self.FK_Preliquidacion_PreliquidacionEstatus">
+      <End Role="PreliquidacionEstatus" EntitySet="PreliquidacionEstatus" />
+      <End Role="Preliquidacion" EntitySet="Preliquidacion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Preliquidacion_TasaCambio" Association="Self.FK_Preliquidacion_TasaCambio">
+      <End Role="TasaCambio" EntitySet="TasaCambio" />
+      <End Role="Preliquidacion" EntitySet="Preliquidacion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Preliquidacion_TipoPreliquidacion" Association="Self.FK_Preliquidacion_TipoPreliquidacion">
+      <End Role="TipoPreliquidacion" EntitySet="TipoPreliquidacion" />
+      <End Role="Preliquidacion" EntitySet="Preliquidacion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PreliquidacionContenedor_Preliquidacion" Association="Self.FK_PreliquidacionContenedor_Preliquidacion">
+      <End Role="Preliquidacion" EntitySet="Preliquidacion" />
+      <End Role="PreliquidacionContenedor" EntitySet="PreliquidacionContenedor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PresupuestoServicio_Presupuesto" Association="Self.FK_PresupuestoServicio_Presupuesto">
+      <End Role="Preliquidacion" EntitySet="Preliquidacion" />
+      <End Role="PreliquidacionServicio" EntitySet="PreliquidacionServicio" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PresupuestoServicio_Servicio" Association="Self.FK_PresupuestoServicio_Servicio">
+      <End Role="Servicio" EntitySet="Servicio" />
+      <End Role="PreliquidacionServicio" EntitySet="PreliquidacionServicio" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reserva_Cliente" Association="Self.FK_Reserva_Cliente">
+      <End Role="Cliente" EntitySet="Cliente" />
+      <End Role="Reserva" EntitySet="Reserva" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reserva_Itinerario" Association="Self.FK_Reserva_Itinerario">
+      <End Role="Itinerario" EntitySet="Itinerario" />
+      <End Role="Reserva" EntitySet="Reserva" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reserva_Puerto" Association="Self.FK_Reserva_Puerto">
+      <End Role="Puerto" EntitySet="Puerto" />
+      <End Role="Reserva" EntitySet="Reserva" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reserva_Usuario" Association="Self.FK_Reserva_Usuario">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="Reserva" EntitySet="Reserva" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ReservaContenedor_Contenedor" Association="Self.FK_ReservaContenedor_Contenedor">
+      <End Role="Contenedor" EntitySet="Contenedor" />
+      <End Role="ReservaContenedor" EntitySet="ReservaContenedor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ReservaContenedor_Reserva" Association="Self.FK_ReservaContenedor_Reserva">
+      <End Role="Reserva" EntitySet="Reserva" />
+      <End Role="ReservaContenedor" EntitySet="ReservaContenedor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ServicioTarifa_Empresa" Association="Self.FK_ServicioTarifa_Empresa">
+      <End Role="Empresa" EntitySet="Empresa" />
+      <End Role="ServicioTarifa" EntitySet="ServicioTarifa" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ServicioTarifa_LineaMaritima" Association="Self.FK_ServicioTarifa_LineaMaritima">
+      <End Role="LineaMaritima" EntitySet="LineaMaritima" />
+      <End Role="ServicioTarifa" EntitySet="ServicioTarifa" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ServicioTarifa_Servicio" Association="Self.FK_ServicioTarifa_Servicio">
+      <End Role="Servicio" EntitySet="Servicio" />
+      <End Role="ServicioTarifa" EntitySet="ServicioTarifa" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ServicioTarifa_TipoPreliquidacion" Association="Self.FK_ServicioTarifa_TipoPreliquidacion">
+      <End Role="TipoPreliquidacion" EntitySet="TipoPreliquidacion" />
+      <End Role="ServicioTarifa" EntitySet="ServicioTarifa" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TasaCambioMov_TasaCambio" Association="Self.FK_TasaCambioMov_TasaCambio">
+      <End Role="TasaCambio" EntitySet="TasaCambio" />
+      <End Role="TasaCambioMov" EntitySet="TasaCambioMov" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TipoTamaño_TipoContenedor" Association="Self.FK_TipoTamaño_TipoContenedor">
+      <End Role="TipoContenedor" EntitySet="TipoContenedor" />
+      <End Role="TipoTamaño" EntitySet="TipoTamaño" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UnidadTransporte_EmpresaTransporte" Association="Self.FK_UnidadTransporte_EmpresaTransporte">
+      <End Role="EmpresaTransporte" EntitySet="EmpresaTransporte" />
+      <End Role="UnidadTransporte" EntitySet="UnidadTransporte" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Usuario_Departamento" Association="Self.FK_Usuario_Departamento">
+      <End Role="Departamento" EntitySet="Departamento" />
+      <End Role="Usuario" EntitySet="Usuario" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Usuario_Oficina" Association="Self.FK_Usuario_Oficina">
+      <End Role="Oficina" EntitySet="Oficina" />
+      <End Role="Usuario" EntitySet="Usuario" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UsuarioModulo_Modulo" Association="Self.FK_UsuarioModulo_Modulo">
+      <End Role="Modulo" EntitySet="Modulo" />
+      <End Role="UsuarioModulo" EntitySet="UsuarioModulo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UsuarioModulo_Rol" Association="Self.FK_UsuarioModulo_Rol">
+      <End Role="Rol" EntitySet="Rol" />
+      <End Role="UsuarioModulo" EntitySet="UsuarioModulo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UsuarioModulo_Usuario" Association="Self.FK_UsuarioModulo_Usuario">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="UsuarioModulo" EntitySet="UsuarioModulo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UsuarioOpcion_Opcion" Association="Self.FK_UsuarioOpcion_Opcion">
+      <End Role="Opcion" EntitySet="Opcion" />
+      <End Role="UsuarioOpcion" EntitySet="UsuarioOpcion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UsuarioOpcion_Usuario" Association="Self.FK_UsuarioOpcion_Usuario">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="UsuarioOpcion" EntitySet="UsuarioOpcion" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

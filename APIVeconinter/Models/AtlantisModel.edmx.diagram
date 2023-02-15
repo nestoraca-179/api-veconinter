@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="37aa7060e3c44a228e4da3ce1ca3600c" Name="Diagram1">
+        <EntityTypeShape EntityType="ATLANTISModel.AgenteAduanal" Width="1.5" PointX="6" PointY="22.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ATLANTISModel.BLEmbarque" Width="1.5" PointX="9.25" PointY="32.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ATLANTISModel.Buque" Width="1.5" PointX="0.75" PointY="27.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ATLANTISModel.Cliente" Width="1.5" PointX="12" PointY="42.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ATLANTISModel.ClienteTarifaSer" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ATLANTISModel.Componente" Width="1.5" PointX="10.5" PointY="17.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ATLANTISModel.Condicion" Width="1.5" PointX="0.75" PointY="24.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ATLANTISModel.ConductorUndTrans" Width="1.5" PointX="6" PointY="19.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ATLANTISModel.Contenedor" Width="1.5" PointX="3" PointY="30.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ATLANTISModel.ContenedorEIR" Width="1.5" PointX="8.25" PointY="24.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ATLANTISModel.ContenedorMovimiento" Width="1.5" PointX="11.25" PointY="32.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ATLANTISModel.Daño" Width="1.5" PointX="10.5" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ATLANTISModel.Demora" Width="1.5" PointX="13.5" PointY="31.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ATLANTISModel.DemoraContenedor" Width="1.5" PointX="8.25" PointY="36.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ATLANTISModel.DemoraTarifa" Width="1.5" PointX="3.375" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ATLANTISModel.Departamento" Width="1.5" PointX="1.5" PointY="18.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ATLANTISModel.Empresa" Width="1.5" PointX="14.25" PointY="42.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ATLANTISModel.EmpresaCuentaBancaria" Width="1.5" PointX="16.5" PointY="43.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ATLANTISModel.EmpresaServicio" Width="1.5" PointX="21.75" PointY="36.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ATLANTISModel.EmpresaTransporte" Width="1.5" PointX="3.75" PointY="42.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ATLANTISModel.EstatusContenedor" Width="1.5" PointX="0.75" PointY="35.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ATLANTISModel.Evento" Width="1.5" PointX="0.75" PointY="38.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ATLANTISModel.Factura" Width="1.5" PointX="16.5" PointY="46.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ATLANTISModel.FacturaServicio" Width="1.5" PointX="18.75" PointY="47.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ATLANTISModel.GrupoOpcion" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ATLANTISModel.Itinerario" Width="1.5" PointX="6" PointY="31" IsExpanded="true" />
+        <EntityTypeShape EntityType="ATLANTISModel.ItinerarioContenedor" Width="1.5" PointX="11.25" PointY="24.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ATLANTISModel.ItinerarioEmbContenedor" Width="1.5" PointX="11.25" PointY="36.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ATLANTISModel.ItinerarioUbicacion" Width="1.5" PointX="14.25" PointY="27.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ATLANTISModel.Lado" Width="1.5" PointX="10.5" PointY="12.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ATLANTISModel.LineaBuque" Width="1.5" PointX="3" PointY="27.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ATLANTISModel.LineaMaritima" Width="1.5" PointX="0.75" PointY="32.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ATLANTISModel.LineaPool" Width="1.5" PointX="5.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ATLANTISModel.MetodoReparacion" Width="1.5" PointX="10.5" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ATLANTISModel.Modulo" Width="1.5" PointX="0.75" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ATLANTISModel.Oficina" Width="1.5" PointX="1.5" PointY="21.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ATLANTISModel.Opcion" Width="1.5" PointX="3" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ATLANTISModel.OpcionMensajeUsuario" Width="1.5" PointX="6" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ATLANTISModel.OrdenReparacion" Width="1.5" PointX="10.5" PointY="20" IsExpanded="true" />
+        <EntityTypeShape EntityType="ATLANTISModel.OrdenRepComponente" Width="1.5" PointX="12.75" PointY="20" IsExpanded="true" />
+        <EntityTypeShape EntityType="ATLANTISModel.Preliquidacion" Width="1.5" PointX="16.5" PointY="29.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ATLANTISModel.PreliquidacionContenedor" Width="1.5" PointX="18.75" PointY="32.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ATLANTISModel.PreliquidacionEstatus" Width="1.5" PointX="14.25" PointY="24.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ATLANTISModel.PreliquidacionServicio" Width="1.5" PointX="21.75" PointY="32.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ATLANTISModel.Procedencia" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ATLANTISModel.Puerto" Width="1.5" PointX="12" PointY="47.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ATLANTISModel.Reserva" Width="1.5" PointX="14.25" PointY="37.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ATLANTISModel.ReservaContenedor" Width="1.5" PointX="5.25" PointY="27.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ATLANTISModel.Rol" Width="1.5" PointX="3.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ATLANTISModel.Servicio" Width="1.5" PointX="19.5" PointY="28.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ATLANTISModel.ServicioTarifa" Width="1.5" PointX="3" PointY="38.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ATLANTISModel.TasaCambio" Width="1.5" PointX="11.25" PointY="49.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ATLANTISModel.TasaCambioMov" Width="1.5" PointX="13.5" PointY="49.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ATLANTISModel.TipoContenedor" Width="1.5" PointX="0.75" PointY="41.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ATLANTISModel.TipoEIR" Width="1.5" PointX="6" PointY="37.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ATLANTISModel.TipoISOContenedor" Width="1.5" PointX="7.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ATLANTISModel.TipoMensajeUsuario" Width="1.5" PointX="3.75" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ATLANTISModel.TipoPreliquidacion" Width="1.5" PointX="14.25" PointY="47" IsExpanded="true" />
+        <EntityTypeShape EntityType="ATLANTISModel.TipoTamaño" Width="1.5" PointX="3" PointY="46.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ATLANTISModel.Ubicacion" Width="1.5" PointX="0.75" PointY="44.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ATLANTISModel.UnidadTransporte" Width="1.5" PointX="6" PointY="42.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ATLANTISModel.Usuario" Width="1.5" PointX="3.75" PointY="18.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ATLANTISModel.UsuarioModulo" Width="1.5" PointX="6" PointY="12.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ATLANTISModel.UsuarioOpcion" Width="1.5" PointX="6" PointY="16.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ATLANTISModel.OrdenRepImagen" Width="1.5" PointX="7.75" PointY="6.75" IsExpanded="true" />
+        <AssociationConnector Association="ATLANTISModel.FK_ContenedorEIREntrada_AgenteAduanal" ManuallyRouted="false" />
+        <AssociationConnector Association="ATLANTISModel.FK_BLEmbarque_Itinerario" ManuallyRouted="false" />
+        <AssociationConnector Association="ATLANTISModel.FK_Demora_BLEmbarque" ManuallyRouted="false" />
+        <AssociationConnector Association="ATLANTISModel.FK_Preliquidacion_BLEmbarque" ManuallyRouted="false" />
+        <AssociationConnector Association="ATLANTISModel.FK_Itinerario_Buque" ManuallyRouted="false" />
+        <AssociationConnector Association="ATLANTISModel.FK_LineaBuque_Buque" ManuallyRouted="false" />
+        <AssociationConnector Association="ATLANTISModel.FK_Demora_Cliente" ManuallyRouted="false" />
+        <AssociationConnector Association="ATLANTISModel.FK_Demora_Cliente1" ManuallyRouted="false" />
+        <AssociationConnector Association="ATLANTISModel.FK_Factura_Cliente" ManuallyRouted="false" />
+        <AssociationConnector Association="ATLANTISModel.FK_Preliquidacion_Cliente" ManuallyRouted="false" />
+        <AssociationConnector Association="ATLANTISModel.FK_Reserva_Cliente" ManuallyRouted="false" />
+        <AssociationConnector Association="ATLANTISModel.FK_OrdenRepComponente_Componente" ManuallyRouted="false" />
+        <AssociationConnector Association="ATLANTISModel.FK_Contenedor_Condicion" ManuallyRouted="false" />
+        <AssociationConnector Association="ATLANTISModel.FK_ContenedorEIREntrada_Condicion" ManuallyRouted="false" />
+        <AssociationConnector Association="ATLANTISModel.FK_ContenedorEIREntrada_ConductorUndTrans" ManuallyRouted="false" />
+        <AssociationConnector Association="ATLANTISModel.FK_Contenedor_EstatusContenedor" ManuallyRouted="false" />
+        <AssociationConnector Association="ATLANTISModel.FK_Contenedor_Evento" ManuallyRouted="false" />
+        <AssociationConnector Association="ATLANTISModel.FK_Contenedor_LineaMaritima" ManuallyRouted="false" />
+        <AssociationConnector Association="ATLANTISModel.FK_Contenedor_TipoContenedor" ManuallyRouted="false" />
+        <AssociationConnector Association="ATLANTISModel.FK_Contenedor_Ubicacion" ManuallyRouted="false" />
+        <AssociationConnector Association="ATLANTISModel.FK_ContenedorEIREntrada_Contenedor" ManuallyRouted="false" />
+        <AssociationConnector Association="ATLANTISModel.FK_ContenedorMovimiento_Contenedor" ManuallyRouted="false" />
+        <AssociationConnector Association="ATLANTISModel.FK_DemoraContenedor_Contenedor" ManuallyRouted="false" />
+        <AssociationConnector Association="ATLANTISModel.FK_EmbarqueContenedor_Contenedor" ManuallyRouted="false" />
+        <AssociationConnector Association="ATLANTISModel.FK_ItinerarioContenedor_Contenedor" ManuallyRouted="false" />
+        <AssociationConnector Association="ATLANTISModel.FK_ReservaContenedor_Contenedor" ManuallyRouted="false" />
+        <AssociationConnector Association="ATLANTISModel.FK_ContenedorEIR_Evento" ManuallyRouted="false" />
+        <AssociationConnector Association="ATLANTISModel.FK_ContenedorEIR_TipoEIR" ManuallyRouted="false" />
+        <AssociationConnector Association="ATLANTISModel.FK_ContenedorEIREntrada_Ubicacion" ManuallyRouted="false" />
+        <AssociationConnector Association="ATLANTISModel.FK_ContenedorEIREntrada_UnidadTransporte" ManuallyRouted="false" />
+        <AssociationConnector Association="ATLANTISModel.FK_OrdenReparacion_ContenedorEIR" ManuallyRouted="false" />
+        <AssociationConnector Association="ATLANTISModel.FK_ContenedorMovimiento_EstatusContenedor" ManuallyRouted="false" />
+        <AssociationConnector Association="ATLANTISModel.FK_ContenedorMovimiento_Evento" ManuallyRouted="false" />
+        <AssociationConnector Association="ATLANTISModel.FK_ContenedorMovimiento_Itinerario" ManuallyRouted="false" />
+        <AssociationConnector Association="ATLANTISModel.FK_OrdenRepComponente_Daño" ManuallyRouted="false" />
+        <AssociationConnector Association="ATLANTISModel.FK_Demora_TasaCambio" ManuallyRouted="false" />
+        <AssociationConnector Association="ATLANTISModel.FK_DemoraContenedor_Demora" ManuallyRouted="false" />
+        <AssociationConnector Association="ATLANTISModel.FK_Usuario_Departamento" ManuallyRouted="false" />
+        <AssociationConnector Association="ATLANTISModel.FK_EmpresaCuentaBancaria_Empresa" ManuallyRouted="false" />
+        <AssociationConnector Association="ATLANTISModel.FK_EmpresaServicio_Empresa" ManuallyRouted="false" />
+        <AssociationConnector Association="ATLANTISModel.FK_Factura_Empresa" ManuallyRouted="false" />
+        <AssociationConnector Association="ATLANTISModel.FK_Preliquidacion_Empresa" ManuallyRouted="false" />
+        <AssociationConnector Association="ATLANTISModel.FK_ServicioTarifa_Empresa" ManuallyRouted="false" />
+        <AssociationConnector Association="ATLANTISModel.FK_EmpresaServicio_Servicio" ManuallyRouted="false" />
+        <AssociationConnector Association="ATLANTISModel.FK_UnidadTransporte_EmpresaTransporte" ManuallyRouted="false" />
+        <AssociationConnector Association="ATLANTISModel.FK_Factura_TasaCambio" ManuallyRouted="false" />
+        <AssociationConnector Association="ATLANTISModel.FK_FacturaServicio_Factura" ManuallyRouted="false" />
+        <AssociationConnector Association="ATLANTISModel.FK_Opcion_GrupoOpcion" ManuallyRouted="false" />
+        <AssociationConnector Association="ATLANTISModel.FK_Itinerario_LineaMaritima" ManuallyRouted="false" />
+        <AssociationConnector Association="ATLANTISModel.FK_Itinerario_Usuario" ManuallyRouted="false" />
+        <AssociationConnector Association="ATLANTISModel.FK_ItinerarioContenedor_Itinerario" ManuallyRouted="false" />
+        <AssociationConnector Association="ATLANTISModel.FK_ItinerarioEmbContenedor_Itinerario" ManuallyRouted="false" />
+        <AssociationConnector Association="ATLANTISModel.FK_ItinerarioUbicacion_Itinerario" ManuallyRouted="false" />
+        <AssociationConnector Association="ATLANTISModel.FK_Reserva_Itinerario" ManuallyRouted="false" />
+        <AssociationConnector Association="ATLANTISModel.FK_ItinerarioUbicacion_Ubicacion" ManuallyRouted="false" />
+        <AssociationConnector Association="ATLANTISModel.FK_OrdenRepComponente_Lado" ManuallyRouted="false" />
+        <AssociationConnector Association="ATLANTISModel.FK_LineaBuque_LineaMaritima" ManuallyRouted="false" />
+        <AssociationConnector Association="ATLANTISModel.FK_ServicioTarifa_LineaMaritima" ManuallyRouted="false" />
+        <AssociationConnector Association="ATLANTISModel.FK_OrdenRepComponente_MetodoReparacion" ManuallyRouted="false" />
+        <AssociationConnector Association="ATLANTISModel.FK_Opcion_Modulo" ManuallyRouted="false" />
+        <AssociationConnector Association="ATLANTISModel.FK_UsuarioModulo_Modulo" ManuallyRouted="false" />
+        <AssociationConnector Association="ATLANTISModel.FK_Usuario_Oficina" ManuallyRouted="false" />
+        <AssociationConnector Association="ATLANTISModel.FK_OpcionMensajeUsuario_Opcion" ManuallyRouted="false" />
+        <AssociationConnector Association="ATLANTISModel.FK_UsuarioOpcion_Opcion" ManuallyRouted="false" />
+        <AssociationConnector Association="ATLANTISModel.FK_OpcionMensajeUsuario_TipoMensajeUsuario" ManuallyRouted="false" />
+        <AssociationConnector Association="ATLANTISModel.FK_OpcionMensajeUsuario_Usuario" ManuallyRouted="false" />
+        <AssociationConnector Association="ATLANTISModel.FK_OrdenRepComponente_OrdenReparacion" ManuallyRouted="false" />
+        <AssociationConnector Association="ATLANTISModel.FK_Preliquidacion_PreliquidacionEstatus" ManuallyRouted="false" />
+        <AssociationConnector Association="ATLANTISModel.FK_Preliquidacion_TasaCambio" ManuallyRouted="false" />
+        <AssociationConnector Association="ATLANTISModel.FK_Preliquidacion_TipoPreliquidacion" ManuallyRouted="false" />
+        <AssociationConnector Association="ATLANTISModel.FK_PreliquidacionContenedor_Preliquidacion" ManuallyRouted="false" />
+        <AssociationConnector Association="ATLANTISModel.FK_PresupuestoServicio_Presupuesto" ManuallyRouted="false" />
+        <AssociationConnector Association="ATLANTISModel.FK_PresupuestoServicio_Servicio" ManuallyRouted="false" />
+        <AssociationConnector Association="ATLANTISModel.FK_Reserva_Puerto" ManuallyRouted="false" />
+        <AssociationConnector Association="ATLANTISModel.FK_Reserva_Usuario" ManuallyRouted="false" />
+        <AssociationConnector Association="ATLANTISModel.FK_ReservaContenedor_Reserva" ManuallyRouted="false" />
+        <AssociationConnector Association="ATLANTISModel.FK_UsuarioModulo_Rol" ManuallyRouted="false" />
+        <AssociationConnector Association="ATLANTISModel.FK_ServicioTarifa_Servicio" ManuallyRouted="false" />
+        <AssociationConnector Association="ATLANTISModel.FK_ServicioTarifa_TipoPreliquidacion" ManuallyRouted="false" />
+        <AssociationConnector Association="ATLANTISModel.FK_TasaCambioMov_TasaCambio" ManuallyRouted="false" />
+        <AssociationConnector Association="ATLANTISModel.FK_TipoTamaño_TipoContenedor" ManuallyRouted="false" />
+        <AssociationConnector Association="ATLANTISModel.FK_UsuarioModulo_Usuario" ManuallyRouted="false" />
+        <AssociationConnector Association="ATLANTISModel.FK_UsuarioOpcion_Usuario" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

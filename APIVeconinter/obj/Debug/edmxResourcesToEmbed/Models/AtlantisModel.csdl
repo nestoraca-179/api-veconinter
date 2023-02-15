@@ -1,0 +1,2323 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ATLANTISModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="AgenteAduanal">
+    <Key>
+      <PropertyRef Name="IdAgenteAduanal" />
+    </Key>
+    <Property Name="IdAgenteAduanal" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RifAgenteAduanal" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="NombreAgenteAduanal" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DireccionAgenteAduanal" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="TelefonoAgenteAdualnal" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="EmailAgenteAduanal" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="ContenedorEIR" Relationship="Self.FK_ContenedorEIREntrada_AgenteAduanal" FromRole="AgenteAduanal" ToRole="ContenedorEIR" />
+  </EntityType>
+  <EntityType Name="BLEmbarque">
+    <Key>
+      <PropertyRef Name="IdBLEmbarque" />
+    </Key>
+    <Property Name="IdBLEmbarque" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NroBLEmbarque" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ItinerarioBLEmbarque" Type="Int32" Nullable="false" />
+    <Property Name="DiasLibresBLEmbarque" Type="Int32" />
+    <NavigationProperty Name="Itinerario" Relationship="Self.FK_BLEmbarque_Itinerario" FromRole="BLEmbarque" ToRole="Itinerario" />
+    <NavigationProperty Name="Demora" Relationship="Self.FK_Demora_BLEmbarque" FromRole="BLEmbarque" ToRole="Demora" />
+    <NavigationProperty Name="Preliquidacion" Relationship="Self.FK_Preliquidacion_BLEmbarque" FromRole="BLEmbarque" ToRole="Preliquidacion" />
+  </EntityType>
+  <EntityType Name="Buque">
+    <Key>
+      <PropertyRef Name="IdBuque" />
+    </Key>
+    <Property Name="IdBuque" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CodigoBuque" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="NombreBuque" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="SiglasBuque" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CallSignBuque" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Itinerario" Relationship="Self.FK_Itinerario_Buque" FromRole="Buque" ToRole="Itinerario" />
+    <NavigationProperty Name="LineaBuque" Relationship="Self.FK_LineaBuque_Buque" FromRole="Buque" ToRole="LineaBuque" />
+  </EntityType>
+  <EntityType Name="Cliente">
+    <Key>
+      <PropertyRef Name="IdCliente" />
+    </Key>
+    <Property Name="IdCliente" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RifCliente" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="NombreCliente" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DireccionCliente" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="TelefonoCliente" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="EmailCliente" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="LineaCliente" Type="Boolean" />
+    <Property Name="EspecialCliente" Type="Boolean" />
+    <Property Name="CodigoPostalCliente" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Demora" Relationship="Self.FK_Demora_Cliente" FromRole="Cliente" ToRole="Demora" />
+    <NavigationProperty Name="Demora1" Relationship="Self.FK_Demora_Cliente1" FromRole="Cliente" ToRole="Demora" />
+    <NavigationProperty Name="Factura" Relationship="Self.FK_Factura_Cliente" FromRole="Cliente" ToRole="Factura" />
+    <NavigationProperty Name="Preliquidacion" Relationship="Self.FK_Preliquidacion_Cliente" FromRole="Cliente" ToRole="Preliquidacion" />
+    <NavigationProperty Name="Reserva" Relationship="Self.FK_Reserva_Cliente" FromRole="Cliente" ToRole="Reserva" />
+  </EntityType>
+  <EntityType Name="ClienteTarifaSer">
+    <Key>
+      <PropertyRef Name="IdTarifaSerCliente" />
+    </Key>
+    <Property Name="IdTarifaSerCliente" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdCliente" Type="Int32" Nullable="false" />
+    <Property Name="IdServicio" Type="Int32" Nullable="false" />
+    <Property Name="IdEmpresa" Type="Int32" Nullable="false" />
+    <Property Name="IdLinea" Type="Int32" Nullable="false" />
+    <Property Name="TipoServicio" Type="Int32" Nullable="false" />
+    <Property Name="ValorTarifaSerCliente" Type="Double" Nullable="false" />
+    <Property Name="NuevaTarifaCliente" Type="Double" />
+    <Property Name="FechaDesdeTarifaCliente" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="Componente">
+    <Key>
+      <PropertyRef Name="IdComponente" />
+    </Key>
+    <Property Name="IdComponente" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DescripcionComponente" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="OrdenRepComponente" Relationship="Self.FK_OrdenRepComponente_Componente" FromRole="Componente" ToRole="OrdenRepComponente" />
+  </EntityType>
+  <EntityType Name="Condicion">
+    <Key>
+      <PropertyRef Name="IdCondicion" />
+    </Key>
+    <Property Name="IdCondicion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CodigoCondicion" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DescripcionCondicion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Contenedor" Relationship="Self.FK_Contenedor_Condicion" FromRole="Condicion" ToRole="Contenedor" />
+    <NavigationProperty Name="ContenedorEIR" Relationship="Self.FK_ContenedorEIREntrada_Condicion" FromRole="Condicion" ToRole="ContenedorEIR" />
+  </EntityType>
+  <EntityType Name="ConductorUndTrans">
+    <Key>
+      <PropertyRef Name="IdConductor" />
+    </Key>
+    <Property Name="IdConductor" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CedulaConductor" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="NombreConductor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="ContenedorEIR" Relationship="Self.FK_ContenedorEIREntrada_ConductorUndTrans" FromRole="ConductorUndTrans" ToRole="ContenedorEIR" />
+  </EntityType>
+  <EntityType Name="Contenedor">
+    <Key>
+      <PropertyRef Name="IdContenedor" />
+    </Key>
+    <Property Name="IdContenedor" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SiglasContenedor" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TipoContenedor" Type="Int32" Nullable="false" />
+    <Property Name="TamañoContenedor" Type="Int16" Nullable="false" />
+    <Property Name="CondicionContenedor" Type="Int32" />
+    <Property Name="LineaContenedor" Type="Int32" />
+    <Property Name="PuertosCriticosContenedor" Type="Boolean" Nullable="false" />
+    <Property Name="SiglasUniversalesContenedor" Type="Boolean" Nullable="false" />
+    <Property Name="EstatusContenedor" Type="Int32" />
+    <Property Name="EventoContenedor" Type="Int32" />
+    <Property Name="CodigoContenedor" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="ReservadoContenedor" Type="Boolean" />
+    <Property Name="UbicacionContenedor" Type="Int32" />
+    <NavigationProperty Name="Condicion" Relationship="Self.FK_Contenedor_Condicion" FromRole="Contenedor" ToRole="Condicion" />
+    <NavigationProperty Name="EstatusContenedor1" Relationship="Self.FK_Contenedor_EstatusContenedor" FromRole="Contenedor" ToRole="EstatusContenedor" />
+    <NavigationProperty Name="Evento" Relationship="Self.FK_Contenedor_Evento" FromRole="Contenedor" ToRole="Evento" />
+    <NavigationProperty Name="LineaMaritima" Relationship="Self.FK_Contenedor_LineaMaritima" FromRole="Contenedor" ToRole="LineaMaritima" />
+    <NavigationProperty Name="TipoContenedor1" Relationship="Self.FK_Contenedor_TipoContenedor" FromRole="Contenedor" ToRole="TipoContenedor" />
+    <NavigationProperty Name="Ubicacion" Relationship="Self.FK_Contenedor_Ubicacion" FromRole="Contenedor" ToRole="Ubicacion" />
+    <NavigationProperty Name="ContenedorEIR" Relationship="Self.FK_ContenedorEIREntrada_Contenedor" FromRole="Contenedor" ToRole="ContenedorEIR" />
+    <NavigationProperty Name="ContenedorMovimiento" Relationship="Self.FK_ContenedorMovimiento_Contenedor" FromRole="Contenedor" ToRole="ContenedorMovimiento" />
+    <NavigationProperty Name="DemoraContenedor" Relationship="Self.FK_DemoraContenedor_Contenedor" FromRole="Contenedor" ToRole="DemoraContenedor" />
+    <NavigationProperty Name="ItinerarioEmbContenedor" Relationship="Self.FK_EmbarqueContenedor_Contenedor" FromRole="Contenedor" ToRole="ItinerarioEmbContenedor" />
+    <NavigationProperty Name="ItinerarioContenedor" Relationship="Self.FK_ItinerarioContenedor_Contenedor" FromRole="Contenedor" ToRole="ItinerarioContenedor" />
+    <NavigationProperty Name="ReservaContenedor" Relationship="Self.FK_ReservaContenedor_Contenedor" FromRole="Contenedor" ToRole="ReservaContenedor" />
+  </EntityType>
+  <EntityType Name="ContenedorEIR">
+    <Key>
+      <PropertyRef Name="IdContenedorEIR" />
+    </Key>
+    <Property Name="IdContenedorEIR" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdContenedor" Type="Int32" />
+    <Property Name="NroEIR" Type="Int32" />
+    <Property Name="FechaEIR" Type="DateTime" Precision="3" />
+    <Property Name="TipoEIR" Type="Int32" Nullable="false" />
+    <Property Name="NroExpEIR" Type="Int32" Nullable="false" />
+    <Property Name="NroEIRFullI" Type="Int32" />
+    <Property Name="FechaEIRFullI" Type="DateTime" Precision="3" />
+    <Property Name="CondicionEIR" Type="Int32" />
+    <Property Name="UbicacionEIR" Type="Int32" />
+    <Property Name="AgenteAduanalEIR" Type="Int32" />
+    <Property Name="UnidadTransporteEIR" Type="Int32" />
+    <Property Name="ConductorUnidadEIR" Type="Int32" />
+    <Property Name="ObservacionesEIR" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="RazonAnulacionEIR" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="UsuarioEIR" Type="Int32" Nullable="false" />
+    <Property Name="AnuladaEIR" Type="Boolean" />
+    <Property Name="EventoEIR" Type="Int32" />
+    <Property Name="EstatusEIR" Type="Int32" />
+    <Property Name="ProcesadoediEIR" Type="Boolean" />
+    <Property Name="ReingresoEIR" Type="Boolean" />
+    <Property Name="ImpresaEIR" Type="Boolean" />
+    <Property Name="ProcedenciaEIR" Type="Int32" />
+    <NavigationProperty Name="AgenteAduanal" Relationship="Self.FK_ContenedorEIREntrada_AgenteAduanal" FromRole="ContenedorEIR" ToRole="AgenteAduanal" />
+    <NavigationProperty Name="Condicion" Relationship="Self.FK_ContenedorEIREntrada_Condicion" FromRole="ContenedorEIR" ToRole="Condicion" />
+    <NavigationProperty Name="ConductorUndTrans" Relationship="Self.FK_ContenedorEIREntrada_ConductorUndTrans" FromRole="ContenedorEIR" ToRole="ConductorUndTrans" />
+    <NavigationProperty Name="Contenedor" Relationship="Self.FK_ContenedorEIREntrada_Contenedor" FromRole="ContenedorEIR" ToRole="Contenedor" />
+    <NavigationProperty Name="Evento" Relationship="Self.FK_ContenedorEIR_Evento" FromRole="ContenedorEIR" ToRole="Evento" />
+    <NavigationProperty Name="TipoEIR1" Relationship="Self.FK_ContenedorEIR_TipoEIR" FromRole="ContenedorEIR" ToRole="TipoEIR" />
+    <NavigationProperty Name="Ubicacion" Relationship="Self.FK_ContenedorEIREntrada_Ubicacion" FromRole="ContenedorEIR" ToRole="Ubicacion" />
+    <NavigationProperty Name="UnidadTransporte" Relationship="Self.FK_ContenedorEIREntrada_UnidadTransporte" FromRole="ContenedorEIR" ToRole="UnidadTransporte" />
+    <NavigationProperty Name="OrdenReparacion" Relationship="Self.FK_OrdenReparacion_ContenedorEIR" FromRole="ContenedorEIR" ToRole="OrdenReparacion" />
+  </EntityType>
+  <EntityType Name="ContenedorMovimiento">
+    <Key>
+      <PropertyRef Name="IdContenedorMov" />
+    </Key>
+    <Property Name="IdContenedorMov" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdContenedor" Type="Int32" Nullable="false" />
+    <Property Name="ItinerarioContenedorMov" Type="Int32" Nullable="false" />
+    <Property Name="FechaContenedorMov" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="EventoContenedorMov" Type="Int32" Nullable="false" />
+    <Property Name="EstatusContenedorMov" Type="Int32" />
+    <Property Name="NroExpContenedorMov" Type="Int32" />
+    <Property Name="UbicacionContenedorMov" Type="Int32" />
+    <NavigationProperty Name="Contenedor" Relationship="Self.FK_ContenedorMovimiento_Contenedor" FromRole="ContenedorMovimiento" ToRole="Contenedor" />
+    <NavigationProperty Name="EstatusContenedor" Relationship="Self.FK_ContenedorMovimiento_EstatusContenedor" FromRole="ContenedorMovimiento" ToRole="EstatusContenedor" />
+    <NavigationProperty Name="Evento" Relationship="Self.FK_ContenedorMovimiento_Evento" FromRole="ContenedorMovimiento" ToRole="Evento" />
+    <NavigationProperty Name="Itinerario" Relationship="Self.FK_ContenedorMovimiento_Itinerario" FromRole="ContenedorMovimiento" ToRole="Itinerario" />
+  </EntityType>
+  <EntityType Name="Daño">
+    <Key>
+      <PropertyRef Name="IdDaño" />
+    </Key>
+    <Property Name="IdDaño" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CodigoDaño" Type="String" MaxLength="2" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DescripcionDaño" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="OrdenRepComponente" Relationship="Self.FK_OrdenRepComponente_Daño" FromRole="Daño" ToRole="OrdenRepComponente" />
+  </EntityType>
+  <EntityType Name="Demora">
+    <Key>
+      <PropertyRef Name="IdDemora" />
+    </Key>
+    <Property Name="IdDemora" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FechaDemora" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ClienteDemora" Type="Int32" Nullable="false" />
+    <Property Name="ClienteTercero" Type="Int32" Nullable="false" />
+    <Property Name="TasaCambioDemora" Type="Int32" Nullable="false" />
+    <Property Name="BLDemora" Type="Int32" Nullable="false" />
+    <Property Name="SubtotalDemoraUSD" Type="Double" />
+    <Property Name="SubTotalDemoraBS" Type="Double" />
+    <Property Name="IVADemoraUSD" Type="Double" />
+    <Property Name="IVADemoraBS" Type="Double" />
+    <Property Name="TotalDemoraUSD" Type="Double" />
+    <Property Name="TotalDemoraBS" Type="Double" />
+    <Property Name="ObservacionesDemora" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="UsuarioDemora" Type="Int32" Nullable="false" />
+    <Property Name="TipoDemora" Type="Int32" Nullable="false" />
+    <Property Name="EstatusDemora" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="BLEmbarque" Relationship="Self.FK_Demora_BLEmbarque" FromRole="Demora" ToRole="BLEmbarque" />
+    <NavigationProperty Name="Cliente" Relationship="Self.FK_Demora_Cliente" FromRole="Demora" ToRole="Cliente" />
+    <NavigationProperty Name="Cliente1" Relationship="Self.FK_Demora_Cliente1" FromRole="Demora" ToRole="Cliente" />
+    <NavigationProperty Name="TasaCambio" Relationship="Self.FK_Demora_TasaCambio" FromRole="Demora" ToRole="TasaCambio" />
+    <NavigationProperty Name="DemoraContenedor" Relationship="Self.FK_DemoraContenedor_Demora" FromRole="Demora" ToRole="DemoraContenedor" />
+  </EntityType>
+  <EntityType Name="DemoraContenedor">
+    <Key>
+      <PropertyRef Name="IdDemoraContenedor" />
+    </Key>
+    <Property Name="IdDemoraContenedor" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdDemora" Type="Int32" Nullable="false" />
+    <Property Name="IdContenedor" Type="Int32" Nullable="false" />
+    <Property Name="CantidadDemoraContenedor" Type="Int32" Nullable="false" />
+    <Property Name="PrecioDemoraContenedorUSD" Type="Double" Nullable="false" />
+    <Property Name="TotalDemoraContenedorUSD" Type="Double" Nullable="false" />
+    <Property Name="PrecioDemoraContenedorBS" Type="Double" Nullable="false" />
+    <Property Name="TotalDemoraContenedorBS" Type="Double" Nullable="false" />
+    <Property Name="FacturadoDemoraContenedor" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Contenedor" Relationship="Self.FK_DemoraContenedor_Contenedor" FromRole="DemoraContenedor" ToRole="Contenedor" />
+    <NavigationProperty Name="Demora" Relationship="Self.FK_DemoraContenedor_Demora" FromRole="DemoraContenedor" ToRole="Demora" />
+  </EntityType>
+  <EntityType Name="DemoraTarifa">
+    <Key>
+      <PropertyRef Name="IdDemoraTarifa" />
+    </Key>
+    <Property Name="IdDemoraTarifa" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DesdeDemoraTarifa" Type="Int16" Nullable="false" />
+    <Property Name="HastaDemoraTarifa" Type="Int16" Nullable="false" />
+    <Property Name="ValorDemoraTarifa" Type="Double" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Departamento">
+    <Key>
+      <PropertyRef Name="IdDepartamento" />
+    </Key>
+    <Property Name="IdDepartamento" Type="Int32" Nullable="false" />
+    <Property Name="DescripcionDepartamento" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="IdSupervisorDepartamento" Type="Int32" />
+    <NavigationProperty Name="Usuario" Relationship="Self.FK_Usuario_Departamento" FromRole="Departamento" ToRole="Usuario" />
+  </EntityType>
+  <EntityType Name="Empresa">
+    <Key>
+      <PropertyRef Name="IdEmpresa" />
+    </Key>
+    <Property Name="IdEmpresa" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RifEmpresa" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="NombreEmpresa" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DireccionEmpresa" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TelefonoEmpresa" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="LogoEmpresa" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="EmpresaCuentaBancaria" Relationship="Self.FK_EmpresaCuentaBancaria_Empresa" FromRole="Empresa" ToRole="EmpresaCuentaBancaria" />
+    <NavigationProperty Name="EmpresaServicio" Relationship="Self.FK_EmpresaServicio_Empresa" FromRole="Empresa" ToRole="EmpresaServicio" />
+    <NavigationProperty Name="Factura" Relationship="Self.FK_Factura_Empresa" FromRole="Empresa" ToRole="Factura" />
+    <NavigationProperty Name="Preliquidacion" Relationship="Self.FK_Preliquidacion_Empresa" FromRole="Empresa" ToRole="Preliquidacion" />
+    <NavigationProperty Name="ServicioTarifa" Relationship="Self.FK_ServicioTarifa_Empresa" FromRole="Empresa" ToRole="ServicioTarifa" />
+  </EntityType>
+  <EntityType Name="EmpresaCuentaBancaria">
+    <Key>
+      <PropertyRef Name="IdCuentaBancaria" />
+    </Key>
+    <Property Name="IdCuentaBancaria" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdEmpresa" Type="Int32" Nullable="false" />
+    <Property Name="NroCuentaBancaria" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="NombreBancoCuentaBancaria" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Empresa" Relationship="Self.FK_EmpresaCuentaBancaria_Empresa" FromRole="EmpresaCuentaBancaria" ToRole="Empresa" />
+  </EntityType>
+  <EntityType Name="EmpresaServicio">
+    <Key>
+      <PropertyRef Name="IdEmpresaServicio" />
+    </Key>
+    <Property Name="IdEmpresaServicio" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdEmpresa" Type="Int32" Nullable="false" />
+    <Property Name="IdServicio" Type="Int32" Nullable="false" />
+    <Property Name="CostoEmpresaServicio" Type="Double" Nullable="false" />
+    <Property Name="ExentoIVAEmpresaServicio" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Empresa" Relationship="Self.FK_EmpresaServicio_Empresa" FromRole="EmpresaServicio" ToRole="Empresa" />
+    <NavigationProperty Name="Servicio" Relationship="Self.FK_EmpresaServicio_Servicio" FromRole="EmpresaServicio" ToRole="Servicio" />
+  </EntityType>
+  <EntityType Name="EmpresaTransporte">
+    <Key>
+      <PropertyRef Name="IdEmpresaTrans" />
+    </Key>
+    <Property Name="IdEmpresaTrans" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RifEmpresaTrans" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="NombreEmpresaTrans" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="UnidadTransporte" Relationship="Self.FK_UnidadTransporte_EmpresaTransporte" FromRole="EmpresaTransporte" ToRole="UnidadTransporte" />
+  </EntityType>
+  <EntityType Name="EstatusContenedor">
+    <Key>
+      <PropertyRef Name="IdEstatusContenedor" />
+    </Key>
+    <Property Name="IdEstatusContenedor" Type="Int32" Nullable="false" />
+    <Property Name="DescripcionEstatusContenedor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Contenedor" Relationship="Self.FK_Contenedor_EstatusContenedor" FromRole="EstatusContenedor" ToRole="Contenedor" />
+    <NavigationProperty Name="ContenedorMovimiento" Relationship="Self.FK_ContenedorMovimiento_EstatusContenedor" FromRole="EstatusContenedor" ToRole="ContenedorMovimiento" />
+  </EntityType>
+  <EntityType Name="Evento">
+    <Key>
+      <PropertyRef Name="IdEvento" />
+    </Key>
+    <Property Name="IdEvento" Type="Int32" Nullable="false" />
+    <Property Name="DescripcionEvento" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="GeneraEIREvento" Type="Boolean" />
+    <NavigationProperty Name="Contenedor" Relationship="Self.FK_Contenedor_Evento" FromRole="Evento" ToRole="Contenedor" />
+    <NavigationProperty Name="ContenedorEIR" Relationship="Self.FK_ContenedorEIR_Evento" FromRole="Evento" ToRole="ContenedorEIR" />
+    <NavigationProperty Name="ContenedorMovimiento" Relationship="Self.FK_ContenedorMovimiento_Evento" FromRole="Evento" ToRole="ContenedorMovimiento" />
+  </EntityType>
+  <EntityType Name="Factura">
+    <Key>
+      <PropertyRef Name="IdFactura" />
+    </Key>
+    <Property Name="IdFactura" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NroFactura" Type="Int32" Nullable="false" />
+    <Property Name="NroControlFactura" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="FechaFactura" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ClienteFactura" Type="Int32" Nullable="false" />
+    <Property Name="EmpresaFactura" Type="Int32" Nullable="false" />
+    <Property Name="TasaCambioFactura" Type="Int32" Nullable="false" />
+    <Property Name="SubtotalFacturaBS" Type="Double" Nullable="false" />
+    <Property Name="IvaFacturaBS" Type="Double" Nullable="false" />
+    <Property Name="TotalFacturaBS" Type="Double" Nullable="false" />
+    <Property Name="SubTotalFacturaUSD" Type="Double" Nullable="false" />
+    <Property Name="IvaFacturaUSD" Type="Double" Nullable="false" />
+    <Property Name="TotalFacturaUSD" Type="Double" Nullable="false" />
+    <Property Name="ObservacionFactura" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="UsuarioFactura" Type="Int32" Nullable="false" />
+    <Property Name="AnuladaFactura" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Cliente" Relationship="Self.FK_Factura_Cliente" FromRole="Factura" ToRole="Cliente" />
+    <NavigationProperty Name="Empresa" Relationship="Self.FK_Factura_Empresa" FromRole="Factura" ToRole="Empresa" />
+    <NavigationProperty Name="TasaCambio" Relationship="Self.FK_Factura_TasaCambio" FromRole="Factura" ToRole="TasaCambio" />
+    <NavigationProperty Name="FacturaServicio" Relationship="Self.FK_FacturaServicio_Factura" FromRole="Factura" ToRole="FacturaServicio" />
+  </EntityType>
+  <EntityType Name="FacturaServicio">
+    <Key>
+      <PropertyRef Name="IdFacturaServicio" />
+    </Key>
+    <Property Name="IdFacturaServicio" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdFactura" Type="Int32" Nullable="false" />
+    <Property Name="IdServicio" Type="Int32" Nullable="false" />
+    <Property Name="CantidadFacServicio" Type="Int32" Nullable="false" />
+    <Property Name="PrecioFacServicioUSD" Type="Double" Nullable="false" />
+    <Property Name="PrecioFacServicioBS" Type="Double" Nullable="false" />
+    <Property Name="TotalFacServicioUSD" Type="Double" Nullable="false" />
+    <Property Name="TotalFacServicioBS" Type="Double" Nullable="false" />
+    <NavigationProperty Name="Factura" Relationship="Self.FK_FacturaServicio_Factura" FromRole="FacturaServicio" ToRole="Factura" />
+  </EntityType>
+  <EntityType Name="GrupoOpcion">
+    <Key>
+      <PropertyRef Name="IdGrupoOpc" />
+    </Key>
+    <Property Name="IdGrupoOpc" Type="Int32" Nullable="false" />
+    <Property Name="DescripcionGrupoOpc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Opcion" Relationship="Self.FK_Opcion_GrupoOpcion" FromRole="GrupoOpcion" ToRole="Opcion" />
+  </EntityType>
+  <EntityType Name="Itinerario">
+    <Key>
+      <PropertyRef Name="IdItinerario" />
+    </Key>
+    <Property Name="IdItinerario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdBuqueItinerario" Type="Int32" />
+    <Property Name="IdLineaItinerario" Type="Int32" />
+    <Property Name="FechaHoraLlegadaItinerario" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="FechaHoraSalidaItinerario" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="NroViajeLlegadaItinerario" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="NroViajeSalidaItinerario" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="NroSiduneaItinerario" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="NroExpediente" Type="Int32" Nullable="false" />
+    <Property Name="UsuarioItinerario" Type="Int32" />
+    <Property Name="GeneradoEDIItinerario" Type="Boolean" />
+    <Property Name="GeneradoEDIEmbarqueF" Type="Boolean" />
+    <Property Name="GeneradoEDIEmbarqueV" Type="Boolean" />
+    <Property Name="PuertoEscalaItinerario" Type="Int32" />
+    <Property Name="FechaEstimadaLlegadaItinerario" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="BLEmbarque" Relationship="Self.FK_BLEmbarque_Itinerario" FromRole="Itinerario" ToRole="BLEmbarque" />
+    <NavigationProperty Name="Buque" Relationship="Self.FK_Itinerario_Buque" FromRole="Itinerario" ToRole="Buque" />
+    <NavigationProperty Name="ContenedorMovimiento" Relationship="Self.FK_ContenedorMovimiento_Itinerario" FromRole="Itinerario" ToRole="ContenedorMovimiento" />
+    <NavigationProperty Name="LineaMaritima" Relationship="Self.FK_Itinerario_LineaMaritima" FromRole="Itinerario" ToRole="LineaMaritima" />
+    <NavigationProperty Name="Usuario" Relationship="Self.FK_Itinerario_Usuario" FromRole="Itinerario" ToRole="Usuario" />
+    <NavigationProperty Name="ItinerarioContenedor" Relationship="Self.FK_ItinerarioContenedor_Itinerario" FromRole="Itinerario" ToRole="ItinerarioContenedor" />
+    <NavigationProperty Name="ItinerarioEmbContenedor" Relationship="Self.FK_ItinerarioEmbContenedor_Itinerario" FromRole="Itinerario" ToRole="ItinerarioEmbContenedor" />
+    <NavigationProperty Name="ItinerarioUbicacion" Relationship="Self.FK_ItinerarioUbicacion_Itinerario" FromRole="Itinerario" ToRole="ItinerarioUbicacion" />
+    <NavigationProperty Name="Reserva" Relationship="Self.FK_Reserva_Itinerario" FromRole="Itinerario" ToRole="Reserva" />
+  </EntityType>
+  <EntityType Name="ItinerarioContenedor">
+    <Key>
+      <PropertyRef Name="IdItinerarioContenedor" />
+    </Key>
+    <Property Name="IdItinerarioContenedor" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdItinerario" Type="Int32" Nullable="false" />
+    <Property Name="IdContenedor" Type="Int32" Nullable="false" />
+    <Property Name="BLContenedor" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="EmbarcadorContenedor" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="ConsignatarioContenedor" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="OrigenContenedor" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="PolContenedor" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="PodContenedor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PrecintoContenedor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MercanciaContenedor" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="EmpaqueContenedor" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="CantidadContenedor" Type="Double" />
+    <Property Name="EstatusContenedor" Type="Int32" />
+    <Property Name="CondicionVentaContenedor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PesoBrutoContenedor" Type="Double" />
+    <Property Name="PesoNetoContenedor" Type="Double" />
+    <Property Name="M3Contenedor" Type="Double" />
+    <Property Name="TMinimoContenedor" Type="Double" />
+    <Property Name="TMaximoContenedor" Type="Double" />
+    <Property Name="HazContenedor" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="ImoContenedor" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="UnContenedor" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="UsoSiduneaContenedor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Contenedor" Relationship="Self.FK_ItinerarioContenedor_Contenedor" FromRole="ItinerarioContenedor" ToRole="Contenedor" />
+    <NavigationProperty Name="Itinerario" Relationship="Self.FK_ItinerarioContenedor_Itinerario" FromRole="ItinerarioContenedor" ToRole="Itinerario" />
+  </EntityType>
+  <EntityType Name="ItinerarioEmbContenedor">
+    <Key>
+      <PropertyRef Name="IdEmbContenedor" />
+    </Key>
+    <Property Name="IdEmbContenedor" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ItinerarioEmbarque" Type="Int32" Nullable="false" />
+    <Property Name="IdContenedor" Type="Int32" Nullable="false" />
+    <Property Name="BahiaEmbContenedor" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="SlotEmbContenedor" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="Precinto1EmbContenedor" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="Precinto2EmbContenedor" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="PesoEmbContenedor" Type="Double" />
+    <Property Name="VerificaEmbContenedor" Type="Boolean" />
+    <Property Name="ProcesadoEmbContenedor" Type="Boolean" />
+    <Property Name="Descripcion1EmbContenedor" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Descripcion2EmbContenedor" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Descripcion3EmbContenedor" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Descripcion4EmbContenedor" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="TemperaturaEmbContenedor" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="RngTempEmbContenedor" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="MatPeligrosoEmbContenedor" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Contenedor" Relationship="Self.FK_EmbarqueContenedor_Contenedor" FromRole="ItinerarioEmbContenedor" ToRole="Contenedor" />
+    <NavigationProperty Name="Itinerario" Relationship="Self.FK_ItinerarioEmbContenedor_Itinerario" FromRole="ItinerarioEmbContenedor" ToRole="Itinerario" />
+  </EntityType>
+  <EntityType Name="ItinerarioUbicacion">
+    <Key>
+      <PropertyRef Name="IdItinearioUbicacion" />
+    </Key>
+    <Property Name="IdItinearioUbicacion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdItinerario" Type="Int32" Nullable="false" />
+    <Property Name="IdUbicacion" Type="Int32" Nullable="false" />
+    <Property Name="NroExpediente" Type="Int32" />
+    <Property Name="CantidadContenedoresItinearioUbicacion" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Itinerario" Relationship="Self.FK_ItinerarioUbicacion_Itinerario" FromRole="ItinerarioUbicacion" ToRole="Itinerario" />
+    <NavigationProperty Name="Ubicacion" Relationship="Self.FK_ItinerarioUbicacion_Ubicacion" FromRole="ItinerarioUbicacion" ToRole="Ubicacion" />
+  </EntityType>
+  <EntityType Name="Lado">
+    <Key>
+      <PropertyRef Name="IdLado" />
+    </Key>
+    <Property Name="IdLado" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DescripcionLado" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="OrdenRepComponente" Relationship="Self.FK_OrdenRepComponente_Lado" FromRole="Lado" ToRole="OrdenRepComponente" />
+  </EntityType>
+  <EntityType Name="LineaBuque">
+    <Key>
+      <PropertyRef Name="IdLineaBuque" />
+    </Key>
+    <Property Name="IdLineaBuque" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdLineaMaritima" Type="Int32" Nullable="false" />
+    <Property Name="IdBuque" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Buque" Relationship="Self.FK_LineaBuque_Buque" FromRole="LineaBuque" ToRole="Buque" />
+    <NavigationProperty Name="LineaMaritima" Relationship="Self.FK_LineaBuque_LineaMaritima" FromRole="LineaBuque" ToRole="LineaMaritima" />
+  </EntityType>
+  <EntityType Name="LineaMaritima">
+    <Key>
+      <PropertyRef Name="IdLineaMaritima" />
+    </Key>
+    <Property Name="IdLineaMaritima" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NombreLineaMaritima" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="LogoLineaMaritima" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CodigoLinea" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Contenedor" Relationship="Self.FK_Contenedor_LineaMaritima" FromRole="LineaMaritima" ToRole="Contenedor" />
+    <NavigationProperty Name="Itinerario" Relationship="Self.FK_Itinerario_LineaMaritima" FromRole="LineaMaritima" ToRole="Itinerario" />
+    <NavigationProperty Name="LineaBuque" Relationship="Self.FK_LineaBuque_LineaMaritima" FromRole="LineaMaritima" ToRole="LineaBuque" />
+    <NavigationProperty Name="ServicioTarifa" Relationship="Self.FK_ServicioTarifa_LineaMaritima" FromRole="LineaMaritima" ToRole="ServicioTarifa" />
+  </EntityType>
+  <EntityType Name="LineaPool">
+    <Key>
+      <PropertyRef Name="IdLineaPool" />
+    </Key>
+    <Property Name="IdLineaPool" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdLineaPrincipalPool" Type="Int32" Nullable="false" />
+    <Property Name="IdLineaSecundariaPool" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MetodoReparacion">
+    <Key>
+      <PropertyRef Name="IdMetodoRep" />
+    </Key>
+    <Property Name="IdMetodoRep" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DescripcionMetodoRep" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="OrdenRepComponente" Relationship="Self.FK_OrdenRepComponente_MetodoReparacion" FromRole="MetodoReparacion" ToRole="OrdenRepComponente" />
+  </EntityType>
+  <EntityType Name="Modulo">
+    <Key>
+      <PropertyRef Name="IdModulo" />
+    </Key>
+    <Property Name="IdModulo" Type="Int32" Nullable="false" />
+    <Property Name="NombreModulo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DescripcionModulo" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="IconoModulo" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="UrlModulo" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Opcion" Relationship="Self.FK_Opcion_Modulo" FromRole="Modulo" ToRole="Opcion" />
+    <NavigationProperty Name="UsuarioModulo" Relationship="Self.FK_UsuarioModulo_Modulo" FromRole="Modulo" ToRole="UsuarioModulo" />
+  </EntityType>
+  <EntityType Name="Oficina">
+    <Key>
+      <PropertyRef Name="IdOficina" />
+    </Key>
+    <Property Name="IdOficina" Type="Int32" Nullable="false" />
+    <Property Name="UbicacionOficina" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CodigoPtoOficina" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Usuario" Relationship="Self.FK_Usuario_Oficina" FromRole="Oficina" ToRole="Usuario" />
+  </EntityType>
+  <EntityType Name="Opcion">
+    <Key>
+      <PropertyRef Name="IdOpcion" />
+    </Key>
+    <Property Name="IdOpcion" Type="Int32" Nullable="false" />
+    <Property Name="DescripcionOpcion" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="IconoOpcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UrlOpcion" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="ModuloOpcion" Type="Int32" Nullable="false" />
+    <Property Name="GrupoOpcion" Type="Int32" />
+    <Property Name="DocPendientesOpcion" Type="Int16" />
+    <NavigationProperty Name="GrupoOpcion1" Relationship="Self.FK_Opcion_GrupoOpcion" FromRole="Opcion" ToRole="GrupoOpcion" />
+    <NavigationProperty Name="Modulo" Relationship="Self.FK_Opcion_Modulo" FromRole="Opcion" ToRole="Modulo" />
+    <NavigationProperty Name="OpcionMensajeUsuario" Relationship="Self.FK_OpcionMensajeUsuario_Opcion" FromRole="Opcion" ToRole="OpcionMensajeUsuario" />
+    <NavigationProperty Name="UsuarioOpcion" Relationship="Self.FK_UsuarioOpcion_Opcion" FromRole="Opcion" ToRole="UsuarioOpcion" />
+  </EntityType>
+  <EntityType Name="OpcionMensajeUsuario">
+    <Key>
+      <PropertyRef Name="IdMensajeUsuario" />
+    </Key>
+    <Property Name="IdMensajeUsuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdOpcion" Type="Int32" Nullable="false" />
+    <Property Name="IdUsuario" Type="Int32" Nullable="false" />
+    <Property Name="DescripcionMensajeUsuario" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TipoMensajeUsuario" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Opcion" Relationship="Self.FK_OpcionMensajeUsuario_Opcion" FromRole="OpcionMensajeUsuario" ToRole="Opcion" />
+    <NavigationProperty Name="TipoMensajeUsuario1" Relationship="Self.FK_OpcionMensajeUsuario_TipoMensajeUsuario" FromRole="OpcionMensajeUsuario" ToRole="TipoMensajeUsuario" />
+    <NavigationProperty Name="Usuario" Relationship="Self.FK_OpcionMensajeUsuario_Usuario" FromRole="OpcionMensajeUsuario" ToRole="Usuario" />
+  </EntityType>
+  <EntityType Name="OrdenReparacion">
+    <Key>
+      <PropertyRef Name="IdOrdenRep" />
+    </Key>
+    <Property Name="IdOrdenRep" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FechaOrdenRep" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="IdContenedorEIR" Type="Int32" Nullable="false" />
+    <Property Name="FechaIngTallerOrdenRep" Type="DateTime" Precision="3" />
+    <Property Name="FechaInicioOrdenRep" Type="DateTime" Precision="3" />
+    <Property Name="FechaFinalOrdenRep" Type="DateTime" Precision="3" />
+    <Property Name="ObservacionOrdenRep" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="TerminadaOrdRep" Type="Boolean" />
+    <Property Name="AnuladaOrdRep" Type="Boolean" />
+    <Property Name="FechaFinalDefOrdRep" Type="DateTime" Precision="3" />
+    <Property Name="DañoenPatioOrdRep" Type="Boolean" />
+    <NavigationProperty Name="ContenedorEIR" Relationship="Self.FK_OrdenReparacion_ContenedorEIR" FromRole="OrdenReparacion" ToRole="ContenedorEIR" />
+    <NavigationProperty Name="OrdenRepComponente" Relationship="Self.FK_OrdenRepComponente_OrdenReparacion" FromRole="OrdenReparacion" ToRole="OrdenRepComponente" />
+  </EntityType>
+  <EntityType Name="OrdenRepComponente">
+    <Key>
+      <PropertyRef Name="IdOrdenComponente" />
+    </Key>
+    <Property Name="IdOrdenComponente" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdOrdenRep" Type="Int32" Nullable="false" />
+    <Property Name="IdComponente" Type="Int32" Nullable="false" />
+    <Property Name="IdLadoOrdComponente" Type="Int32" Nullable="false" />
+    <Property Name="PosicionOrdComponente" Type="Int16" />
+    <Property Name="DimensionNroPiezaOrdComp" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="MetodoRepOrdComp" Type="Int32" Nullable="false" />
+    <Property Name="IdDañoOrdComp" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Componente" Relationship="Self.FK_OrdenRepComponente_Componente" FromRole="OrdenRepComponente" ToRole="Componente" />
+    <NavigationProperty Name="Daño" Relationship="Self.FK_OrdenRepComponente_Daño" FromRole="OrdenRepComponente" ToRole="Daño" />
+    <NavigationProperty Name="Lado" Relationship="Self.FK_OrdenRepComponente_Lado" FromRole="OrdenRepComponente" ToRole="Lado" />
+    <NavigationProperty Name="MetodoReparacion" Relationship="Self.FK_OrdenRepComponente_MetodoReparacion" FromRole="OrdenRepComponente" ToRole="MetodoReparacion" />
+    <NavigationProperty Name="OrdenReparacion" Relationship="Self.FK_OrdenRepComponente_OrdenReparacion" FromRole="OrdenRepComponente" ToRole="OrdenReparacion" />
+  </EntityType>
+  <EntityType Name="Preliquidacion">
+    <Key>
+      <PropertyRef Name="IdPreliquidacion" />
+    </Key>
+    <Property Name="IdPreliquidacion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NroPreliquidacion" Type="Int32" Nullable="false" />
+    <Property Name="FechaPreliquidacion" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ClientePreliquidacion" Type="Int32" Nullable="false" />
+    <Property Name="EmpresaPreliquidacion" Type="Int32" Nullable="false" />
+    <Property Name="BLPreliquidacion" Type="Int32" />
+    <Property Name="TasaCambioBLPreliquidacion" Type="Int32" />
+    <Property Name="SubTotalPreliquidacionBS" Type="Double" />
+    <Property Name="SubTotalPreliquidacionUSD" Type="Double" />
+    <Property Name="MontoIvaPreliquidacionBS" Type="Double" />
+    <Property Name="MontoIvaPreliquidacionUDS" Type="Double" />
+    <Property Name="TotalPreliquidacionBS" Type="Double" />
+    <Property Name="TotalPreliquidacionUSD" Type="Double" />
+    <Property Name="ObservacionPreliquidacion" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="UsuarioPreliquidacion" Type="Int32" />
+    <Property Name="EstatusPreliquidacion" Type="Int32" />
+    <Property Name="TipoPreliquidacion" Type="Int32" />
+    <Property Name="ReservaPreliquidacion" Type="Int32" />
+    <Property Name="AgenteAduanalPreliquidacion" Type="Int32" />
+    <Property Name="BuquePreliquidacion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="FechaViajePreliquidacion" Type="DateTime" Precision="3" />
+    <Property Name="NroViajePreliquidacion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CorrelativoPreliquidacion" Type="Int32" />
+    <Property Name="NroSolvenciaPreliquidacion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="FechaHastaSolvenciaPreliquidacion" Type="DateTime" Precision="3" />
+    <Property Name="SolventePreliquidacion" Type="Boolean" />
+    <Property Name="NroFacturaPreliquidacion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="FechaFacturaPreliquidacion" Type="DateTime" Precision="3" />
+    <Property Name="ValorTasaPreliquidacion" Type="Double" />
+    <NavigationProperty Name="BLEmbarque" Relationship="Self.FK_Preliquidacion_BLEmbarque" FromRole="Preliquidacion" ToRole="BLEmbarque" />
+    <NavigationProperty Name="Cliente" Relationship="Self.FK_Preliquidacion_Cliente" FromRole="Preliquidacion" ToRole="Cliente" />
+    <NavigationProperty Name="Empresa" Relationship="Self.FK_Preliquidacion_Empresa" FromRole="Preliquidacion" ToRole="Empresa" />
+    <NavigationProperty Name="PreliquidacionEstatus" Relationship="Self.FK_Preliquidacion_PreliquidacionEstatus" FromRole="Preliquidacion" ToRole="PreliquidacionEstatus" />
+    <NavigationProperty Name="TasaCambio" Relationship="Self.FK_Preliquidacion_TasaCambio" FromRole="Preliquidacion" ToRole="TasaCambio" />
+    <NavigationProperty Name="TipoPreliquidacion1" Relationship="Self.FK_Preliquidacion_TipoPreliquidacion" FromRole="Preliquidacion" ToRole="TipoPreliquidacion" />
+    <NavigationProperty Name="PreliquidacionContenedor" Relationship="Self.FK_PreliquidacionContenedor_Preliquidacion" FromRole="Preliquidacion" ToRole="PreliquidacionContenedor" />
+    <NavigationProperty Name="PreliquidacionServicio" Relationship="Self.FK_PresupuestoServicio_Presupuesto" FromRole="Preliquidacion" ToRole="PreliquidacionServicio" />
+  </EntityType>
+  <EntityType Name="PreliquidacionContenedor">
+    <Key>
+      <PropertyRef Name="IdPreliqContenedor" />
+    </Key>
+    <Property Name="IdPreliqContenedor" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdPreliquidacion" Type="Int32" Nullable="false" />
+    <Property Name="IdContenedor" Type="Int32" Nullable="false" />
+    <Property Name="Preliquidado" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Preliquidacion" Relationship="Self.FK_PreliquidacionContenedor_Preliquidacion" FromRole="PreliquidacionContenedor" ToRole="Preliquidacion" />
+  </EntityType>
+  <EntityType Name="PreliquidacionEstatus">
+    <Key>
+      <PropertyRef Name="IdPrelEstatus" />
+    </Key>
+    <Property Name="IdPrelEstatus" Type="Int32" Nullable="false" />
+    <Property Name="DescripcionPrelEstatus" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Preliquidacion" Relationship="Self.FK_Preliquidacion_PreliquidacionEstatus" FromRole="PreliquidacionEstatus" ToRole="Preliquidacion" />
+  </EntityType>
+  <EntityType Name="PreliquidacionServicio">
+    <Key>
+      <PropertyRef Name="IdPreliquidacionServicio" />
+    </Key>
+    <Property Name="IdPreliquidacionServicio" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdPreliquidacion" Type="Int32" Nullable="false" />
+    <Property Name="IdServicio" Type="Int32" Nullable="false" />
+    <Property Name="CantidadPrelServicio" Type="Double" Nullable="false" />
+    <Property Name="PrecioPrelServicioBS" Type="Double" Nullable="false" />
+    <Property Name="PrecioPreslServicioUSD" Type="Double" Nullable="false" />
+    <Property Name="TotalPrelServicioBS" Type="Double" Nullable="false" />
+    <Property Name="TotalPrelServicioUSD" Type="Double" Nullable="false" />
+    <NavigationProperty Name="Preliquidacion" Relationship="Self.FK_PresupuestoServicio_Presupuesto" FromRole="PreliquidacionServicio" ToRole="Preliquidacion" />
+    <NavigationProperty Name="Servicio" Relationship="Self.FK_PresupuestoServicio_Servicio" FromRole="PreliquidacionServicio" ToRole="Servicio" />
+  </EntityType>
+  <EntityType Name="Procedencia">
+    <Key>
+      <PropertyRef Name="IdProcedencia" />
+    </Key>
+    <Property Name="IdProcedencia" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DescripcionProcedencia" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Puerto">
+    <Key>
+      <PropertyRef Name="IdPuerto" />
+    </Key>
+    <Property Name="IdPuerto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CodigoPuerto" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="NombrePuerto" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Reserva" Relationship="Self.FK_Reserva_Puerto" FromRole="Puerto" ToRole="Reserva" />
+  </EntityType>
+  <EntityType Name="Reserva">
+    <Key>
+      <PropertyRef Name="IdReserva" />
+    </Key>
+    <Property Name="IdReserva" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ItinerarioReserva" Type="Int32" Nullable="false" />
+    <Property Name="ClienteReserva" Type="Int32" Nullable="false" />
+    <Property Name="FechaReserva" Type="DateTime" Precision="3" />
+    <Property Name="UsuarioReserva" Type="Int32" Nullable="false" />
+    <Property Name="NroReserva" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="PuertoDescargaReserva" Type="Int32" Nullable="false" />
+    <Property Name="ObservacionesReserva" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="GeneradoEIRReserva" Type="Boolean" />
+    <Property Name="PuertoEntregaReserva" Type="Int32" />
+    <Property Name="DiasLibresReserva" Type="Int16" />
+    <Property Name="CantidadEquiposReserva" Type="Int16" />
+    <Property Name="SecundariaReserva" Type="Boolean" />
+    <NavigationProperty Name="Cliente" Relationship="Self.FK_Reserva_Cliente" FromRole="Reserva" ToRole="Cliente" />
+    <NavigationProperty Name="Itinerario" Relationship="Self.FK_Reserva_Itinerario" FromRole="Reserva" ToRole="Itinerario" />
+    <NavigationProperty Name="Puerto" Relationship="Self.FK_Reserva_Puerto" FromRole="Reserva" ToRole="Puerto" />
+    <NavigationProperty Name="Usuario" Relationship="Self.FK_Reserva_Usuario" FromRole="Reserva" ToRole="Usuario" />
+    <NavigationProperty Name="ReservaContenedor" Relationship="Self.FK_ReservaContenedor_Reserva" FromRole="Reserva" ToRole="ReservaContenedor" />
+  </EntityType>
+  <EntityType Name="ReservaContenedor">
+    <Key>
+      <PropertyRef Name="IdReservaContenedor" />
+    </Key>
+    <Property Name="IdReservaContenedor" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdReserva" Type="Int32" Nullable="false" />
+    <Property Name="IdContenedor" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Contenedor" Relationship="Self.FK_ReservaContenedor_Contenedor" FromRole="ReservaContenedor" ToRole="Contenedor" />
+    <NavigationProperty Name="Reserva" Relationship="Self.FK_ReservaContenedor_Reserva" FromRole="ReservaContenedor" ToRole="Reserva" />
+  </EntityType>
+  <EntityType Name="Rol">
+    <Key>
+      <PropertyRef Name="IdRol" />
+    </Key>
+    <Property Name="IdRol" Type="Int32" Nullable="false" />
+    <Property Name="DescripcionRol" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="UsuarioModulo" Relationship="Self.FK_UsuarioModulo_Rol" FromRole="Rol" ToRole="UsuarioModulo" />
+  </EntityType>
+  <EntityType Name="Servicio">
+    <Key>
+      <PropertyRef Name="IdServicio" />
+    </Key>
+    <Property Name="IdServicio" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CodigoServicio" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="DescripcionServicio" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ControlServicio" Type="Boolean" />
+    <Property Name="SeleccionRapidaImpServicio" Type="Boolean" />
+    <Property Name="SeleccionRapidaExpServicio" Type="Boolean" />
+    <Property Name="SeleccionRapidaOpeServicio" Type="Boolean" />
+    <NavigationProperty Name="EmpresaServicio" Relationship="Self.FK_EmpresaServicio_Servicio" FromRole="Servicio" ToRole="EmpresaServicio" />
+    <NavigationProperty Name="PreliquidacionServicio" Relationship="Self.FK_PresupuestoServicio_Servicio" FromRole="Servicio" ToRole="PreliquidacionServicio" />
+    <NavigationProperty Name="ServicioTarifa" Relationship="Self.FK_ServicioTarifa_Servicio" FromRole="Servicio" ToRole="ServicioTarifa" />
+  </EntityType>
+  <EntityType Name="ServicioTarifa">
+    <Key>
+      <PropertyRef Name="IdServicioTarifa" />
+    </Key>
+    <Property Name="IdServicioTarifa" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdServicio" Type="Int32" Nullable="false" />
+    <Property Name="IdEmpresa" Type="Int32" Nullable="false" />
+    <Property Name="IdLinea" Type="Int32" Nullable="false" />
+    <Property Name="TipoServicio" Type="Int32" Nullable="false" />
+    <Property Name="ValorTarifa" Type="Double" Nullable="false" />
+    <Property Name="NuevaTarifa" Type="Double" />
+    <Property Name="FechaDesdeTarifa" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Empresa" Relationship="Self.FK_ServicioTarifa_Empresa" FromRole="ServicioTarifa" ToRole="Empresa" />
+    <NavigationProperty Name="LineaMaritima" Relationship="Self.FK_ServicioTarifa_LineaMaritima" FromRole="ServicioTarifa" ToRole="LineaMaritima" />
+    <NavigationProperty Name="Servicio" Relationship="Self.FK_ServicioTarifa_Servicio" FromRole="ServicioTarifa" ToRole="Servicio" />
+    <NavigationProperty Name="TipoPreliquidacion" Relationship="Self.FK_ServicioTarifa_TipoPreliquidacion" FromRole="ServicioTarifa" ToRole="TipoPreliquidacion" />
+  </EntityType>
+  <EntityType Name="TasaCambio">
+    <Key>
+      <PropertyRef Name="IdTasaCambio" />
+    </Key>
+    <Property Name="IdTasaCambio" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NombreTasaCambio" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Demora" Relationship="Self.FK_Demora_TasaCambio" FromRole="TasaCambio" ToRole="Demora" />
+    <NavigationProperty Name="Factura" Relationship="Self.FK_Factura_TasaCambio" FromRole="TasaCambio" ToRole="Factura" />
+    <NavigationProperty Name="Preliquidacion" Relationship="Self.FK_Preliquidacion_TasaCambio" FromRole="TasaCambio" ToRole="Preliquidacion" />
+    <NavigationProperty Name="TasaCambioMov" Relationship="Self.FK_TasaCambioMov_TasaCambio" FromRole="TasaCambio" ToRole="TasaCambioMov" />
+  </EntityType>
+  <EntityType Name="TasaCambioMov">
+    <Key>
+      <PropertyRef Name="IdTasaCambioMov" />
+    </Key>
+    <Property Name="IdTasaCambioMov" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdTasaCambio" Type="Int32" Nullable="false" />
+    <Property Name="FechaTasaCambioMov" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ValorTasaCambioMov" Type="Double" Nullable="false" />
+    <NavigationProperty Name="TasaCambio" Relationship="Self.FK_TasaCambioMov_TasaCambio" FromRole="TasaCambioMov" ToRole="TasaCambio" />
+  </EntityType>
+  <EntityType Name="TipoContenedor">
+    <Key>
+      <PropertyRef Name="IdTipoContenedor" />
+    </Key>
+    <Property Name="IdTipoContenedor" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DescripcionTipoContenedor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="AbreviaturaTipoContenedor" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ConversionTipoContenedor" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Contenedor" Relationship="Self.FK_Contenedor_TipoContenedor" FromRole="TipoContenedor" ToRole="Contenedor" />
+    <NavigationProperty Name="TipoTamaño" Relationship="Self.FK_TipoTamaño_TipoContenedor" FromRole="TipoContenedor" ToRole="TipoTamaño" />
+  </EntityType>
+  <EntityType Name="TipoEIR">
+    <Key>
+      <PropertyRef Name="IdTipoEIR" />
+    </Key>
+    <Property Name="IdTipoEIR" Type="Int32" Nullable="false" />
+    <Property Name="DescripcionTipoEIR" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="ContenedorEIR" Relationship="Self.FK_ContenedorEIR_TipoEIR" FromRole="TipoEIR" ToRole="ContenedorEIR" />
+  </EntityType>
+  <EntityType Name="TipoISOContenedor">
+    <Key>
+      <PropertyRef Name="IdTipoISOContenedor" />
+    </Key>
+    <Property Name="IdTipoISOContenedor" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CodigoISOContenedor" Type="String" MaxLength="4" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DescripcionISOContenedor" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TamanoISOContenedor" Type="String" MaxLength="2" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="AbreviaturaISOContenedor" Type="String" MaxLength="2" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TipoMensajeUsuario">
+    <Key>
+      <PropertyRef Name="IdTipoMensaje" />
+    </Key>
+    <Property Name="IdTipoMensaje" Type="Int32" Nullable="false" />
+    <Property Name="DescripcionTipoMensaje" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="IconoTipoMensaje" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="OpcionMensajeUsuario" Relationship="Self.FK_OpcionMensajeUsuario_TipoMensajeUsuario" FromRole="TipoMensajeUsuario" ToRole="OpcionMensajeUsuario" />
+  </EntityType>
+  <EntityType Name="TipoPreliquidacion">
+    <Key>
+      <PropertyRef Name="IdTipoPre" />
+    </Key>
+    <Property Name="IdTipoPre" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DescripcionTipoPre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Preliquidacion" Relationship="Self.FK_Preliquidacion_TipoPreliquidacion" FromRole="TipoPreliquidacion" ToRole="Preliquidacion" />
+    <NavigationProperty Name="ServicioTarifa" Relationship="Self.FK_ServicioTarifa_TipoPreliquidacion" FromRole="TipoPreliquidacion" ToRole="ServicioTarifa" />
+  </EntityType>
+  <EntityType Name="TipoTamaño">
+    <Key>
+      <PropertyRef Name="IdTipoTamaño" />
+    </Key>
+    <Property Name="IdTipoTamaño" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TipoContenedor" Type="Int32" Nullable="false" />
+    <Property Name="TamañoTipoContenedor" Type="Int16" Nullable="false" />
+    <Property Name="AltoPieTipoTamaño" Type="Int16" />
+    <Property Name="AltoPulgadaTipoTamaño" Type="Int16" />
+    <Property Name="PesoTipoTamaño" Type="Double" />
+    <NavigationProperty Name="TipoContenedor1" Relationship="Self.FK_TipoTamaño_TipoContenedor" FromRole="TipoTamaño" ToRole="TipoContenedor" />
+  </EntityType>
+  <EntityType Name="Ubicacion">
+    <Key>
+      <PropertyRef Name="IdUbicacion" />
+    </Key>
+    <Property Name="IdUbicacion" Type="Int32" Nullable="false" />
+    <Property Name="DescripcionUbicacion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ZonaUbicacion" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Contenedor" Relationship="Self.FK_Contenedor_Ubicacion" FromRole="Ubicacion" ToRole="Contenedor" />
+    <NavigationProperty Name="ContenedorEIR" Relationship="Self.FK_ContenedorEIREntrada_Ubicacion" FromRole="Ubicacion" ToRole="ContenedorEIR" />
+    <NavigationProperty Name="ItinerarioUbicacion" Relationship="Self.FK_ItinerarioUbicacion_Ubicacion" FromRole="Ubicacion" ToRole="ItinerarioUbicacion" />
+  </EntityType>
+  <EntityType Name="UnidadTransporte">
+    <Key>
+      <PropertyRef Name="IdUnidadTransporte" />
+    </Key>
+    <Property Name="IdUnidadTransporte" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DescripcionUnidadTransporte" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PlacaUnidadTransporte" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="EmpresaUnidadTransporte" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="ContenedorEIR" Relationship="Self.FK_ContenedorEIREntrada_UnidadTransporte" FromRole="UnidadTransporte" ToRole="ContenedorEIR" />
+    <NavigationProperty Name="EmpresaTransporte" Relationship="Self.FK_UnidadTransporte_EmpresaTransporte" FromRole="UnidadTransporte" ToRole="EmpresaTransporte" />
+  </EntityType>
+  <EntityType Name="Usuario">
+    <Key>
+      <PropertyRef Name="IdUsuario" />
+    </Key>
+    <Property Name="IdUsuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NombreUsuario" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DepartamentoUsuario" Type="Int32" />
+    <Property Name="LoginUsuario" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PasswordUsuario" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="FotoUsuario" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CambioClaveUsuario" Type="Boolean" />
+    <Property Name="OficinaUsuario" Type="Int32" />
+    <Property Name="FechaCambioPassword" Type="DateTime" Precision="3" />
+    <Property Name="InactivoUsuario" Type="Boolean" />
+    <NavigationProperty Name="Departamento" Relationship="Self.FK_Usuario_Departamento" FromRole="Usuario" ToRole="Departamento" />
+    <NavigationProperty Name="Itinerario" Relationship="Self.FK_Itinerario_Usuario" FromRole="Usuario" ToRole="Itinerario" />
+    <NavigationProperty Name="Oficina" Relationship="Self.FK_Usuario_Oficina" FromRole="Usuario" ToRole="Oficina" />
+    <NavigationProperty Name="OpcionMensajeUsuario" Relationship="Self.FK_OpcionMensajeUsuario_Usuario" FromRole="Usuario" ToRole="OpcionMensajeUsuario" />
+    <NavigationProperty Name="Reserva" Relationship="Self.FK_Reserva_Usuario" FromRole="Usuario" ToRole="Reserva" />
+    <NavigationProperty Name="UsuarioModulo" Relationship="Self.FK_UsuarioModulo_Usuario" FromRole="Usuario" ToRole="UsuarioModulo" />
+    <NavigationProperty Name="UsuarioOpcion" Relationship="Self.FK_UsuarioOpcion_Usuario" FromRole="Usuario" ToRole="UsuarioOpcion" />
+  </EntityType>
+  <EntityType Name="UsuarioModulo">
+    <Key>
+      <PropertyRef Name="IdUsuarioModulo" />
+    </Key>
+    <Property Name="IdUsuarioModulo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdUsuario" Type="Int32" Nullable="false" />
+    <Property Name="IdModulo" Type="Int32" Nullable="false" />
+    <Property Name="IdRolUsuarioModulo" Type="Int32" />
+    <NavigationProperty Name="Modulo" Relationship="Self.FK_UsuarioModulo_Modulo" FromRole="UsuarioModulo" ToRole="Modulo" />
+    <NavigationProperty Name="Rol" Relationship="Self.FK_UsuarioModulo_Rol" FromRole="UsuarioModulo" ToRole="Rol" />
+    <NavigationProperty Name="Usuario" Relationship="Self.FK_UsuarioModulo_Usuario" FromRole="UsuarioModulo" ToRole="Usuario" />
+  </EntityType>
+  <EntityType Name="UsuarioOpcion">
+    <Key>
+      <PropertyRef Name="IdUsuarioOpcion" />
+    </Key>
+    <Property Name="IdUsuarioOpcion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdUsuario" Type="Int32" Nullable="false" />
+    <Property Name="IdOpcion" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Opcion" Relationship="Self.FK_UsuarioOpcion_Opcion" FromRole="UsuarioOpcion" ToRole="Opcion" />
+    <NavigationProperty Name="Usuario" Relationship="Self.FK_UsuarioOpcion_Usuario" FromRole="UsuarioOpcion" ToRole="Usuario" />
+  </EntityType>
+  <EntityType Name="OrdenRepImagen">
+    <Key>
+      <PropertyRef Name="IdOrdenRepImagenes" />
+      <PropertyRef Name="IdOrdenRep" />
+    </Key>
+    <Property Name="IdOrdenRepImagenes" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdOrdenRep" Type="Int32" Nullable="false" />
+    <Property Name="PathImagenOrdenRep" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <Association Name="FK_ContenedorEIREntrada_AgenteAduanal">
+    <End Role="AgenteAduanal" Type="Self.AgenteAduanal" Multiplicity="0..1" />
+    <End Role="ContenedorEIR" Type="Self.ContenedorEIR" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AgenteAduanal">
+        <PropertyRef Name="IdAgenteAduanal" />
+      </Principal>
+      <Dependent Role="ContenedorEIR">
+        <PropertyRef Name="AgenteAduanalEIR" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BLEmbarque_Itinerario">
+    <End Role="Itinerario" Type="Self.Itinerario" Multiplicity="1" />
+    <End Role="BLEmbarque" Type="Self.BLEmbarque" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Itinerario">
+        <PropertyRef Name="IdItinerario" />
+      </Principal>
+      <Dependent Role="BLEmbarque">
+        <PropertyRef Name="ItinerarioBLEmbarque" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Demora_BLEmbarque">
+    <End Role="BLEmbarque" Type="Self.BLEmbarque" Multiplicity="1" />
+    <End Role="Demora" Type="Self.Demora" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BLEmbarque">
+        <PropertyRef Name="IdBLEmbarque" />
+      </Principal>
+      <Dependent Role="Demora">
+        <PropertyRef Name="BLDemora" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Preliquidacion_BLEmbarque">
+    <End Role="BLEmbarque" Type="Self.BLEmbarque" Multiplicity="0..1" />
+    <End Role="Preliquidacion" Type="Self.Preliquidacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BLEmbarque">
+        <PropertyRef Name="IdBLEmbarque" />
+      </Principal>
+      <Dependent Role="Preliquidacion">
+        <PropertyRef Name="BLPreliquidacion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Itinerario_Buque">
+    <End Role="Buque" Type="Self.Buque" Multiplicity="0..1" />
+    <End Role="Itinerario" Type="Self.Itinerario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Buque">
+        <PropertyRef Name="IdBuque" />
+      </Principal>
+      <Dependent Role="Itinerario">
+        <PropertyRef Name="IdBuqueItinerario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LineaBuque_Buque">
+    <End Role="Buque" Type="Self.Buque" Multiplicity="1" />
+    <End Role="LineaBuque" Type="Self.LineaBuque" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Buque">
+        <PropertyRef Name="IdBuque" />
+      </Principal>
+      <Dependent Role="LineaBuque">
+        <PropertyRef Name="IdBuque" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Demora_Cliente">
+    <End Role="Cliente" Type="Self.Cliente" Multiplicity="1" />
+    <End Role="Demora" Type="Self.Demora" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cliente">
+        <PropertyRef Name="IdCliente" />
+      </Principal>
+      <Dependent Role="Demora">
+        <PropertyRef Name="ClienteDemora" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Demora_Cliente1">
+    <End Role="Cliente" Type="Self.Cliente" Multiplicity="1" />
+    <End Role="Demora" Type="Self.Demora" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cliente">
+        <PropertyRef Name="IdCliente" />
+      </Principal>
+      <Dependent Role="Demora">
+        <PropertyRef Name="ClienteDemora" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Factura_Cliente">
+    <End Role="Cliente" Type="Self.Cliente" Multiplicity="1" />
+    <End Role="Factura" Type="Self.Factura" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cliente">
+        <PropertyRef Name="IdCliente" />
+      </Principal>
+      <Dependent Role="Factura">
+        <PropertyRef Name="ClienteFactura" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Preliquidacion_Cliente">
+    <End Role="Cliente" Type="Self.Cliente" Multiplicity="1" />
+    <End Role="Preliquidacion" Type="Self.Preliquidacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cliente">
+        <PropertyRef Name="IdCliente" />
+      </Principal>
+      <Dependent Role="Preliquidacion">
+        <PropertyRef Name="ClientePreliquidacion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Reserva_Cliente">
+    <End Role="Cliente" Type="Self.Cliente" Multiplicity="1" />
+    <End Role="Reserva" Type="Self.Reserva" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cliente">
+        <PropertyRef Name="IdCliente" />
+      </Principal>
+      <Dependent Role="Reserva">
+        <PropertyRef Name="ClienteReserva" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OrdenRepComponente_Componente">
+    <End Role="Componente" Type="Self.Componente" Multiplicity="1" />
+    <End Role="OrdenRepComponente" Type="Self.OrdenRepComponente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Componente">
+        <PropertyRef Name="IdComponente" />
+      </Principal>
+      <Dependent Role="OrdenRepComponente">
+        <PropertyRef Name="IdComponente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Contenedor_Condicion">
+    <End Role="Condicion" Type="Self.Condicion" Multiplicity="0..1" />
+    <End Role="Contenedor" Type="Self.Contenedor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Condicion">
+        <PropertyRef Name="IdCondicion" />
+      </Principal>
+      <Dependent Role="Contenedor">
+        <PropertyRef Name="CondicionContenedor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ContenedorEIREntrada_Condicion">
+    <End Role="Condicion" Type="Self.Condicion" Multiplicity="0..1" />
+    <End Role="ContenedorEIR" Type="Self.ContenedorEIR" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Condicion">
+        <PropertyRef Name="IdCondicion" />
+      </Principal>
+      <Dependent Role="ContenedorEIR">
+        <PropertyRef Name="CondicionEIR" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ContenedorEIREntrada_ConductorUndTrans">
+    <End Role="ConductorUndTrans" Type="Self.ConductorUndTrans" Multiplicity="0..1" />
+    <End Role="ContenedorEIR" Type="Self.ContenedorEIR" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ConductorUndTrans">
+        <PropertyRef Name="IdConductor" />
+      </Principal>
+      <Dependent Role="ContenedorEIR">
+        <PropertyRef Name="ConductorUnidadEIR" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Contenedor_EstatusContenedor">
+    <End Role="EstatusContenedor" Type="Self.EstatusContenedor" Multiplicity="0..1" />
+    <End Role="Contenedor" Type="Self.Contenedor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EstatusContenedor">
+        <PropertyRef Name="IdEstatusContenedor" />
+      </Principal>
+      <Dependent Role="Contenedor">
+        <PropertyRef Name="EstatusContenedor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Contenedor_Evento">
+    <End Role="Evento" Type="Self.Evento" Multiplicity="0..1" />
+    <End Role="Contenedor" Type="Self.Contenedor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Evento">
+        <PropertyRef Name="IdEvento" />
+      </Principal>
+      <Dependent Role="Contenedor">
+        <PropertyRef Name="EventoContenedor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Contenedor_LineaMaritima">
+    <End Role="LineaMaritima" Type="Self.LineaMaritima" Multiplicity="0..1" />
+    <End Role="Contenedor" Type="Self.Contenedor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LineaMaritima">
+        <PropertyRef Name="IdLineaMaritima" />
+      </Principal>
+      <Dependent Role="Contenedor">
+        <PropertyRef Name="LineaContenedor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Contenedor_TipoContenedor">
+    <End Role="TipoContenedor" Type="Self.TipoContenedor" Multiplicity="1" />
+    <End Role="Contenedor" Type="Self.Contenedor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoContenedor">
+        <PropertyRef Name="IdTipoContenedor" />
+      </Principal>
+      <Dependent Role="Contenedor">
+        <PropertyRef Name="TipoContenedor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Contenedor_Ubicacion">
+    <End Role="Ubicacion" Type="Self.Ubicacion" Multiplicity="0..1" />
+    <End Role="Contenedor" Type="Self.Contenedor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ubicacion">
+        <PropertyRef Name="IdUbicacion" />
+      </Principal>
+      <Dependent Role="Contenedor">
+        <PropertyRef Name="UbicacionContenedor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ContenedorEIREntrada_Contenedor">
+    <End Role="Contenedor" Type="Self.Contenedor" Multiplicity="0..1" />
+    <End Role="ContenedorEIR" Type="Self.ContenedorEIR" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Contenedor">
+        <PropertyRef Name="IdContenedor" />
+      </Principal>
+      <Dependent Role="ContenedorEIR">
+        <PropertyRef Name="IdContenedor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ContenedorMovimiento_Contenedor">
+    <End Role="Contenedor" Type="Self.Contenedor" Multiplicity="1" />
+    <End Role="ContenedorMovimiento" Type="Self.ContenedorMovimiento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Contenedor">
+        <PropertyRef Name="IdContenedor" />
+      </Principal>
+      <Dependent Role="ContenedorMovimiento">
+        <PropertyRef Name="IdContenedor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DemoraContenedor_Contenedor">
+    <End Role="Contenedor" Type="Self.Contenedor" Multiplicity="1" />
+    <End Role="DemoraContenedor" Type="Self.DemoraContenedor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Contenedor">
+        <PropertyRef Name="IdContenedor" />
+      </Principal>
+      <Dependent Role="DemoraContenedor">
+        <PropertyRef Name="IdContenedor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EmbarqueContenedor_Contenedor">
+    <End Role="Contenedor" Type="Self.Contenedor" Multiplicity="1" />
+    <End Role="ItinerarioEmbContenedor" Type="Self.ItinerarioEmbContenedor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Contenedor">
+        <PropertyRef Name="IdContenedor" />
+      </Principal>
+      <Dependent Role="ItinerarioEmbContenedor">
+        <PropertyRef Name="IdContenedor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ItinerarioContenedor_Contenedor">
+    <End Role="Contenedor" Type="Self.Contenedor" Multiplicity="1" />
+    <End Role="ItinerarioContenedor" Type="Self.ItinerarioContenedor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Contenedor">
+        <PropertyRef Name="IdContenedor" />
+      </Principal>
+      <Dependent Role="ItinerarioContenedor">
+        <PropertyRef Name="IdContenedor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ReservaContenedor_Contenedor">
+    <End Role="Contenedor" Type="Self.Contenedor" Multiplicity="1" />
+    <End Role="ReservaContenedor" Type="Self.ReservaContenedor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Contenedor">
+        <PropertyRef Name="IdContenedor" />
+      </Principal>
+      <Dependent Role="ReservaContenedor">
+        <PropertyRef Name="IdContenedor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ContenedorEIR_Evento">
+    <End Role="Evento" Type="Self.Evento" Multiplicity="0..1" />
+    <End Role="ContenedorEIR" Type="Self.ContenedorEIR" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Evento">
+        <PropertyRef Name="IdEvento" />
+      </Principal>
+      <Dependent Role="ContenedorEIR">
+        <PropertyRef Name="EventoEIR" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ContenedorEIR_TipoEIR">
+    <End Role="TipoEIR" Type="Self.TipoEIR" Multiplicity="1" />
+    <End Role="ContenedorEIR" Type="Self.ContenedorEIR" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoEIR">
+        <PropertyRef Name="IdTipoEIR" />
+      </Principal>
+      <Dependent Role="ContenedorEIR">
+        <PropertyRef Name="TipoEIR" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ContenedorEIREntrada_Ubicacion">
+    <End Role="Ubicacion" Type="Self.Ubicacion" Multiplicity="0..1" />
+    <End Role="ContenedorEIR" Type="Self.ContenedorEIR" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ubicacion">
+        <PropertyRef Name="IdUbicacion" />
+      </Principal>
+      <Dependent Role="ContenedorEIR">
+        <PropertyRef Name="UbicacionEIR" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ContenedorEIREntrada_UnidadTransporte">
+    <End Role="UnidadTransporte" Type="Self.UnidadTransporte" Multiplicity="0..1" />
+    <End Role="ContenedorEIR" Type="Self.ContenedorEIR" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UnidadTransporte">
+        <PropertyRef Name="IdUnidadTransporte" />
+      </Principal>
+      <Dependent Role="ContenedorEIR">
+        <PropertyRef Name="UnidadTransporteEIR" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OrdenReparacion_ContenedorEIR">
+    <End Role="ContenedorEIR" Type="Self.ContenedorEIR" Multiplicity="1" />
+    <End Role="OrdenReparacion" Type="Self.OrdenReparacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ContenedorEIR">
+        <PropertyRef Name="IdContenedorEIR" />
+      </Principal>
+      <Dependent Role="OrdenReparacion">
+        <PropertyRef Name="IdContenedorEIR" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ContenedorMovimiento_EstatusContenedor">
+    <End Role="EstatusContenedor" Type="Self.EstatusContenedor" Multiplicity="0..1" />
+    <End Role="ContenedorMovimiento" Type="Self.ContenedorMovimiento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EstatusContenedor">
+        <PropertyRef Name="IdEstatusContenedor" />
+      </Principal>
+      <Dependent Role="ContenedorMovimiento">
+        <PropertyRef Name="EstatusContenedorMov" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ContenedorMovimiento_Evento">
+    <End Role="Evento" Type="Self.Evento" Multiplicity="1" />
+    <End Role="ContenedorMovimiento" Type="Self.ContenedorMovimiento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Evento">
+        <PropertyRef Name="IdEvento" />
+      </Principal>
+      <Dependent Role="ContenedorMovimiento">
+        <PropertyRef Name="EventoContenedorMov" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ContenedorMovimiento_Itinerario">
+    <End Role="Itinerario" Type="Self.Itinerario" Multiplicity="1" />
+    <End Role="ContenedorMovimiento" Type="Self.ContenedorMovimiento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Itinerario">
+        <PropertyRef Name="IdItinerario" />
+      </Principal>
+      <Dependent Role="ContenedorMovimiento">
+        <PropertyRef Name="ItinerarioContenedorMov" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OrdenRepComponente_Daño">
+    <End Role="Daño" Type="Self.Daño" Multiplicity="1" />
+    <End Role="OrdenRepComponente" Type="Self.OrdenRepComponente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Daño">
+        <PropertyRef Name="IdDaño" />
+      </Principal>
+      <Dependent Role="OrdenRepComponente">
+        <PropertyRef Name="IdDañoOrdComp" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Demora_TasaCambio">
+    <End Role="TasaCambio" Type="Self.TasaCambio" Multiplicity="1" />
+    <End Role="Demora" Type="Self.Demora" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TasaCambio">
+        <PropertyRef Name="IdTasaCambio" />
+      </Principal>
+      <Dependent Role="Demora">
+        <PropertyRef Name="TasaCambioDemora" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DemoraContenedor_Demora">
+    <End Role="Demora" Type="Self.Demora" Multiplicity="1" />
+    <End Role="DemoraContenedor" Type="Self.DemoraContenedor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Demora">
+        <PropertyRef Name="IdDemora" />
+      </Principal>
+      <Dependent Role="DemoraContenedor">
+        <PropertyRef Name="IdDemora" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Usuario_Departamento">
+    <End Role="Departamento" Type="Self.Departamento" Multiplicity="0..1" />
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Departamento">
+        <PropertyRef Name="IdDepartamento" />
+      </Principal>
+      <Dependent Role="Usuario">
+        <PropertyRef Name="DepartamentoUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EmpresaCuentaBancaria_Empresa">
+    <End Role="Empresa" Type="Self.Empresa" Multiplicity="1" />
+    <End Role="EmpresaCuentaBancaria" Type="Self.EmpresaCuentaBancaria" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Empresa">
+        <PropertyRef Name="IdEmpresa" />
+      </Principal>
+      <Dependent Role="EmpresaCuentaBancaria">
+        <PropertyRef Name="IdEmpresa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EmpresaServicio_Empresa">
+    <End Role="Empresa" Type="Self.Empresa" Multiplicity="1" />
+    <End Role="EmpresaServicio" Type="Self.EmpresaServicio" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Empresa">
+        <PropertyRef Name="IdEmpresa" />
+      </Principal>
+      <Dependent Role="EmpresaServicio">
+        <PropertyRef Name="IdEmpresa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Factura_Empresa">
+    <End Role="Empresa" Type="Self.Empresa" Multiplicity="1" />
+    <End Role="Factura" Type="Self.Factura" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Empresa">
+        <PropertyRef Name="IdEmpresa" />
+      </Principal>
+      <Dependent Role="Factura">
+        <PropertyRef Name="EmpresaFactura" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Preliquidacion_Empresa">
+    <End Role="Empresa" Type="Self.Empresa" Multiplicity="1" />
+    <End Role="Preliquidacion" Type="Self.Preliquidacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Empresa">
+        <PropertyRef Name="IdEmpresa" />
+      </Principal>
+      <Dependent Role="Preliquidacion">
+        <PropertyRef Name="EmpresaPreliquidacion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ServicioTarifa_Empresa">
+    <End Role="Empresa" Type="Self.Empresa" Multiplicity="1" />
+    <End Role="ServicioTarifa" Type="Self.ServicioTarifa" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Empresa">
+        <PropertyRef Name="IdEmpresa" />
+      </Principal>
+      <Dependent Role="ServicioTarifa">
+        <PropertyRef Name="IdEmpresa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EmpresaServicio_Servicio">
+    <End Role="Servicio" Type="Self.Servicio" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="EmpresaServicio" Type="Self.EmpresaServicio" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Servicio">
+        <PropertyRef Name="IdServicio" />
+      </Principal>
+      <Dependent Role="EmpresaServicio">
+        <PropertyRef Name="IdServicio" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UnidadTransporte_EmpresaTransporte">
+    <End Role="EmpresaTransporte" Type="Self.EmpresaTransporte" Multiplicity="1" />
+    <End Role="UnidadTransporte" Type="Self.UnidadTransporte" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EmpresaTransporte">
+        <PropertyRef Name="IdEmpresaTrans" />
+      </Principal>
+      <Dependent Role="UnidadTransporte">
+        <PropertyRef Name="EmpresaUnidadTransporte" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Factura_TasaCambio">
+    <End Role="TasaCambio" Type="Self.TasaCambio" Multiplicity="1" />
+    <End Role="Factura" Type="Self.Factura" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TasaCambio">
+        <PropertyRef Name="IdTasaCambio" />
+      </Principal>
+      <Dependent Role="Factura">
+        <PropertyRef Name="TasaCambioFactura" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FacturaServicio_Factura">
+    <End Role="Factura" Type="Self.Factura" Multiplicity="1" />
+    <End Role="FacturaServicio" Type="Self.FacturaServicio" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Factura">
+        <PropertyRef Name="IdFactura" />
+      </Principal>
+      <Dependent Role="FacturaServicio">
+        <PropertyRef Name="IdFactura" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Opcion_GrupoOpcion">
+    <End Role="GrupoOpcion" Type="Self.GrupoOpcion" Multiplicity="0..1" />
+    <End Role="Opcion" Type="Self.Opcion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GrupoOpcion">
+        <PropertyRef Name="IdGrupoOpc" />
+      </Principal>
+      <Dependent Role="Opcion">
+        <PropertyRef Name="GrupoOpcion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Itinerario_LineaMaritima">
+    <End Role="LineaMaritima" Type="Self.LineaMaritima" Multiplicity="0..1" />
+    <End Role="Itinerario" Type="Self.Itinerario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LineaMaritima">
+        <PropertyRef Name="IdLineaMaritima" />
+      </Principal>
+      <Dependent Role="Itinerario">
+        <PropertyRef Name="IdLineaItinerario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Itinerario_Usuario">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+    <End Role="Itinerario" Type="Self.Itinerario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="IdUsuario" />
+      </Principal>
+      <Dependent Role="Itinerario">
+        <PropertyRef Name="UsuarioItinerario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ItinerarioContenedor_Itinerario">
+    <End Role="Itinerario" Type="Self.Itinerario" Multiplicity="1" />
+    <End Role="ItinerarioContenedor" Type="Self.ItinerarioContenedor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Itinerario">
+        <PropertyRef Name="IdItinerario" />
+      </Principal>
+      <Dependent Role="ItinerarioContenedor">
+        <PropertyRef Name="IdItinerario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ItinerarioEmbContenedor_Itinerario">
+    <End Role="Itinerario" Type="Self.Itinerario" Multiplicity="1" />
+    <End Role="ItinerarioEmbContenedor" Type="Self.ItinerarioEmbContenedor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Itinerario">
+        <PropertyRef Name="IdItinerario" />
+      </Principal>
+      <Dependent Role="ItinerarioEmbContenedor">
+        <PropertyRef Name="ItinerarioEmbarque" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ItinerarioUbicacion_Itinerario">
+    <End Role="Itinerario" Type="Self.Itinerario" Multiplicity="1" />
+    <End Role="ItinerarioUbicacion" Type="Self.ItinerarioUbicacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Itinerario">
+        <PropertyRef Name="IdItinerario" />
+      </Principal>
+      <Dependent Role="ItinerarioUbicacion">
+        <PropertyRef Name="IdItinerario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Reserva_Itinerario">
+    <End Role="Itinerario" Type="Self.Itinerario" Multiplicity="1" />
+    <End Role="Reserva" Type="Self.Reserva" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Itinerario">
+        <PropertyRef Name="IdItinerario" />
+      </Principal>
+      <Dependent Role="Reserva">
+        <PropertyRef Name="ItinerarioReserva" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ItinerarioUbicacion_Ubicacion">
+    <End Role="Ubicacion" Type="Self.Ubicacion" Multiplicity="1" />
+    <End Role="ItinerarioUbicacion" Type="Self.ItinerarioUbicacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ubicacion">
+        <PropertyRef Name="IdUbicacion" />
+      </Principal>
+      <Dependent Role="ItinerarioUbicacion">
+        <PropertyRef Name="IdUbicacion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OrdenRepComponente_Lado">
+    <End Role="Lado" Type="Self.Lado" Multiplicity="1" />
+    <End Role="OrdenRepComponente" Type="Self.OrdenRepComponente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Lado">
+        <PropertyRef Name="IdLado" />
+      </Principal>
+      <Dependent Role="OrdenRepComponente">
+        <PropertyRef Name="IdLadoOrdComponente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LineaBuque_LineaMaritima">
+    <End Role="LineaMaritima" Type="Self.LineaMaritima" Multiplicity="1" />
+    <End Role="LineaBuque" Type="Self.LineaBuque" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LineaMaritima">
+        <PropertyRef Name="IdLineaMaritima" />
+      </Principal>
+      <Dependent Role="LineaBuque">
+        <PropertyRef Name="IdLineaMaritima" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ServicioTarifa_LineaMaritima">
+    <End Role="LineaMaritima" Type="Self.LineaMaritima" Multiplicity="1" />
+    <End Role="ServicioTarifa" Type="Self.ServicioTarifa" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LineaMaritima">
+        <PropertyRef Name="IdLineaMaritima" />
+      </Principal>
+      <Dependent Role="ServicioTarifa">
+        <PropertyRef Name="IdLinea" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OrdenRepComponente_MetodoReparacion">
+    <End Role="MetodoReparacion" Type="Self.MetodoReparacion" Multiplicity="1" />
+    <End Role="OrdenRepComponente" Type="Self.OrdenRepComponente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MetodoReparacion">
+        <PropertyRef Name="IdMetodoRep" />
+      </Principal>
+      <Dependent Role="OrdenRepComponente">
+        <PropertyRef Name="MetodoRepOrdComp" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Opcion_Modulo">
+    <End Role="Modulo" Type="Self.Modulo" Multiplicity="1" />
+    <End Role="Opcion" Type="Self.Opcion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Modulo">
+        <PropertyRef Name="IdModulo" />
+      </Principal>
+      <Dependent Role="Opcion">
+        <PropertyRef Name="ModuloOpcion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UsuarioModulo_Modulo">
+    <End Role="Modulo" Type="Self.Modulo" Multiplicity="1" />
+    <End Role="UsuarioModulo" Type="Self.UsuarioModulo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Modulo">
+        <PropertyRef Name="IdModulo" />
+      </Principal>
+      <Dependent Role="UsuarioModulo">
+        <PropertyRef Name="IdModulo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Usuario_Oficina">
+    <End Role="Oficina" Type="Self.Oficina" Multiplicity="0..1" />
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Oficina">
+        <PropertyRef Name="IdOficina" />
+      </Principal>
+      <Dependent Role="Usuario">
+        <PropertyRef Name="OficinaUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OpcionMensajeUsuario_Opcion">
+    <End Role="Opcion" Type="Self.Opcion" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="OpcionMensajeUsuario" Type="Self.OpcionMensajeUsuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Opcion">
+        <PropertyRef Name="IdOpcion" />
+      </Principal>
+      <Dependent Role="OpcionMensajeUsuario">
+        <PropertyRef Name="IdOpcion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UsuarioOpcion_Opcion">
+    <End Role="Opcion" Type="Self.Opcion" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="UsuarioOpcion" Type="Self.UsuarioOpcion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Opcion">
+        <PropertyRef Name="IdOpcion" />
+      </Principal>
+      <Dependent Role="UsuarioOpcion">
+        <PropertyRef Name="IdOpcion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OpcionMensajeUsuario_TipoMensajeUsuario">
+    <End Role="TipoMensajeUsuario" Type="Self.TipoMensajeUsuario" Multiplicity="1" />
+    <End Role="OpcionMensajeUsuario" Type="Self.OpcionMensajeUsuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoMensajeUsuario">
+        <PropertyRef Name="IdTipoMensaje" />
+      </Principal>
+      <Dependent Role="OpcionMensajeUsuario">
+        <PropertyRef Name="TipoMensajeUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OpcionMensajeUsuario_Usuario">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="OpcionMensajeUsuario" Type="Self.OpcionMensajeUsuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="IdUsuario" />
+      </Principal>
+      <Dependent Role="OpcionMensajeUsuario">
+        <PropertyRef Name="IdUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OrdenRepComponente_OrdenReparacion">
+    <End Role="OrdenReparacion" Type="Self.OrdenReparacion" Multiplicity="1" />
+    <End Role="OrdenRepComponente" Type="Self.OrdenRepComponente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OrdenReparacion">
+        <PropertyRef Name="IdOrdenRep" />
+      </Principal>
+      <Dependent Role="OrdenRepComponente">
+        <PropertyRef Name="IdOrdenRep" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Preliquidacion_PreliquidacionEstatus">
+    <End Role="PreliquidacionEstatus" Type="Self.PreliquidacionEstatus" Multiplicity="0..1" />
+    <End Role="Preliquidacion" Type="Self.Preliquidacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PreliquidacionEstatus">
+        <PropertyRef Name="IdPrelEstatus" />
+      </Principal>
+      <Dependent Role="Preliquidacion">
+        <PropertyRef Name="EstatusPreliquidacion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Preliquidacion_TasaCambio">
+    <End Role="TasaCambio" Type="Self.TasaCambio" Multiplicity="0..1" />
+    <End Role="Preliquidacion" Type="Self.Preliquidacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TasaCambio">
+        <PropertyRef Name="IdTasaCambio" />
+      </Principal>
+      <Dependent Role="Preliquidacion">
+        <PropertyRef Name="TasaCambioBLPreliquidacion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Preliquidacion_TipoPreliquidacion">
+    <End Role="TipoPreliquidacion" Type="Self.TipoPreliquidacion" Multiplicity="0..1" />
+    <End Role="Preliquidacion" Type="Self.Preliquidacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoPreliquidacion">
+        <PropertyRef Name="IdTipoPre" />
+      </Principal>
+      <Dependent Role="Preliquidacion">
+        <PropertyRef Name="TipoPreliquidacion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PreliquidacionContenedor_Preliquidacion">
+    <End Role="Preliquidacion" Type="Self.Preliquidacion" Multiplicity="1" />
+    <End Role="PreliquidacionContenedor" Type="Self.PreliquidacionContenedor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Preliquidacion">
+        <PropertyRef Name="IdPreliquidacion" />
+      </Principal>
+      <Dependent Role="PreliquidacionContenedor">
+        <PropertyRef Name="IdPreliquidacion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PresupuestoServicio_Presupuesto">
+    <End Role="Preliquidacion" Type="Self.Preliquidacion" Multiplicity="1" />
+    <End Role="PreliquidacionServicio" Type="Self.PreliquidacionServicio" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Preliquidacion">
+        <PropertyRef Name="IdPreliquidacion" />
+      </Principal>
+      <Dependent Role="PreliquidacionServicio">
+        <PropertyRef Name="IdPreliquidacion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PresupuestoServicio_Servicio">
+    <End Role="Servicio" Type="Self.Servicio" Multiplicity="1" />
+    <End Role="PreliquidacionServicio" Type="Self.PreliquidacionServicio" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Servicio">
+        <PropertyRef Name="IdServicio" />
+      </Principal>
+      <Dependent Role="PreliquidacionServicio">
+        <PropertyRef Name="IdServicio" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Reserva_Puerto">
+    <End Role="Puerto" Type="Self.Puerto" Multiplicity="1" />
+    <End Role="Reserva" Type="Self.Reserva" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Puerto">
+        <PropertyRef Name="IdPuerto" />
+      </Principal>
+      <Dependent Role="Reserva">
+        <PropertyRef Name="PuertoDescargaReserva" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Reserva_Usuario">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+    <End Role="Reserva" Type="Self.Reserva" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="IdUsuario" />
+      </Principal>
+      <Dependent Role="Reserva">
+        <PropertyRef Name="UsuarioReserva" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ReservaContenedor_Reserva">
+    <End Role="Reserva" Type="Self.Reserva" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ReservaContenedor" Type="Self.ReservaContenedor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Reserva">
+        <PropertyRef Name="IdReserva" />
+      </Principal>
+      <Dependent Role="ReservaContenedor">
+        <PropertyRef Name="IdReserva" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UsuarioModulo_Rol">
+    <End Role="Rol" Type="Self.Rol" Multiplicity="0..1" />
+    <End Role="UsuarioModulo" Type="Self.UsuarioModulo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Rol">
+        <PropertyRef Name="IdRol" />
+      </Principal>
+      <Dependent Role="UsuarioModulo">
+        <PropertyRef Name="IdRolUsuarioModulo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ServicioTarifa_Servicio">
+    <End Role="Servicio" Type="Self.Servicio" Multiplicity="1" />
+    <End Role="ServicioTarifa" Type="Self.ServicioTarifa" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Servicio">
+        <PropertyRef Name="IdServicio" />
+      </Principal>
+      <Dependent Role="ServicioTarifa">
+        <PropertyRef Name="IdServicio" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ServicioTarifa_TipoPreliquidacion">
+    <End Role="TipoPreliquidacion" Type="Self.TipoPreliquidacion" Multiplicity="1" />
+    <End Role="ServicioTarifa" Type="Self.ServicioTarifa" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoPreliquidacion">
+        <PropertyRef Name="IdTipoPre" />
+      </Principal>
+      <Dependent Role="ServicioTarifa">
+        <PropertyRef Name="TipoServicio" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TasaCambioMov_TasaCambio">
+    <End Role="TasaCambio" Type="Self.TasaCambio" Multiplicity="1" />
+    <End Role="TasaCambioMov" Type="Self.TasaCambioMov" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TasaCambio">
+        <PropertyRef Name="IdTasaCambio" />
+      </Principal>
+      <Dependent Role="TasaCambioMov">
+        <PropertyRef Name="IdTasaCambio" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TipoTamaño_TipoContenedor">
+    <End Role="TipoContenedor" Type="Self.TipoContenedor" Multiplicity="1" />
+    <End Role="TipoTamaño" Type="Self.TipoTamaño" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoContenedor">
+        <PropertyRef Name="IdTipoContenedor" />
+      </Principal>
+      <Dependent Role="TipoTamaño">
+        <PropertyRef Name="TipoContenedor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UsuarioModulo_Usuario">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="UsuarioModulo" Type="Self.UsuarioModulo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="IdUsuario" />
+      </Principal>
+      <Dependent Role="UsuarioModulo">
+        <PropertyRef Name="IdUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UsuarioOpcion_Usuario">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="UsuarioOpcion" Type="Self.UsuarioOpcion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="IdUsuario" />
+      </Principal>
+      <Dependent Role="UsuarioOpcion">
+        <PropertyRef Name="IdUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ATLANTISEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="AgenteAduanal" EntityType="Self.AgenteAduanal" />
+    <EntitySet Name="BLEmbarque" EntityType="Self.BLEmbarque" />
+    <EntitySet Name="Buque" EntityType="Self.Buque" />
+    <EntitySet Name="Cliente" EntityType="Self.Cliente" />
+    <EntitySet Name="ClienteTarifaSer" EntityType="Self.ClienteTarifaSer" />
+    <EntitySet Name="Componente" EntityType="Self.Componente" />
+    <EntitySet Name="Condicion" EntityType="Self.Condicion" />
+    <EntitySet Name="ConductorUndTrans" EntityType="Self.ConductorUndTrans" />
+    <EntitySet Name="Contenedor" EntityType="Self.Contenedor" />
+    <EntitySet Name="ContenedorEIR" EntityType="Self.ContenedorEIR" />
+    <EntitySet Name="ContenedorMovimiento" EntityType="Self.ContenedorMovimiento" />
+    <EntitySet Name="Daño" EntityType="Self.Daño" />
+    <EntitySet Name="Demora" EntityType="Self.Demora" />
+    <EntitySet Name="DemoraContenedor" EntityType="Self.DemoraContenedor" />
+    <EntitySet Name="DemoraTarifa" EntityType="Self.DemoraTarifa" />
+    <EntitySet Name="Departamento" EntityType="Self.Departamento" />
+    <EntitySet Name="Empresa" EntityType="Self.Empresa" />
+    <EntitySet Name="EmpresaCuentaBancaria" EntityType="Self.EmpresaCuentaBancaria" />
+    <EntitySet Name="EmpresaServicio" EntityType="Self.EmpresaServicio" />
+    <EntitySet Name="EmpresaTransporte" EntityType="Self.EmpresaTransporte" />
+    <EntitySet Name="EstatusContenedor" EntityType="Self.EstatusContenedor" />
+    <EntitySet Name="Evento" EntityType="Self.Evento" />
+    <EntitySet Name="Factura" EntityType="Self.Factura" />
+    <EntitySet Name="FacturaServicio" EntityType="Self.FacturaServicio" />
+    <EntitySet Name="GrupoOpcion" EntityType="Self.GrupoOpcion" />
+    <EntitySet Name="Itinerario" EntityType="Self.Itinerario" />
+    <EntitySet Name="ItinerarioContenedor" EntityType="Self.ItinerarioContenedor" />
+    <EntitySet Name="ItinerarioEmbContenedor" EntityType="Self.ItinerarioEmbContenedor" />
+    <EntitySet Name="ItinerarioUbicacion" EntityType="Self.ItinerarioUbicacion" />
+    <EntitySet Name="Lado" EntityType="Self.Lado" />
+    <EntitySet Name="LineaBuque" EntityType="Self.LineaBuque" />
+    <EntitySet Name="LineaMaritima" EntityType="Self.LineaMaritima" />
+    <EntitySet Name="LineaPool" EntityType="Self.LineaPool" />
+    <EntitySet Name="MetodoReparacion" EntityType="Self.MetodoReparacion" />
+    <EntitySet Name="Modulo" EntityType="Self.Modulo" />
+    <EntitySet Name="Oficina" EntityType="Self.Oficina" />
+    <EntitySet Name="Opcion" EntityType="Self.Opcion" />
+    <EntitySet Name="OpcionMensajeUsuario" EntityType="Self.OpcionMensajeUsuario" />
+    <EntitySet Name="OrdenReparacion" EntityType="Self.OrdenReparacion" />
+    <EntitySet Name="OrdenRepComponente" EntityType="Self.OrdenRepComponente" />
+    <EntitySet Name="Preliquidacion" EntityType="Self.Preliquidacion" />
+    <EntitySet Name="PreliquidacionContenedor" EntityType="Self.PreliquidacionContenedor" />
+    <EntitySet Name="PreliquidacionEstatus" EntityType="Self.PreliquidacionEstatus" />
+    <EntitySet Name="PreliquidacionServicio" EntityType="Self.PreliquidacionServicio" />
+    <EntitySet Name="Procedencia" EntityType="Self.Procedencia" />
+    <EntitySet Name="Puerto" EntityType="Self.Puerto" />
+    <EntitySet Name="Reserva" EntityType="Self.Reserva" />
+    <EntitySet Name="ReservaContenedor" EntityType="Self.ReservaContenedor" />
+    <EntitySet Name="Rol" EntityType="Self.Rol" />
+    <EntitySet Name="Servicio" EntityType="Self.Servicio" />
+    <EntitySet Name="ServicioTarifa" EntityType="Self.ServicioTarifa" />
+    <EntitySet Name="TasaCambio" EntityType="Self.TasaCambio" />
+    <EntitySet Name="TasaCambioMov" EntityType="Self.TasaCambioMov" />
+    <EntitySet Name="TipoContenedor" EntityType="Self.TipoContenedor" />
+    <EntitySet Name="TipoEIR" EntityType="Self.TipoEIR" />
+    <EntitySet Name="TipoISOContenedor" EntityType="Self.TipoISOContenedor" />
+    <EntitySet Name="TipoMensajeUsuario" EntityType="Self.TipoMensajeUsuario" />
+    <EntitySet Name="TipoPreliquidacion" EntityType="Self.TipoPreliquidacion" />
+    <EntitySet Name="TipoTamaño" EntityType="Self.TipoTamaño" />
+    <EntitySet Name="Ubicacion" EntityType="Self.Ubicacion" />
+    <EntitySet Name="UnidadTransporte" EntityType="Self.UnidadTransporte" />
+    <EntitySet Name="Usuario" EntityType="Self.Usuario" />
+    <EntitySet Name="UsuarioModulo" EntityType="Self.UsuarioModulo" />
+    <EntitySet Name="UsuarioOpcion" EntityType="Self.UsuarioOpcion" />
+    <EntitySet Name="OrdenRepImagen" EntityType="Self.OrdenRepImagen" />
+    <AssociationSet Name="FK_ContenedorEIREntrada_AgenteAduanal" Association="Self.FK_ContenedorEIREntrada_AgenteAduanal">
+      <End Role="AgenteAduanal" EntitySet="AgenteAduanal" />
+      <End Role="ContenedorEIR" EntitySet="ContenedorEIR" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BLEmbarque_Itinerario" Association="Self.FK_BLEmbarque_Itinerario">
+      <End Role="Itinerario" EntitySet="Itinerario" />
+      <End Role="BLEmbarque" EntitySet="BLEmbarque" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Demora_BLEmbarque" Association="Self.FK_Demora_BLEmbarque">
+      <End Role="BLEmbarque" EntitySet="BLEmbarque" />
+      <End Role="Demora" EntitySet="Demora" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Preliquidacion_BLEmbarque" Association="Self.FK_Preliquidacion_BLEmbarque">
+      <End Role="BLEmbarque" EntitySet="BLEmbarque" />
+      <End Role="Preliquidacion" EntitySet="Preliquidacion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Itinerario_Buque" Association="Self.FK_Itinerario_Buque">
+      <End Role="Buque" EntitySet="Buque" />
+      <End Role="Itinerario" EntitySet="Itinerario" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LineaBuque_Buque" Association="Self.FK_LineaBuque_Buque">
+      <End Role="Buque" EntitySet="Buque" />
+      <End Role="LineaBuque" EntitySet="LineaBuque" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Demora_Cliente" Association="Self.FK_Demora_Cliente">
+      <End Role="Cliente" EntitySet="Cliente" />
+      <End Role="Demora" EntitySet="Demora" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Demora_Cliente1" Association="Self.FK_Demora_Cliente1">
+      <End Role="Cliente" EntitySet="Cliente" />
+      <End Role="Demora" EntitySet="Demora" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Factura_Cliente" Association="Self.FK_Factura_Cliente">
+      <End Role="Cliente" EntitySet="Cliente" />
+      <End Role="Factura" EntitySet="Factura" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Preliquidacion_Cliente" Association="Self.FK_Preliquidacion_Cliente">
+      <End Role="Cliente" EntitySet="Cliente" />
+      <End Role="Preliquidacion" EntitySet="Preliquidacion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reserva_Cliente" Association="Self.FK_Reserva_Cliente">
+      <End Role="Cliente" EntitySet="Cliente" />
+      <End Role="Reserva" EntitySet="Reserva" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrdenRepComponente_Componente" Association="Self.FK_OrdenRepComponente_Componente">
+      <End Role="Componente" EntitySet="Componente" />
+      <End Role="OrdenRepComponente" EntitySet="OrdenRepComponente" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Contenedor_Condicion" Association="Self.FK_Contenedor_Condicion">
+      <End Role="Condicion" EntitySet="Condicion" />
+      <End Role="Contenedor" EntitySet="Contenedor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ContenedorEIREntrada_Condicion" Association="Self.FK_ContenedorEIREntrada_Condicion">
+      <End Role="Condicion" EntitySet="Condicion" />
+      <End Role="ContenedorEIR" EntitySet="ContenedorEIR" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ContenedorEIREntrada_ConductorUndTrans" Association="Self.FK_ContenedorEIREntrada_ConductorUndTrans">
+      <End Role="ConductorUndTrans" EntitySet="ConductorUndTrans" />
+      <End Role="ContenedorEIR" EntitySet="ContenedorEIR" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Contenedor_EstatusContenedor" Association="Self.FK_Contenedor_EstatusContenedor">
+      <End Role="EstatusContenedor" EntitySet="EstatusContenedor" />
+      <End Role="Contenedor" EntitySet="Contenedor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Contenedor_Evento" Association="Self.FK_Contenedor_Evento">
+      <End Role="Evento" EntitySet="Evento" />
+      <End Role="Contenedor" EntitySet="Contenedor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Contenedor_LineaMaritima" Association="Self.FK_Contenedor_LineaMaritima">
+      <End Role="LineaMaritima" EntitySet="LineaMaritima" />
+      <End Role="Contenedor" EntitySet="Contenedor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Contenedor_TipoContenedor" Association="Self.FK_Contenedor_TipoContenedor">
+      <End Role="TipoContenedor" EntitySet="TipoContenedor" />
+      <End Role="Contenedor" EntitySet="Contenedor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Contenedor_Ubicacion" Association="Self.FK_Contenedor_Ubicacion">
+      <End Role="Ubicacion" EntitySet="Ubicacion" />
+      <End Role="Contenedor" EntitySet="Contenedor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ContenedorEIREntrada_Contenedor" Association="Self.FK_ContenedorEIREntrada_Contenedor">
+      <End Role="Contenedor" EntitySet="Contenedor" />
+      <End Role="ContenedorEIR" EntitySet="ContenedorEIR" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ContenedorMovimiento_Contenedor" Association="Self.FK_ContenedorMovimiento_Contenedor">
+      <End Role="Contenedor" EntitySet="Contenedor" />
+      <End Role="ContenedorMovimiento" EntitySet="ContenedorMovimiento" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DemoraContenedor_Contenedor" Association="Self.FK_DemoraContenedor_Contenedor">
+      <End Role="Contenedor" EntitySet="Contenedor" />
+      <End Role="DemoraContenedor" EntitySet="DemoraContenedor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EmbarqueContenedor_Contenedor" Association="Self.FK_EmbarqueContenedor_Contenedor">
+      <End Role="Contenedor" EntitySet="Contenedor" />
+      <End Role="ItinerarioEmbContenedor" EntitySet="ItinerarioEmbContenedor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ItinerarioContenedor_Contenedor" Association="Self.FK_ItinerarioContenedor_Contenedor">
+      <End Role="Contenedor" EntitySet="Contenedor" />
+      <End Role="ItinerarioContenedor" EntitySet="ItinerarioContenedor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ReservaContenedor_Contenedor" Association="Self.FK_ReservaContenedor_Contenedor">
+      <End Role="Contenedor" EntitySet="Contenedor" />
+      <End Role="ReservaContenedor" EntitySet="ReservaContenedor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ContenedorEIR_Evento" Association="Self.FK_ContenedorEIR_Evento">
+      <End Role="Evento" EntitySet="Evento" />
+      <End Role="ContenedorEIR" EntitySet="ContenedorEIR" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ContenedorEIR_TipoEIR" Association="Self.FK_ContenedorEIR_TipoEIR">
+      <End Role="TipoEIR" EntitySet="TipoEIR" />
+      <End Role="ContenedorEIR" EntitySet="ContenedorEIR" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ContenedorEIREntrada_Ubicacion" Association="Self.FK_ContenedorEIREntrada_Ubicacion">
+      <End Role="Ubicacion" EntitySet="Ubicacion" />
+      <End Role="ContenedorEIR" EntitySet="ContenedorEIR" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ContenedorEIREntrada_UnidadTransporte" Association="Self.FK_ContenedorEIREntrada_UnidadTransporte">
+      <End Role="UnidadTransporte" EntitySet="UnidadTransporte" />
+      <End Role="ContenedorEIR" EntitySet="ContenedorEIR" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrdenReparacion_ContenedorEIR" Association="Self.FK_OrdenReparacion_ContenedorEIR">
+      <End Role="ContenedorEIR" EntitySet="ContenedorEIR" />
+      <End Role="OrdenReparacion" EntitySet="OrdenReparacion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ContenedorMovimiento_EstatusContenedor" Association="Self.FK_ContenedorMovimiento_EstatusContenedor">
+      <End Role="EstatusContenedor" EntitySet="EstatusContenedor" />
+      <End Role="ContenedorMovimiento" EntitySet="ContenedorMovimiento" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ContenedorMovimiento_Evento" Association="Self.FK_ContenedorMovimiento_Evento">
+      <End Role="Evento" EntitySet="Evento" />
+      <End Role="ContenedorMovimiento" EntitySet="ContenedorMovimiento" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ContenedorMovimiento_Itinerario" Association="Self.FK_ContenedorMovimiento_Itinerario">
+      <End Role="Itinerario" EntitySet="Itinerario" />
+      <End Role="ContenedorMovimiento" EntitySet="ContenedorMovimiento" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrdenRepComponente_Daño" Association="Self.FK_OrdenRepComponente_Daño">
+      <End Role="Daño" EntitySet="Daño" />
+      <End Role="OrdenRepComponente" EntitySet="OrdenRepComponente" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Demora_TasaCambio" Association="Self.FK_Demora_TasaCambio">
+      <End Role="TasaCambio" EntitySet="TasaCambio" />
+      <End Role="Demora" EntitySet="Demora" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DemoraContenedor_Demora" Association="Self.FK_DemoraContenedor_Demora">
+      <End Role="Demora" EntitySet="Demora" />
+      <End Role="DemoraContenedor" EntitySet="DemoraContenedor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Usuario_Departamento" Association="Self.FK_Usuario_Departamento">
+      <End Role="Departamento" EntitySet="Departamento" />
+      <End Role="Usuario" EntitySet="Usuario" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EmpresaCuentaBancaria_Empresa" Association="Self.FK_EmpresaCuentaBancaria_Empresa">
+      <End Role="Empresa" EntitySet="Empresa" />
+      <End Role="EmpresaCuentaBancaria" EntitySet="EmpresaCuentaBancaria" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EmpresaServicio_Empresa" Association="Self.FK_EmpresaServicio_Empresa">
+      <End Role="Empresa" EntitySet="Empresa" />
+      <End Role="EmpresaServicio" EntitySet="EmpresaServicio" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Factura_Empresa" Association="Self.FK_Factura_Empresa">
+      <End Role="Empresa" EntitySet="Empresa" />
+      <End Role="Factura" EntitySet="Factura" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Preliquidacion_Empresa" Association="Self.FK_Preliquidacion_Empresa">
+      <End Role="Empresa" EntitySet="Empresa" />
+      <End Role="Preliquidacion" EntitySet="Preliquidacion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ServicioTarifa_Empresa" Association="Self.FK_ServicioTarifa_Empresa">
+      <End Role="Empresa" EntitySet="Empresa" />
+      <End Role="ServicioTarifa" EntitySet="ServicioTarifa" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EmpresaServicio_Servicio" Association="Self.FK_EmpresaServicio_Servicio">
+      <End Role="Servicio" EntitySet="Servicio" />
+      <End Role="EmpresaServicio" EntitySet="EmpresaServicio" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UnidadTransporte_EmpresaTransporte" Association="Self.FK_UnidadTransporte_EmpresaTransporte">
+      <End Role="EmpresaTransporte" EntitySet="EmpresaTransporte" />
+      <End Role="UnidadTransporte" EntitySet="UnidadTransporte" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Factura_TasaCambio" Association="Self.FK_Factura_TasaCambio">
+      <End Role="TasaCambio" EntitySet="TasaCambio" />
+      <End Role="Factura" EntitySet="Factura" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FacturaServicio_Factura" Association="Self.FK_FacturaServicio_Factura">
+      <End Role="Factura" EntitySet="Factura" />
+      <End Role="FacturaServicio" EntitySet="FacturaServicio" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Opcion_GrupoOpcion" Association="Self.FK_Opcion_GrupoOpcion">
+      <End Role="GrupoOpcion" EntitySet="GrupoOpcion" />
+      <End Role="Opcion" EntitySet="Opcion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Itinerario_LineaMaritima" Association="Self.FK_Itinerario_LineaMaritima">
+      <End Role="LineaMaritima" EntitySet="LineaMaritima" />
+      <End Role="Itinerario" EntitySet="Itinerario" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Itinerario_Usuario" Association="Self.FK_Itinerario_Usuario">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="Itinerario" EntitySet="Itinerario" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ItinerarioContenedor_Itinerario" Association="Self.FK_ItinerarioContenedor_Itinerario">
+      <End Role="Itinerario" EntitySet="Itinerario" />
+      <End Role="ItinerarioContenedor" EntitySet="ItinerarioContenedor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ItinerarioEmbContenedor_Itinerario" Association="Self.FK_ItinerarioEmbContenedor_Itinerario">
+      <End Role="Itinerario" EntitySet="Itinerario" />
+      <End Role="ItinerarioEmbContenedor" EntitySet="ItinerarioEmbContenedor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ItinerarioUbicacion_Itinerario" Association="Self.FK_ItinerarioUbicacion_Itinerario">
+      <End Role="Itinerario" EntitySet="Itinerario" />
+      <End Role="ItinerarioUbicacion" EntitySet="ItinerarioUbicacion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reserva_Itinerario" Association="Self.FK_Reserva_Itinerario">
+      <End Role="Itinerario" EntitySet="Itinerario" />
+      <End Role="Reserva" EntitySet="Reserva" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ItinerarioUbicacion_Ubicacion" Association="Self.FK_ItinerarioUbicacion_Ubicacion">
+      <End Role="Ubicacion" EntitySet="Ubicacion" />
+      <End Role="ItinerarioUbicacion" EntitySet="ItinerarioUbicacion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrdenRepComponente_Lado" Association="Self.FK_OrdenRepComponente_Lado">
+      <End Role="Lado" EntitySet="Lado" />
+      <End Role="OrdenRepComponente" EntitySet="OrdenRepComponente" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LineaBuque_LineaMaritima" Association="Self.FK_LineaBuque_LineaMaritima">
+      <End Role="LineaMaritima" EntitySet="LineaMaritima" />
+      <End Role="LineaBuque" EntitySet="LineaBuque" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ServicioTarifa_LineaMaritima" Association="Self.FK_ServicioTarifa_LineaMaritima">
+      <End Role="LineaMaritima" EntitySet="LineaMaritima" />
+      <End Role="ServicioTarifa" EntitySet="ServicioTarifa" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrdenRepComponente_MetodoReparacion" Association="Self.FK_OrdenRepComponente_MetodoReparacion">
+      <End Role="MetodoReparacion" EntitySet="MetodoReparacion" />
+      <End Role="OrdenRepComponente" EntitySet="OrdenRepComponente" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Opcion_Modulo" Association="Self.FK_Opcion_Modulo">
+      <End Role="Modulo" EntitySet="Modulo" />
+      <End Role="Opcion" EntitySet="Opcion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UsuarioModulo_Modulo" Association="Self.FK_UsuarioModulo_Modulo">
+      <End Role="Modulo" EntitySet="Modulo" />
+      <End Role="UsuarioModulo" EntitySet="UsuarioModulo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Usuario_Oficina" Association="Self.FK_Usuario_Oficina">
+      <End Role="Oficina" EntitySet="Oficina" />
+      <End Role="Usuario" EntitySet="Usuario" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OpcionMensajeUsuario_Opcion" Association="Self.FK_OpcionMensajeUsuario_Opcion">
+      <End Role="Opcion" EntitySet="Opcion" />
+      <End Role="OpcionMensajeUsuario" EntitySet="OpcionMensajeUsuario" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UsuarioOpcion_Opcion" Association="Self.FK_UsuarioOpcion_Opcion">
+      <End Role="Opcion" EntitySet="Opcion" />
+      <End Role="UsuarioOpcion" EntitySet="UsuarioOpcion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OpcionMensajeUsuario_TipoMensajeUsuario" Association="Self.FK_OpcionMensajeUsuario_TipoMensajeUsuario">
+      <End Role="TipoMensajeUsuario" EntitySet="TipoMensajeUsuario" />
+      <End Role="OpcionMensajeUsuario" EntitySet="OpcionMensajeUsuario" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OpcionMensajeUsuario_Usuario" Association="Self.FK_OpcionMensajeUsuario_Usuario">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="OpcionMensajeUsuario" EntitySet="OpcionMensajeUsuario" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrdenRepComponente_OrdenReparacion" Association="Self.FK_OrdenRepComponente_OrdenReparacion">
+      <End Role="OrdenReparacion" EntitySet="OrdenReparacion" />
+      <End Role="OrdenRepComponente" EntitySet="OrdenRepComponente" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Preliquidacion_PreliquidacionEstatus" Association="Self.FK_Preliquidacion_PreliquidacionEstatus">
+      <End Role="PreliquidacionEstatus" EntitySet="PreliquidacionEstatus" />
+      <End Role="Preliquidacion" EntitySet="Preliquidacion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Preliquidacion_TasaCambio" Association="Self.FK_Preliquidacion_TasaCambio">
+      <End Role="TasaCambio" EntitySet="TasaCambio" />
+      <End Role="Preliquidacion" EntitySet="Preliquidacion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Preliquidacion_TipoPreliquidacion" Association="Self.FK_Preliquidacion_TipoPreliquidacion">
+      <End Role="TipoPreliquidacion" EntitySet="TipoPreliquidacion" />
+      <End Role="Preliquidacion" EntitySet="Preliquidacion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PreliquidacionContenedor_Preliquidacion" Association="Self.FK_PreliquidacionContenedor_Preliquidacion">
+      <End Role="Preliquidacion" EntitySet="Preliquidacion" />
+      <End Role="PreliquidacionContenedor" EntitySet="PreliquidacionContenedor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PresupuestoServicio_Presupuesto" Association="Self.FK_PresupuestoServicio_Presupuesto">
+      <End Role="Preliquidacion" EntitySet="Preliquidacion" />
+      <End Role="PreliquidacionServicio" EntitySet="PreliquidacionServicio" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PresupuestoServicio_Servicio" Association="Self.FK_PresupuestoServicio_Servicio">
+      <End Role="Servicio" EntitySet="Servicio" />
+      <End Role="PreliquidacionServicio" EntitySet="PreliquidacionServicio" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reserva_Puerto" Association="Self.FK_Reserva_Puerto">
+      <End Role="Puerto" EntitySet="Puerto" />
+      <End Role="Reserva" EntitySet="Reserva" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reserva_Usuario" Association="Self.FK_Reserva_Usuario">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="Reserva" EntitySet="Reserva" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ReservaContenedor_Reserva" Association="Self.FK_ReservaContenedor_Reserva">
+      <End Role="Reserva" EntitySet="Reserva" />
+      <End Role="ReservaContenedor" EntitySet="ReservaContenedor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UsuarioModulo_Rol" Association="Self.FK_UsuarioModulo_Rol">
+      <End Role="Rol" EntitySet="Rol" />
+      <End Role="UsuarioModulo" EntitySet="UsuarioModulo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ServicioTarifa_Servicio" Association="Self.FK_ServicioTarifa_Servicio">
+      <End Role="Servicio" EntitySet="Servicio" />
+      <End Role="ServicioTarifa" EntitySet="ServicioTarifa" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ServicioTarifa_TipoPreliquidacion" Association="Self.FK_ServicioTarifa_TipoPreliquidacion">
+      <End Role="TipoPreliquidacion" EntitySet="TipoPreliquidacion" />
+      <End Role="ServicioTarifa" EntitySet="ServicioTarifa" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TasaCambioMov_TasaCambio" Association="Self.FK_TasaCambioMov_TasaCambio">
+      <End Role="TasaCambio" EntitySet="TasaCambio" />
+      <End Role="TasaCambioMov" EntitySet="TasaCambioMov" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TipoTamaño_TipoContenedor" Association="Self.FK_TipoTamaño_TipoContenedor">
+      <End Role="TipoContenedor" EntitySet="TipoContenedor" />
+      <End Role="TipoTamaño" EntitySet="TipoTamaño" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UsuarioModulo_Usuario" Association="Self.FK_UsuarioModulo_Usuario">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="UsuarioModulo" EntitySet="UsuarioModulo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UsuarioOpcion_Usuario" Association="Self.FK_UsuarioOpcion_Usuario">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="UsuarioOpcion" EntitySet="UsuarioOpcion" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
